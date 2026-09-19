@@ -1,0 +1,1076 @@
+{
+  "schemaVersion": "1.0",
+  "metadata": {
+    "id": "demo-relationship",
+    "version": "v1",
+    "title": "关系风格准备测试",
+    "description": "一个虚构的关系风格小测，帮助你观察自己在表达、边界、计划和温度上的偏好。",
+    "discovery": {
+      "category": "love",
+      "shortTitle": "关系风格",
+      "estimatedMinutes": 4,
+      "featured": true,
+      "badge": "温柔版",
+      "coverStyle": "warm",
+      "resultPreview": "结果会呈现你的连接方式、优势提醒和适合分享的中文结果卡。"
+    }
+  },
+  "dimensions": [
+    {
+      "id": "expression",
+      "label": "表达度",
+      "min": -8,
+      "max": 8,
+      "description": "表达度维度"
+    },
+    {
+      "id": "independence",
+      "label": "独立感",
+      "min": -8,
+      "max": 8,
+      "description": "独立感维度"
+    },
+    {
+      "id": "planning",
+      "label": "计划感",
+      "min": -8,
+      "max": 8,
+      "description": "计划感维度"
+    },
+    {
+      "id": "warmth",
+      "label": "温暖度",
+      "min": -8,
+      "max": 8,
+      "description": "温暖度维度"
+    }
+  ],
+  "questions": [
+    {
+      "id": "c01",
+      "type": "single-choice",
+      "text": "认识新的人时，你通常更喜欢：",
+      "options": [
+        {
+          "id": "deep",
+          "label": "直接进入有意义的对话",
+          "weights": {
+            "expression": 2,
+            "warmth": 1
+          }
+        },
+        {
+          "id": "light",
+          "label": "先一起做点轻松的事",
+          "weights": {
+            "warmth": 1,
+            "independence": 1
+          }
+        },
+        {
+          "id": "slow",
+          "label": "慢慢熟悉，不急着推进",
+          "weights": {
+            "expression": -1,
+            "planning": 1
+          }
+        }
+      ]
+    },
+    {
+      "id": "c02",
+      "type": "likert",
+      "text": "我喜欢关系里有比较频繁的确认和回应。",
+      "options": [
+        {
+          "id": "strong_no",
+          "label": "非常不同意",
+          "weights": {
+            "independence": 2,
+            "warmth": -1
+          }
+        },
+        {
+          "id": "no",
+          "label": "不同意",
+          "weights": {
+            "independence": 1
+          }
+        },
+        {
+          "id": "mid",
+          "label": "说不准",
+          "weights": {}
+        },
+        {
+          "id": "yes",
+          "label": "同意",
+          "weights": {
+            "warmth": 1
+          }
+        },
+        {
+          "id": "strong_yes",
+          "label": "非常同意",
+          "weights": {
+            "warmth": 2,
+            "expression": 1
+          }
+        }
+      ]
+    },
+    {
+      "id": "c03",
+      "type": "binary",
+      "text": "共享日程能减少很多相处摩擦。",
+      "options": [
+        {
+          "id": "yes",
+          "label": "是的，这让我安心",
+          "weights": {
+            "planning": 2
+          }
+        },
+        {
+          "id": "no",
+          "label": "不一定，我更喜欢弹性",
+          "weights": {
+            "planning": -1,
+            "independence": 1
+          }
+        }
+      ]
+    },
+    {
+      "id": "c04",
+      "type": "single-choice",
+      "text": "发生分歧后，你更想：",
+      "options": [
+        {
+          "id": "talk",
+          "label": "尽快说清楚",
+          "weights": {
+            "expression": 2,
+            "warmth": 1
+          }
+        },
+        {
+          "id": "space",
+          "label": "先各自冷静一下",
+          "weights": {
+            "independence": 2
+          }
+        },
+        {
+          "id": "steps",
+          "label": "约定下一步怎么做",
+          "weights": {
+            "planning": 2
+          }
+        }
+      ]
+    },
+    {
+      "id": "c05",
+      "type": "likert",
+      "text": "我能比较直接地说出自己的需要。",
+      "options": [
+        {
+          "id": "strong_no",
+          "label": "非常不同意",
+          "weights": {
+            "expression": -2
+          }
+        },
+        {
+          "id": "no",
+          "label": "不同意",
+          "weights": {
+            "expression": -1
+          }
+        },
+        {
+          "id": "mid",
+          "label": "说不准",
+          "weights": {}
+        },
+        {
+          "id": "yes",
+          "label": "同意",
+          "weights": {
+            "expression": 1
+          }
+        },
+        {
+          "id": "strong_yes",
+          "label": "非常同意",
+          "weights": {
+            "expression": 2
+          }
+        }
+      ]
+    },
+    {
+      "id": "c06",
+      "type": "single-choice",
+      "text": "理想的共同周末应该：",
+      "options": [
+        {
+          "id": "agenda",
+          "label": "有几件提前说好的安排",
+          "weights": {
+            "planning": 2,
+            "warmth": 1
+          }
+        },
+        {
+          "id": "solo",
+          "label": "给彼此保留独处时间",
+          "weights": {
+            "independence": 2
+          }
+        },
+        {
+          "id": "open",
+          "label": "保持开放，跟着状态走",
+          "weights": {
+            "planning": -1,
+            "warmth": 1
+          }
+        }
+      ]
+    },
+    {
+      "id": "c07",
+      "type": "binary",
+      "text": "固定的小仪式对我来说很重要。",
+      "options": [
+        {
+          "id": "yes",
+          "label": "是的，小事能累积安全感",
+          "weights": {
+            "warmth": 2,
+            "planning": 1
+          }
+        },
+        {
+          "id": "no",
+          "label": "还好，不一定需要",
+          "weights": {
+            "independence": 1
+          }
+        }
+      ]
+    },
+    {
+      "id": "c08",
+      "type": "likert",
+      "text": "我需要在关系里保有很强的自主感。",
+      "options": [
+        {
+          "id": "strong_no",
+          "label": "非常不同意",
+          "weights": {
+            "independence": -2,
+            "warmth": 1
+          }
+        },
+        {
+          "id": "no",
+          "label": "不同意",
+          "weights": {
+            "independence": -1
+          }
+        },
+        {
+          "id": "mid",
+          "label": "说不准",
+          "weights": {}
+        },
+        {
+          "id": "yes",
+          "label": "同意",
+          "weights": {
+            "independence": 1
+          }
+        },
+        {
+          "id": "strong_yes",
+          "label": "非常同意",
+          "weights": {
+            "independence": 2
+          }
+        }
+      ]
+    },
+    {
+      "id": "c09",
+      "type": "single-choice",
+      "text": "你最容易感到被在乎，是当对方：",
+      "options": [
+        {
+          "id": "words",
+          "label": "明确说出欣赏和喜欢",
+          "weights": {
+            "expression": 2,
+            "warmth": 1
+          }
+        },
+        {
+          "id": "acts",
+          "label": "主动处理实际细节",
+          "weights": {
+            "planning": 2,
+            "warmth": 1
+          }
+        },
+        {
+          "id": "trusts",
+          "label": "尊重你的个人节奏",
+          "weights": {
+            "independence": 2
+          }
+        }
+      ]
+    },
+    {
+      "id": "c10",
+      "type": "binary",
+      "text": "重要计划最好提前比较久确定。",
+      "options": [
+        {
+          "id": "yes",
+          "label": "是的，我喜欢提前准备",
+          "weights": {
+            "planning": 2
+          }
+        },
+        {
+          "id": "no",
+          "label": "不用，临近再定也可以",
+          "weights": {
+            "planning": -1,
+            "independence": 1
+          }
+        }
+      ]
+    },
+    {
+      "id": "c11",
+      "type": "likert",
+      "text": "温暖最常体现在持续的小行动里。",
+      "options": [
+        {
+          "id": "strong_no",
+          "label": "非常不同意",
+          "weights": {
+            "warmth": -2
+          }
+        },
+        {
+          "id": "no",
+          "label": "不同意",
+          "weights": {
+            "warmth": -1
+          }
+        },
+        {
+          "id": "mid",
+          "label": "说不准",
+          "weights": {}
+        },
+        {
+          "id": "yes",
+          "label": "同意",
+          "weights": {
+            "warmth": 1,
+            "planning": 1
+          }
+        },
+        {
+          "id": "strong_yes",
+          "label": "非常同意",
+          "weights": {
+            "warmth": 2,
+            "planning": 1
+          }
+        }
+      ]
+    },
+    {
+      "id": "c12",
+      "type": "single-choice",
+      "text": "健康的连接最像：",
+      "options": [
+        {
+          "id": "harbor",
+          "label": "可靠的港湾",
+          "weights": {
+            "warmth": 2,
+            "planning": 1
+          }
+        },
+        {
+          "id": "studio",
+          "label": "坦诚的工作室",
+          "weights": {
+            "expression": 2
+          }
+        },
+        {
+          "id": "trail",
+          "label": "有个人空间的同行小路",
+          "weights": {
+            "independence": 2,
+            "warmth": 1
+          }
+        }
+      ]
+    }
+  ],
+  "scoring": {
+    "pipeline": [
+      {
+        "strategy": "weighted-dimension"
+      },
+      {
+        "strategy": "normalize"
+      },
+      {
+        "strategy": "profile-match",
+        "topN": 4
+      }
+    ]
+  },
+  "results": {
+    "catalog": [
+      {
+        "id": "steady-harbor",
+        "title": "稳定港湾",
+        "summary": "重视可靠、温暖和可预期的相处节奏。",
+        "tags": [
+          "稳定"
+        ]
+      },
+      {
+        "id": "clear-signal",
+        "title": "清晰信号",
+        "summary": "偏好直接表达，也希望分歧能被及时修复。",
+        "tags": [
+          "坦诚"
+        ]
+      },
+      {
+        "id": "open-trail",
+        "title": "开放小径",
+        "summary": "需要自主、信任和有弹性的亲密距离。",
+        "tags": [
+          "独立"
+        ]
+      },
+      {
+        "id": "kind-architect",
+        "title": "温柔建筑师",
+        "summary": "通过计划、约定和实际支持来搭建安全感。",
+        "tags": [
+          "计划"
+        ]
+      },
+      {
+        "id": "set-alpha",
+        "title": "甲组占位符",
+        "summary": "未来兼容规则使用的虚构结果组标记。",
+        "tags": [
+          "甲组"
+        ]
+      },
+      {
+        "id": "set-beta",
+        "title": "乙组占位符",
+        "summary": "未来兼容规则使用的虚构结果组标记。",
+        "tags": [
+          "乙组"
+        ]
+      }
+    ],
+    "profiles": [
+      {
+        "id": "p-steady-harbor",
+        "resultId": "steady-harbor",
+        "dimensionTargets": {
+          "expression": 55,
+          "independence": 35,
+          "planning": 80,
+          "warmth": 90
+        }
+      },
+      {
+        "id": "p-clear-signal",
+        "resultId": "clear-signal",
+        "dimensionTargets": {
+          "expression": 90,
+          "independence": 50,
+          "planning": 55,
+          "warmth": 70
+        }
+      },
+      {
+        "id": "p-open-trail",
+        "resultId": "open-trail",
+        "dimensionTargets": {
+          "expression": 60,
+          "independence": 90,
+          "planning": 40,
+          "warmth": 65
+        }
+      },
+      {
+        "id": "p-kind-architect",
+        "resultId": "kind-architect",
+        "dimensionTargets": {
+          "expression": 55,
+          "independence": 45,
+          "planning": 95,
+          "warmth": 75
+        }
+      }
+    ],
+    "entities": [],
+    "compatibilityPairs": [
+      {
+        "id": "steady-harbor-steady-harbor",
+        "resultAId": "steady-harbor",
+        "resultBId": "steady-harbor",
+        "scores": {
+          "overall": 88,
+          "communication": 84,
+          "rhythm": 90,
+          "stability": 94,
+          "space": 76
+        },
+        "strengths": [
+          "节奏稳定，承诺感强",
+          "很容易建立可预期的安全感"
+        ],
+        "frictionPoints": [
+          "变化和惊喜可能不足"
+        ],
+        "summary": "两个稳定型在一起，会很容易形成安心的日常节奏。",
+        "advice": "记得偶尔为关系留一点新鲜安排，不要只靠习惯维持亲近。"
+      },
+      {
+        "id": "steady-harbor-clear-signal",
+        "resultAId": "steady-harbor",
+        "resultBId": "clear-signal",
+        "scores": {
+          "overall": 82,
+          "communication": 88,
+          "rhythm": 78,
+          "stability": 86,
+          "space": 70
+        },
+        "strengths": [
+          "一个提供安定，一个负责把话说明白",
+          "遇到问题时容易回到事实和约定"
+        ],
+        "frictionPoints": [
+          "表达速度和消化速度可能不同"
+        ],
+        "summary": "稳定感遇到清晰表达，适合把期待说清楚后慢慢推进。",
+        "advice": "把需求拆成具体约定，会比猜测对方心意更有效。"
+      },
+      {
+        "id": "steady-harbor-open-trail",
+        "resultAId": "steady-harbor",
+        "resultBId": "open-trail",
+        "scores": {
+          "overall": 68,
+          "communication": 66,
+          "rhythm": 58,
+          "stability": 74,
+          "space": 82
+        },
+        "strengths": [
+          "稳定和自由可以互相补位",
+          "双方都愿意给关系留余地"
+        ],
+        "frictionPoints": [
+          "对结构和自由的期待可能不同"
+        ],
+        "summary": "温暖感能平衡彼此对空间的需要，但节奏差异需要被认真看见。",
+        "advice": "提前说清楚独处、陪伴和计划变动的边界。"
+      },
+      {
+        "id": "steady-harbor-kind-architect",
+        "resultAId": "steady-harbor",
+        "resultBId": "kind-architect",
+        "scores": {
+          "overall": 91,
+          "communication": 84,
+          "rhythm": 92,
+          "stability": 96,
+          "space": 78
+        },
+        "strengths": [
+          "可靠度高，照顾细节扎实",
+          "很容易形成共同生活的默契"
+        ],
+        "frictionPoints": [
+          "过度规划时会压缩轻松感"
+        ],
+        "summary": "两个重视照顾与计划的人，很适合一起搭建长期关系。",
+        "advice": "别把所有关心都变成安排，也要给即兴感留位置。"
+      },
+      {
+        "id": "clear-signal-clear-signal",
+        "resultAId": "clear-signal",
+        "resultBId": "clear-signal",
+        "scores": {
+          "overall": 76,
+          "communication": 94,
+          "rhythm": 66,
+          "stability": 68,
+          "space": 62
+        },
+        "strengths": [
+          "信息透明，误会少",
+          "适合快速对齐目标"
+        ],
+        "frictionPoints": [
+          "双方都急着说明时，容易少听一步"
+        ],
+        "summary": "两个表达清楚的人能快速同步，也容易把小问题直接摆上桌。",
+        "advice": "在讲清楚之前先确认情绪温度，沟通会更柔软。"
+      },
+      {
+        "id": "clear-signal-open-trail",
+        "resultAId": "clear-signal",
+        "resultBId": "open-trail",
+        "scores": {
+          "overall": 72,
+          "communication": 80,
+          "rhythm": 64,
+          "stability": 62,
+          "space": 88
+        },
+        "strengths": [
+          "能把边界讲清楚",
+          "适合一起探索新的相处方式"
+        ],
+        "frictionPoints": [
+          "一方想确认，一方想保留弹性"
+        ],
+        "summary": "清晰表达和自由探索可以形成轻快连接，前提是别把说明变成控制。",
+        "advice": "用开放问题代替结论式要求，让空间和回应同时存在。"
+      },
+      {
+        "id": "clear-signal-kind-architect",
+        "resultAId": "clear-signal",
+        "resultBId": "kind-architect",
+        "scores": {
+          "overall": 84,
+          "communication": 90,
+          "rhythm": 82,
+          "stability": 86,
+          "space": 68
+        },
+        "strengths": [
+          "沟通明确，行动也跟得上",
+          "适合共同处理复杂日常"
+        ],
+        "frictionPoints": [
+          "细节很多时可能显得严肃"
+        ],
+        "summary": "表达力和照顾力结合时，关系里的安排会更容易被理解。",
+        "advice": "计划之外也留出感受确认，别只解决事情。"
+      },
+      {
+        "id": "open-trail-open-trail",
+        "resultAId": "open-trail",
+        "resultBId": "open-trail",
+        "scores": {
+          "overall": 64,
+          "communication": 62,
+          "rhythm": 58,
+          "stability": 54,
+          "space": 94
+        },
+        "strengths": [
+          "空间感充足，探索欲强",
+          "很少用控制感消耗彼此"
+        ],
+        "frictionPoints": [
+          "稳定预期不足时会让人不安"
+        ],
+        "summary": "两个自由型会有很多新鲜感，也需要主动建立最低限度的约定。",
+        "advice": "给关系设一个轻量的固定仪式，能让自由不变成疏离。"
+      },
+      {
+        "id": "open-trail-kind-architect",
+        "resultAId": "open-trail",
+        "resultBId": "kind-architect",
+        "scores": {
+          "overall": 59,
+          "communication": 60,
+          "rhythm": 52,
+          "stability": 66,
+          "space": 72
+        },
+        "strengths": [
+          "一个带来可能性，一个补上承接力",
+          "适合在具体项目里互相学习"
+        ],
+        "frictionPoints": [
+          "节奏不一致时容易误解成不在乎"
+        ],
+        "summary": "自由探索和用心规划的差异很明显，但也能互相补课。",
+        "advice": "先约定哪些事必须计划，哪些事可以保持弹性。"
+      },
+      {
+        "id": "kind-architect-kind-architect",
+        "resultAId": "kind-architect",
+        "resultBId": "kind-architect",
+        "scores": {
+          "overall": 86,
+          "communication": 78,
+          "rhythm": 88,
+          "stability": 95,
+          "space": 70
+        },
+        "strengths": [
+          "照顾细腻，长期感强",
+          "共同目标很容易落地"
+        ],
+        "frictionPoints": [
+          "都不说累时，压力会被延后发现"
+        ],
+        "summary": "两个温柔规划者会很会照顾关系，也容易把责任扛得太满。",
+        "advice": "把求助说出口，让亲密不只靠默默承担。"
+      },
+      {
+        "id": "steady-harbor-set-alpha",
+        "resultAId": "steady-harbor",
+        "resultBId": "set-alpha",
+        "scores": {
+          "overall": 73,
+          "communication": 76,
+          "rhythm": 69,
+          "stability": 79,
+          "space": 71
+        },
+        "strengths": [
+          "彼此的差异能补足关系视角"
+        ],
+        "frictionPoints": [
+          "期待不同步时，需要先确认对方真正的需求"
+        ],
+        "summary": "稳定港湾和甲组占位符的组合有互补空间，关键在于把节奏和边界说清楚。",
+        "advice": "先约定一个双方都舒服的沟通方式，再慢慢调整相处节奏。"
+      },
+      {
+        "id": "steady-harbor-set-beta",
+        "resultAId": "steady-harbor",
+        "resultBId": "set-beta",
+        "scores": {
+          "overall": 79,
+          "communication": 82,
+          "rhythm": 75,
+          "stability": 85,
+          "space": 77
+        },
+        "strengths": [
+          "彼此的差异能补足关系视角"
+        ],
+        "frictionPoints": [
+          "期待不同步时，需要先确认对方真正的需求"
+        ],
+        "summary": "稳定港湾和乙组占位符的组合有互补空间，关键在于把节奏和边界说清楚。",
+        "advice": "先约定一个双方都舒服的沟通方式，再慢慢调整相处节奏。"
+      },
+      {
+        "id": "clear-signal-set-alpha",
+        "resultAId": "clear-signal",
+        "resultBId": "set-alpha",
+        "scores": {
+          "overall": 66,
+          "communication": 69,
+          "rhythm": 62,
+          "stability": 72,
+          "space": 64
+        },
+        "strengths": [
+          "彼此的差异能补足关系视角"
+        ],
+        "frictionPoints": [
+          "期待不同步时，需要先确认对方真正的需求"
+        ],
+        "summary": "清晰信号和甲组占位符的组合有互补空间，关键在于把节奏和边界说清楚。",
+        "advice": "先约定一个双方都舒服的沟通方式，再慢慢调整相处节奏。"
+      },
+      {
+        "id": "clear-signal-set-beta",
+        "resultAId": "clear-signal",
+        "resultBId": "set-beta",
+        "scores": {
+          "overall": 81,
+          "communication": 84,
+          "rhythm": 77,
+          "stability": 87,
+          "space": 79
+        },
+        "strengths": [
+          "彼此的差异能补足关系视角"
+        ],
+        "frictionPoints": [
+          "期待不同步时，需要先确认对方真正的需求"
+        ],
+        "summary": "清晰信号和乙组占位符的组合有互补空间，关键在于把节奏和边界说清楚。",
+        "advice": "先约定一个双方都舒服的沟通方式，再慢慢调整相处节奏。"
+      },
+      {
+        "id": "open-trail-set-alpha",
+        "resultAId": "open-trail",
+        "resultBId": "set-alpha",
+        "scores": {
+          "overall": 58,
+          "communication": 61,
+          "rhythm": 54,
+          "stability": 64,
+          "space": 56
+        },
+        "strengths": [
+          "彼此的差异能补足关系视角"
+        ],
+        "frictionPoints": [
+          "期待不同步时，需要先确认对方真正的需求"
+        ],
+        "summary": "开放小径和甲组占位符的组合有互补空间，关键在于把节奏和边界说清楚。",
+        "advice": "先约定一个双方都舒服的沟通方式，再慢慢调整相处节奏。"
+      },
+      {
+        "id": "open-trail-set-beta",
+        "resultAId": "open-trail",
+        "resultBId": "set-beta",
+        "scores": {
+          "overall": 87,
+          "communication": 90,
+          "rhythm": 83,
+          "stability": 93,
+          "space": 85
+        },
+        "strengths": [
+          "彼此的差异能补足关系视角"
+        ],
+        "frictionPoints": [
+          "期待不同步时，需要先确认对方真正的需求"
+        ],
+        "summary": "开放小径和乙组占位符的组合有互补空间，关键在于把节奏和边界说清楚。",
+        "advice": "先约定一个双方都舒服的沟通方式，再慢慢调整相处节奏。"
+      },
+      {
+        "id": "kind-architect-set-alpha",
+        "resultAId": "kind-architect",
+        "resultBId": "set-alpha",
+        "scores": {
+          "overall": 69,
+          "communication": 72,
+          "rhythm": 65,
+          "stability": 75,
+          "space": 67
+        },
+        "strengths": [
+          "彼此的差异能补足关系视角"
+        ],
+        "frictionPoints": [
+          "期待不同步时，需要先确认对方真正的需求"
+        ],
+        "summary": "温柔建筑师和甲组占位符的组合有互补空间，关键在于把节奏和边界说清楚。",
+        "advice": "先约定一个双方都舒服的沟通方式，再慢慢调整相处节奏。"
+      },
+      {
+        "id": "kind-architect-set-beta",
+        "resultAId": "kind-architect",
+        "resultBId": "set-beta",
+        "scores": {
+          "overall": 76,
+          "communication": 79,
+          "rhythm": 72,
+          "stability": 82,
+          "space": 74
+        },
+        "strengths": [
+          "彼此的差异能补足关系视角"
+        ],
+        "frictionPoints": [
+          "期待不同步时，需要先确认对方真正的需求"
+        ],
+        "summary": "温柔建筑师和乙组占位符的组合有互补空间，关键在于把节奏和边界说清楚。",
+        "advice": "先约定一个双方都舒服的沟通方式，再慢慢调整相处节奏。"
+      },
+      {
+        "id": "set-alpha-set-alpha",
+        "resultAId": "set-alpha",
+        "resultBId": "set-alpha",
+        "scores": {
+          "overall": 62,
+          "communication": 65,
+          "rhythm": 58,
+          "stability": 68,
+          "space": 60
+        },
+        "strengths": [
+          "相似的关系节奏让理解更省力"
+        ],
+        "frictionPoints": [
+          "太相似时容易同时卡在同一种习惯里"
+        ],
+        "summary": "甲组占位符和同类型相处时，默契来自熟悉，也需要主动创造新的对话。",
+        "advice": "先约定一个双方都舒服的沟通方式，再慢慢调整相处节奏。"
+      },
+      {
+        "id": "set-alpha-set-beta",
+        "resultAId": "set-alpha",
+        "resultBId": "set-beta",
+        "scores": {
+          "overall": 84,
+          "communication": 87,
+          "rhythm": 80,
+          "stability": 90,
+          "space": 82
+        },
+        "strengths": [
+          "彼此的差异能补足关系视角"
+        ],
+        "frictionPoints": [
+          "期待不同步时，需要先确认对方真正的需求"
+        ],
+        "summary": "甲组占位符和乙组占位符的组合有互补空间，关键在于把节奏和边界说清楚。",
+        "advice": "先约定一个双方都舒服的沟通方式，再慢慢调整相处节奏。"
+      },
+      {
+        "id": "set-beta-set-beta",
+        "resultAId": "set-beta",
+        "resultBId": "set-beta",
+        "scores": {
+          "overall": 71,
+          "communication": 74,
+          "rhythm": 67,
+          "stability": 77,
+          "space": 69
+        },
+        "strengths": [
+          "相似的关系节奏让理解更省力"
+        ],
+        "frictionPoints": [
+          "太相似时容易同时卡在同一种习惯里"
+        ],
+        "summary": "乙组占位符和同类型相处时，默契来自熟悉，也需要主动创造新的对话。",
+        "advice": "先约定一个双方都舒服的沟通方式，再慢慢调整相处节奏。"
+      }
+    ],
+    "compatibility": {
+      "enabled": true,
+      "mode": "symmetric",
+      "allowPartialCoverage": false,
+      "dimensions": [
+        {
+          "id": "communication",
+          "label": "沟通"
+        },
+        {
+          "id": "rhythm",
+          "label": "节奏"
+        },
+        {
+          "id": "stability",
+          "label": "稳定"
+        },
+        {
+          "id": "space",
+          "label": "空间"
+        }
+      ]
+    }
+  },
+  "presentation": {
+    "theme": "warm",
+    "blocks": [
+      {
+        "type": "hero",
+        "title": "你的关系风格",
+        "variant": "poster",
+        "showSecondary": true,
+        "showMatch": true,
+        "showTags": true
+      },
+      {
+        "type": "compatibility",
+        "title": "你们的匹配结果",
+        "showInvite": true
+      },
+      {
+        "type": "radar",
+        "title": "你建立连接的方式",
+        "max": 100
+      },
+      {
+        "type": "quadrant",
+        "title": "表达与边界的位置",
+        "xDimension": "independence",
+        "yDimension": "expression",
+        "labels": {
+          "left": "靠近",
+          "right": "空间",
+          "bottom": "含蓄",
+          "top": "表达"
+        }
+      },
+      {
+        "type": "strengths",
+        "title": "你带来的关系优势"
+      },
+      {
+        "type": "weaknesses",
+        "title": "值得温柔留意"
+      },
+      {
+        "type": "quote",
+        "title": "连接提示",
+        "statements": [
+          {
+            "resultId": "steady-harbor",
+            "text": "稳定可以是一种爱，但也要给惊喜留一点门缝。"
+          },
+          {
+            "resultId": "clear-signal",
+            "text": "清楚表达很珍贵，带着好奇心说出来会更柔软。"
+          },
+          {
+            "resultId": "open-trail",
+            "text": "空间和亲密可以互相滋养，前提是都被认真说清楚。"
+          },
+          {
+            "resultId": "kind-architect",
+            "text": "用心的约定不是束缚，而是让亲密更容易发生。"
+          }
+        ],
+        "fallback": "好的关系来自注意、修复，以及被认真说出口的期待。"
+      }
+    ],
+    "shareCard": {
+      "enabled": true,
+      "layout": "story",
+      "headline": "我的关系风格",
+      "showRadarSummary": true,
+      "showTags": true,
+      "dimensionIds": [
+        "expression",
+        "independence",
+        "warmth"
+      ],
+      "qrCode": true,
+      "brandingText": "轻测一下"
+    }
+  },
+  "assets": {}
+}

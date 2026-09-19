@@ -1,0 +1,37 @@
+{
+  "name": "assessment-engine-v01",
+  "private": true,
+  "version": "0.5.1",
+  "type": "module",
+  "scripts": {
+    "generate:registry": "tsx tools/generateAssessmentRegistry.ts",
+    "dev": "npm run validate && vite",
+    "build": "npm run validate && tsc --noEmit -p tsconfig.json && vite build",
+    "preview": "vite preview",
+    "screenshots": "node tools/captureResultScreenshots.mjs",
+    "test": "npm run validate && node --import tsx --test tests/schemaValidation.test.ts tests/scoring.test.ts tests/compatibility.test.ts tests/persistence.test.ts tests/submission.test.ts tests/registryDiscovery.test.ts tests/buildGate.test.ts tests/renderLifecycle.test.ts tests/resultBlocks.test.ts tests/endToEndFixtures.test.ts",
+    "validate": "tsx tools/validateAssessments.ts"
+  },
+  "dependencies": {
+    "html-to-image": "^1.11.13",
+    "motion": "^13.4.0",
+    "qrcode": "^1.5.4",
+    "react": "^19.0.0",
+    "react-dom": "^19.0.0",
+    "react-router-dom": "^7.1.1",
+    "recharts": "^3.10.1",
+    "zod": "^3.24.1",
+    "zustand": "^5.0.2"
+  },
+  "devDependencies": {
+    "@types/node": "^22.10.2",
+    "@types/qrcode": "^1.5.6",
+    "@types/react": "^19.0.2",
+    "@types/react-dom": "^19.0.2",
+    "@vitejs/plugin-react": "^4.3.4",
+    "playwright-core": "^1.63.0",
+    "tsx": "^4.19.2",
+    "typescript": "^5.7.2",
+    "vite": "^6.0.7"
+  }
+}

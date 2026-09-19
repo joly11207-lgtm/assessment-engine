@@ -1,0 +1,9 @@
+{
+  "schemaVersion": "1.0",
+  "metadata": {
+    "id": "invalid-build-gate",
+    "version": "v1",
+    "title": "Invalid Build Gate Fixture",
+    "description": "Intentionally omits required assessment fields."
+  }
+}

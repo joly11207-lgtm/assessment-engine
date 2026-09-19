@@ -1,0 +1,1015 @@
+{
+  "schemaVersion": "1.0",
+  "metadata": {
+    "id": "demo-ranking",
+    "version": "v1",
+    "title": "理想城市匹配",
+    "description": "一个虚构的城市偏好测试，用生活节奏、成本、文化和自然需求匹配你的想象之城。",
+    "discovery": {
+      "category": "city",
+      "shortTitle": "城市匹配",
+      "estimatedMinutes": 5,
+      "featured": true,
+      "badge": "新",
+      "coverStyle": "electric",
+      "resultPreview": "看看哪座虚构城市更接近你想长期生活的日常。"
+    }
+  },
+  "dimensions": [
+    {
+      "id": "pace",
+      "label": "生活节奏",
+      "min": -10,
+      "max": 10,
+      "description": "生活节奏维度"
+    },
+    {
+      "id": "cost",
+      "label": "成本敏感",
+      "min": -10,
+      "max": 10,
+      "description": "成本敏感维度"
+    },
+    {
+      "id": "culture",
+      "label": "文化浓度",
+      "min": -10,
+      "max": 10,
+      "description": "文化浓度维度"
+    },
+    {
+      "id": "nature",
+      "label": "自然亲近",
+      "min": -10,
+      "max": 10,
+      "description": "自然亲近维度"
+    },
+    {
+      "id": "innovation",
+      "label": "创新氛围",
+      "min": -10,
+      "max": 10,
+      "description": "创新氛围维度"
+    },
+    {
+      "id": "weather",
+      "label": "气候舒适",
+      "min": -10,
+      "max": 10,
+      "description": "气候舒适维度"
+    }
+  ],
+  "questions": [
+    {
+      "id": "r01",
+      "type": "single-choice",
+      "text": "理想周末的第一站，你更想去哪里？",
+      "options": [
+        {
+          "id": "market",
+          "label": "热闹的街区市集",
+          "weights": {
+            "pace": 1,
+            "culture": 2
+          }
+        },
+        {
+          "id": "trail",
+          "label": "安静的林间小径",
+          "weights": {
+            "nature": 2,
+            "pace": -1
+          }
+        },
+        {
+          "id": "lab",
+          "label": "有意思的创客活动",
+          "weights": {
+            "innovation": 2
+          }
+        }
+      ]
+    },
+    {
+      "id": "r02",
+      "type": "likert",
+      "text": "日常生活成本对我很重要。",
+      "options": [
+        {
+          "id": "strong_no",
+          "label": "非常不同意",
+          "weights": {
+            "cost": -2
+          }
+        },
+        {
+          "id": "no",
+          "label": "不同意",
+          "weights": {
+            "cost": -1
+          }
+        },
+        {
+          "id": "mid",
+          "label": "说不准",
+          "weights": {}
+        },
+        {
+          "id": "yes",
+          "label": "同意",
+          "weights": {
+            "cost": 1
+          }
+        },
+        {
+          "id": "strong_yes",
+          "label": "非常同意",
+          "weights": {
+            "cost": 2
+          }
+        }
+      ]
+    },
+    {
+      "id": "r03",
+      "type": "binary",
+      "text": "相比稳定气候，我更喜欢四季分明。",
+      "options": [
+        {
+          "id": "yes",
+          "label": "是的，我喜欢季节变化",
+          "weights": {
+            "weather": -2
+          }
+        },
+        {
+          "id": "no",
+          "label": "不是，我更想要舒适稳定",
+          "weights": {
+            "weather": 2
+          }
+        }
+      ]
+    },
+    {
+      "id": "r04",
+      "type": "single-choice",
+      "text": "你希望住的街区给人的第一感觉是：",
+      "options": [
+        {
+          "id": "electric",
+          "label": "有电流感，很有活力",
+          "weights": {
+            "pace": 2,
+            "culture": 1
+          }
+        },
+        {
+          "id": "leafy",
+          "label": "绿意多，适合散步",
+          "weights": {
+            "nature": 2
+          }
+        },
+        {
+          "id": "practical",
+          "label": "务实方便，生活成本友好",
+          "weights": {
+            "cost": 2
+          }
+        }
+      ]
+    },
+    {
+      "id": "r05",
+      "type": "likert",
+      "text": "我希望住处附近有博物馆、演出和节日活动。",
+      "options": [
+        {
+          "id": "strong_no",
+          "label": "非常不同意",
+          "weights": {
+            "culture": -2
+          }
+        },
+        {
+          "id": "no",
+          "label": "不同意",
+          "weights": {
+            "culture": -1
+          }
+        },
+        {
+          "id": "mid",
+          "label": "说不准",
+          "weights": {}
+        },
+        {
+          "id": "yes",
+          "label": "同意",
+          "weights": {
+            "culture": 1
+          }
+        },
+        {
+          "id": "strong_yes",
+          "label": "非常同意",
+          "weights": {
+            "culture": 2
+          }
+        }
+      ]
+    },
+    {
+      "id": "r06",
+      "type": "single-choice",
+      "text": "你最喜欢的通勤方式是：",
+      "options": [
+        {
+          "id": "walk",
+          "label": "步行就能到很多地方",
+          "weights": {
+            "pace": 1,
+            "culture": 1
+          }
+        },
+        {
+          "id": "bike",
+          "label": "骑车经过水边或树荫",
+          "weights": {
+            "nature": 2
+          }
+        },
+        {
+          "id": "remote",
+          "label": "因为工作弹性，通勤越短越好",
+          "weights": {
+            "innovation": 1,
+            "cost": 1
+          }
+        }
+      ]
+    },
+    {
+      "id": "r07",
+      "type": "binary",
+      "text": "我喜欢靠近新公司、新技术和早期尝试者。",
+      "options": [
+        {
+          "id": "yes",
+          "label": "是的，这会让我兴奋",
+          "weights": {
+            "innovation": 2,
+            "pace": 1
+          }
+        },
+        {
+          "id": "no",
+          "label": "不一定，我更看重稳定生活",
+          "weights": {
+            "innovation": -1,
+            "cost": 1
+          }
+        }
+      ]
+    },
+    {
+      "id": "r08",
+      "type": "likert",
+      "text": "慢一点的城市节奏会让我更想留下。",
+      "options": [
+        {
+          "id": "strong_no",
+          "label": "非常不同意",
+          "weights": {
+            "pace": 2
+          }
+        },
+        {
+          "id": "no",
+          "label": "不同意",
+          "weights": {
+            "pace": 1
+          }
+        },
+        {
+          "id": "mid",
+          "label": "说不准",
+          "weights": {}
+        },
+        {
+          "id": "yes",
+          "label": "同意",
+          "weights": {
+            "pace": -1,
+            "nature": 1
+          }
+        },
+        {
+          "id": "strong_yes",
+          "label": "非常同意",
+          "weights": {
+            "pace": -2,
+            "nature": 1
+          }
+        }
+      ]
+    },
+    {
+      "id": "r09",
+      "type": "single-choice",
+      "text": "窗外的风景最好是：",
+      "options": [
+        {
+          "id": "skyline",
+          "label": "城市天际线",
+          "weights": {
+            "pace": 2,
+            "innovation": 1
+          }
+        },
+        {
+          "id": "trees",
+          "label": "树影和山水",
+          "weights": {
+            "nature": 2,
+            "weather": 1
+          }
+        },
+        {
+          "id": "street",
+          "label": "有烟火气的街道",
+          "weights": {
+            "culture": 2
+          }
+        }
+      ]
+    },
+    {
+      "id": "r10",
+      "type": "binary",
+      "text": "为了更好的交通和文化资源，我能接受更高开销。",
+      "options": [
+        {
+          "id": "yes",
+          "label": "可以接受",
+          "weights": {
+            "cost": -2,
+            "culture": 1
+          }
+        },
+        {
+          "id": "no",
+          "label": "不太愿意",
+          "weights": {
+            "cost": 2
+          }
+        }
+      ]
+    },
+    {
+      "id": "r11",
+      "type": "likert",
+      "text": "我希望冬天不要太冷。",
+      "options": [
+        {
+          "id": "strong_no",
+          "label": "非常不同意",
+          "weights": {
+            "weather": -2
+          }
+        },
+        {
+          "id": "no",
+          "label": "不同意",
+          "weights": {
+            "weather": -1
+          }
+        },
+        {
+          "id": "mid",
+          "label": "说不准",
+          "weights": {}
+        },
+        {
+          "id": "yes",
+          "label": "同意",
+          "weights": {
+            "weather": 1
+          }
+        },
+        {
+          "id": "strong_yes",
+          "label": "非常同意",
+          "weights": {
+            "weather": 2
+          }
+        }
+      ]
+    },
+    {
+      "id": "r12",
+      "type": "single-choice",
+      "text": "一个好的公共空间应该有：",
+      "options": [
+        {
+          "id": "music",
+          "label": "音乐、美食和人群",
+          "weights": {
+            "culture": 2,
+            "pace": 1
+          }
+        },
+        {
+          "id": "gardens",
+          "label": "花园、树荫和长椅",
+          "weights": {
+            "nature": 2,
+            "weather": 1
+          }
+        },
+        {
+          "id": "wifi",
+          "label": "高速网络和可办公的桌子",
+          "weights": {
+            "innovation": 2
+          }
+        }
+      ]
+    },
+    {
+      "id": "r13",
+      "type": "binary",
+      "text": "如果片区足够有活力，住处小一点也没关系。",
+      "options": [
+        {
+          "id": "yes",
+          "label": "可以，我更看重位置",
+          "weights": {
+            "pace": 1,
+            "culture": 1,
+            "cost": -1
+          }
+        },
+        {
+          "id": "no",
+          "label": "不行，我需要更舒展的空间",
+          "weights": {
+            "cost": 1,
+            "nature": 1
+          }
+        }
+      ]
+    },
+    {
+      "id": "r14",
+      "type": "likert",
+      "text": "亲近户外是我日常生活质量的一部分。",
+      "options": [
+        {
+          "id": "strong_no",
+          "label": "非常不同意",
+          "weights": {
+            "nature": -2
+          }
+        },
+        {
+          "id": "no",
+          "label": "不同意",
+          "weights": {
+            "nature": -1
+          }
+        },
+        {
+          "id": "mid",
+          "label": "说不准",
+          "weights": {}
+        },
+        {
+          "id": "yes",
+          "label": "同意",
+          "weights": {
+            "nature": 1
+          }
+        },
+        {
+          "id": "strong_yes",
+          "label": "非常同意",
+          "weights": {
+            "nature": 2
+          }
+        }
+      ]
+    },
+    {
+      "id": "r15",
+      "type": "single-choice",
+      "text": "你更想参加哪种本地活动？",
+      "options": [
+        {
+          "id": "startup",
+          "label": "创业项目展示夜",
+          "weights": {
+            "innovation": 2
+          }
+        },
+        {
+          "id": "concert",
+          "label": "社区小型音乐会",
+          "weights": {
+            "culture": 2
+          }
+        },
+        {
+          "id": "cleanup",
+          "label": "公园修复志愿活动",
+          "weights": {
+            "nature": 2,
+            "cost": 1
+          }
+        }
+      ]
+    },
+    {
+      "id": "r16",
+      "type": "binary",
+      "text": "我喜欢夜里仍然醒着的城市。",
+      "options": [
+        {
+          "id": "yes",
+          "label": "喜欢，夜生活很重要",
+          "weights": {
+            "pace": 2,
+            "culture": 1
+          }
+        },
+        {
+          "id": "no",
+          "label": "不太需要",
+          "weights": {
+            "pace": -1,
+            "cost": 1
+          }
+        }
+      ]
+    },
+    {
+      "id": "r17",
+      "type": "likert",
+      "text": "比起面子型配套，我更看重实用舒适。",
+      "options": [
+        {
+          "id": "strong_no",
+          "label": "非常不同意",
+          "weights": {
+            "cost": -2
+          }
+        },
+        {
+          "id": "no",
+          "label": "不同意",
+          "weights": {
+            "cost": -1
+          }
+        },
+        {
+          "id": "mid",
+          "label": "说不准",
+          "weights": {}
+        },
+        {
+          "id": "yes",
+          "label": "同意",
+          "weights": {
+            "cost": 1
+          }
+        },
+        {
+          "id": "strong_yes",
+          "label": "非常同意",
+          "weights": {
+            "cost": 2
+          }
+        }
+      ]
+    },
+    {
+      "id": "r18",
+      "type": "single-choice",
+      "text": "你最喜欢的小店是：",
+      "options": [
+        {
+          "id": "studio",
+          "label": "很小但有个性的艺术工作室",
+          "weights": {
+            "culture": 2
+          }
+        },
+        {
+          "id": "repair",
+          "label": "能修东西的社区合作社",
+          "weights": {
+            "cost": 1,
+            "innovation": 1
+          }
+        },
+        {
+          "id": "outfitter",
+          "label": "户外装备和路线咨询店",
+          "weights": {
+            "nature": 2
+          }
+        }
+      ]
+    },
+    {
+      "id": "r19",
+      "type": "binary",
+      "text": "潮湿闷热会明显降低我对城市的好感。",
+      "options": [
+        {
+          "id": "yes",
+          "label": "是的，最好避开",
+          "weights": {
+            "weather": -2
+          }
+        },
+        {
+          "id": "no",
+          "label": "还好，我能适应",
+          "weights": {
+            "weather": 1
+          }
+        }
+      ]
+    },
+    {
+      "id": "r20",
+      "type": "single-choice",
+      "text": "城市里最让你惊喜的是：",
+      "options": [
+        {
+          "id": "shortcut",
+          "label": "用更低成本过得不错的方法",
+          "weights": {
+            "cost": 2
+          }
+        },
+        {
+          "id": "festival",
+          "label": "偶遇一个街头节日",
+          "weights": {
+            "culture": 2,
+            "pace": 1
+          }
+        },
+        {
+          "id": "prototype",
+          "label": "新的公共技术试点",
+          "weights": {
+            "innovation": 2
+          }
+        }
+      ]
+    }
+  ],
+  "scoring": {
+    "pipeline": [
+      {
+        "strategy": "weighted-dimension"
+      },
+      {
+        "strategy": "normalize"
+      },
+      {
+        "strategy": "entity-ranking",
+        "topN": 5
+      }
+    ]
+  },
+  "results": {
+    "catalog": [
+      {
+        "id": "luma-port",
+        "title": "流光港",
+        "summary": "一座明亮的海边枢纽，文化活动丰富，气候也足够温和。",
+        "tags": [
+          "海岸"
+        ]
+      },
+      {
+        "id": "cedar-loop",
+        "title": "雪松环城",
+        "summary": "围绕公园和步道生长的绿色城市，生活成本更友好。",
+        "tags": [
+          "绿意"
+        ]
+      },
+      {
+        "id": "neon-yard",
+        "title": "霓虹工坊",
+        "summary": "快节奏的创意城区，夜晚、灵感和人群都很密集。",
+        "tags": [
+          "高能"
+        ]
+      },
+      {
+        "id": "quiet-forge",
+        "title": "安静锻造镇",
+        "summary": "务实的创客小城，成本稳定，基础设施耐用。",
+        "tags": [
+          "实用"
+        ]
+      },
+      {
+        "id": "atlas-bend",
+        "title": "山脊湾",
+        "summary": "靠近山地的生活基地，适合把户外变成日常。",
+        "tags": [
+          "户外"
+        ]
+      },
+      {
+        "id": "mosaic-quay",
+        "title": "马赛克码头",
+        "summary": "文化层次丰富的城市，食物、演出和交通都很有存在感。",
+        "tags": [
+          "文化"
+        ]
+      },
+      {
+        "id": "signal-plain",
+        "title": "信号平原",
+        "summary": "宽阔的创新走廊，让有用的新想法进入日常生活。",
+        "tags": [
+          "创新"
+        ]
+      },
+      {
+        "id": "ember-terrace",
+        "title": "暖焰台地",
+        "summary": "温暖又热闹的地方，街道、餐桌和节日构成生活底色。",
+        "tags": [
+          "温暖"
+        ]
+      },
+      {
+        "id": "north-arc",
+        "title": "北弧城",
+        "summary": "四季分明、公共系统强，适合喜欢秩序和层次的人。",
+        "tags": [
+          "季节"
+        ]
+      },
+      {
+        "id": "harbor-index",
+        "title": "港湾指数",
+        "summary": "一座平衡型中等成本城市，能量、舒适和机会都刚刚好。",
+        "tags": [
+          "平衡"
+        ]
+      }
+    ],
+    "profiles": [],
+    "entities": [
+      {
+        "id": "e-luma",
+        "resultId": "luma-port",
+        "dimensionTargets": {
+          "pace": 65,
+          "cost": 35,
+          "culture": 80,
+          "nature": 65,
+          "innovation": 65,
+          "weather": 85
+        }
+      },
+      {
+        "id": "e-cedar",
+        "resultId": "cedar-loop",
+        "dimensionTargets": {
+          "pace": 35,
+          "cost": 85,
+          "culture": 45,
+          "nature": 90,
+          "innovation": 45,
+          "weather": 65
+        }
+      },
+      {
+        "id": "e-neon",
+        "resultId": "neon-yard",
+        "dimensionTargets": {
+          "pace": 95,
+          "cost": 25,
+          "culture": 90,
+          "nature": 25,
+          "innovation": 75,
+          "weather": 55
+        }
+      },
+      {
+        "id": "e-forge",
+        "resultId": "quiet-forge",
+        "dimensionTargets": {
+          "pace": 40,
+          "cost": 80,
+          "culture": 45,
+          "nature": 50,
+          "innovation": 80,
+          "weather": 50
+        }
+      },
+      {
+        "id": "e-atlas",
+        "resultId": "atlas-bend",
+        "dimensionTargets": {
+          "pace": 35,
+          "cost": 45,
+          "culture": 50,
+          "nature": 95,
+          "innovation": 45,
+          "weather": 45
+        }
+      },
+      {
+        "id": "e-mosaic",
+        "resultId": "mosaic-quay",
+        "dimensionTargets": {
+          "pace": 75,
+          "cost": 40,
+          "culture": 95,
+          "nature": 45,
+          "innovation": 55,
+          "weather": 70
+        }
+      },
+      {
+        "id": "e-signal",
+        "resultId": "signal-plain",
+        "dimensionTargets": {
+          "pace": 55,
+          "cost": 65,
+          "culture": 45,
+          "nature": 55,
+          "innovation": 95,
+          "weather": 65
+        }
+      },
+      {
+        "id": "e-ember",
+        "resultId": "ember-terrace",
+        "dimensionTargets": {
+          "pace": 80,
+          "cost": 55,
+          "culture": 80,
+          "nature": 55,
+          "innovation": 55,
+          "weather": 90
+        }
+      },
+      {
+        "id": "e-north",
+        "resultId": "north-arc",
+        "dimensionTargets": {
+          "pace": 60,
+          "cost": 55,
+          "culture": 65,
+          "nature": 70,
+          "innovation": 60,
+          "weather": 25
+        }
+      },
+      {
+        "id": "e-harbor",
+        "resultId": "harbor-index",
+        "dimensionTargets": {
+          "pace": 60,
+          "cost": 60,
+          "culture": 65,
+          "nature": 65,
+          "innovation": 60,
+          "weather": 65
+        }
+      }
+    ],
+    "compatibilityPairs": []
+  },
+  "presentation": {
+    "theme": "electric",
+    "blocks": [
+      {
+        "type": "hero",
+        "title": "你的城市匹配",
+        "variant": "score-focus",
+        "showSecondary": false,
+        "showMatch": true,
+        "showTags": true
+      },
+      {
+        "type": "spectrum",
+        "title": "影响你选择城市的维度",
+        "max": 100,
+        "endpoints": {
+          "pace": {
+            "left": "慢生活",
+            "right": "高流动"
+          },
+          "cost": {
+            "left": "弹性消费",
+            "right": "预算优先"
+          },
+          "nature": {
+            "left": "城市感",
+            "right": "亲近自然"
+          }
+        }
+      },
+      {
+        "type": "ranking",
+        "title": "最适合你的虚构城市",
+        "limit": 5
+      },
+      {
+        "type": "highlight",
+        "title": "城市速览",
+        "facts": [
+          {
+            "source": "top-ranking",
+            "label": "最佳匹配"
+          },
+          {
+            "source": "match-percentage",
+            "label": "城市契合度"
+          },
+          {
+            "source": "dimension-count-high",
+            "label": "高分信号",
+            "threshold": 70
+          }
+        ]
+      },
+      {
+        "type": "quote",
+        "title": "给你的迁居便签",
+        "statements": [
+          {
+            "resultId": "luma-port",
+            "text": "去找那个让海风和文化生活同时出现的地方。"
+          },
+          {
+            "resultId": "cedar-loop",
+            "text": "稳定成本和日常绿意，会让你更容易长期安顿。"
+          },
+          {
+            "resultId": "neon-yard",
+            "text": "你适合让想法、人群和夜晚能量持续流动的街区。"
+          },
+          {
+            "resultId": "quiet-forge",
+            "text": "务实的城市也可以很有创造力，关键是给你留出建造空间。"
+          },
+          {
+            "resultId": "atlas-bend",
+            "text": "最好的生活基地，是让远方和日常只隔一小段路。"
+          },
+          {
+            "resultId": "mosaic-quay",
+            "text": "层次丰富的文化现场，会给你更多种归属感。"
+          },
+          {
+            "resultId": "signal-plain",
+            "text": "你偏爱那些把好点子变成公共便利的地方。"
+          },
+          {
+            "resultId": "ember-terrace",
+            "text": "温暖街道、共享餐桌和热闹节奏，很适合你的生活想象。"
+          },
+          {
+            "resultId": "north-arc",
+            "text": "你可以用一点气候挑战，换取深度、秩序和探索空间。"
+          },
+          {
+            "resultId": "harbor-index",
+            "text": "你要的不是极端，而是能量与安稳之间的好比例。"
+          }
+        ],
+        "fallback": "合适的城市，会支持你反复想过的那种日常。"
+      }
+    ],
+    "shareCard": {
+      "enabled": true,
+      "layout": "square",
+      "headline": "我的城市匹配",
+      "showRadarSummary": true,
+      "showTags": true,
+      "dimensionIds": [
+        "pace",
+        "culture"
+      ],
+      "qrCode": true,
+      "brandingText": "轻测一下"
+    }
+  },
+  "assets": {}
+}
