@@ -10,7 +10,8 @@ This repository contains a reusable assessment engine built with React, TypeScri
 - `schema` owns the Zod schema and validation rules. It catches invalid versions, duplicate IDs, missing IDs, unknown dimension/result references, unsupported or incorrectly ordered scoring strategies, invalid weights, missing result data, and unsupported presentation blocks.
 - `engine/scoring` owns strategy-based scoring. Current strategies are `weighted-dimension`, `normalize`, `profile-match`, and `entity-ranking`; their generic requirements and provided capabilities are declared in `engine/capabilities.ts`.
 - `engine/result` defines the unified `AssessmentResult`. The UI receives this model and does not recalculate scores.
-- `app/results` owns the lazy-loaded Result Page, central theme registry, Share Card renderer, and reusable Result Block registry. Current blocks are `hero`, `radar`, `ranking`, `spectrum`, `tags`, `strengths`, `weaknesses`, `quote`, `quadrant`, and `highlight`.
+- `app/results` owns the lazy-loaded Result Page, central theme registry, Share Card renderer, and reusable Result Block registry. Current blocks are `hero`, `radar`, `ranking`, `spectrum`, `tags`, `strengths`, `weaknesses`, `quote`, `quadrant`, `highlight`, and `compatibility`.
+- `app/preview` owns the development-only ZIP Test Previewer. It unzips Test Creator packages in the browser, validates them with the same Zod schema, and feeds valid in-memory packages into the existing runner, scoring engine, Result Page, themes, Share Card, and compatibility resolver without writing to `content/tests`.
 - `presentation.theme`, `presentation.blocks`, and `presentation.shareCard` are typed, Zod-validated configuration. Test Packages choose visual theme, block composition, hero variant, share-card layout, and order without assessment-specific React code or executable CSS.
 - The initial app bundle does not import the heavy result layer. `ResultPage` lazy-loads Motion, Recharts, html-to-image, QR generation, and future result-only dependencies after an assessment is complete.
 - `engine/runner` owns runner state transitions.
@@ -38,6 +39,18 @@ npm run validate
 npm run test
 npm run build
 ```
+
+## ZIP Test Previewer
+
+Run the app locally and open `/preview`. Drop or upload a Test Creator ZIP containing one `test.json` at the root or inside a single top-level folder. Optional `acceptance-cases.json` and `design-report.md` are read in-browser only.
+
+The previewer provides:
+
+- `正常做题`: starts from question one and scores with the existing engine.
+- `快速预览结果`: renders a chosen result through the existing Result Page, clearly marked as Preview.
+- `Acceptance Cases`: runs provided answers through the existing scoring engine and reports expected versus actual results.
+
+Invalid schema packages show Zod validation errors and cannot enter the runner.
 
 `node_modules` and `dist` are generated locally and are excluded from source packages by `.gitignore`.
 

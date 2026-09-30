@@ -1,0 +1,1448 @@
+{
+  "schemaVersion": "1.0",
+  "metadata": {
+    "id": "two-person-relationship-fit",
+    "version": "v1",
+    "title": "两个人最适合哪种相处模式？",
+    "description": "两个人分别完成同一套约 20 题的相处偏好测试，再生成匹配度、关系模式、相处优势和容易发生冲突的地方。娱乐与自我观察用途，不用于心理诊断。",
+    "discovery": {
+      "category": "love",
+      "shortTitle": "两人相处模式",
+      "estimatedMinutes": 5,
+      "featured": false,
+      "badge": "双人测试",
+      "coverStyle": "warm",
+      "resultPreview": "不是测谁更好，而是看你们怎样相处最顺。"
+    }
+  },
+  "dimensions": [
+    {
+      "id": "connection",
+      "label": "陪伴密度",
+      "description": "偏高代表更喜欢高频联系、共享日常；偏低代表更需要各自空间。",
+      "min": -8,
+      "max": 8
+    },
+    {
+      "id": "expression",
+      "label": "表达显性度",
+      "description": "偏高代表更愿意直接表达喜欢、在意和情绪；偏低代表更习惯含蓄表达。",
+      "min": -8,
+      "max": 8
+    },
+    {
+      "id": "planning",
+      "label": "计划同步度",
+      "description": "偏高代表更看重提前约定和稳定节奏；偏低代表更接受临时变化和顺其自然。",
+      "min": -6,
+      "max": 6
+    },
+    {
+      "id": "conflict",
+      "label": "冲突即时度",
+      "description": "偏高代表有问题倾向尽快说开；偏低代表更愿意先消化、等情绪稳定再谈。",
+      "min": -6,
+      "max": 6
+    },
+    {
+      "id": "novelty",
+      "label": "变化需求",
+      "description": "偏高代表更需要新鲜感、临时起意和共同体验；偏低代表更偏爱熟悉稳定的相处方式。",
+      "min": -6,
+      "max": 6
+    },
+    {
+      "id": "care_signal",
+      "label": "关心信号",
+      "description": "偏高代表更容易通过语言、安慰和情绪回应表达关心；偏低代表更常通过行动、解决问题和实际照顾表达关心。",
+      "min": -6,
+      "max": 6
+    }
+  ],
+  "questions": [
+    {
+      "id": "q01",
+      "type": "single-choice",
+      "text": "如果连续几天都很忙，你更希望两个人怎么保持联系？",
+      "required": true,
+      "options": [
+        {
+          "id": "a",
+          "label": "每天都聊一会儿，哪怕只是碎碎念",
+          "weights": {
+            "connection": 2
+          }
+        },
+        {
+          "id": "b",
+          "label": "有空就多聊，忙的时候简短报个平安",
+          "weights": {
+            "connection": 1
+          }
+        },
+        {
+          "id": "c",
+          "label": "不用固定联系，想起对方时再说",
+          "weights": {
+            "connection": -1
+          }
+        },
+        {
+          "id": "d",
+          "label": "各忙各的，几天不聊也不会觉得有问题",
+          "weights": {
+            "connection": -2
+          }
+        }
+      ]
+    },
+    {
+      "id": "q02",
+      "type": "single-choice",
+      "text": "两个人一起休息的周末，你更舒服的是：",
+      "required": true,
+      "options": [
+        {
+          "id": "a",
+          "label": "临时发现什么好玩就立刻出门",
+          "weights": {
+            "novelty": 2
+          }
+        },
+        {
+          "id": "b",
+          "label": "留一半空白，想动就动、想宅就宅",
+          "weights": {
+            "novelty": 1
+          }
+        },
+        {
+          "id": "c",
+          "label": "还是去熟悉喜欢的地方最轻松",
+          "weights": {
+            "novelty": -1
+          }
+        },
+        {
+          "id": "d",
+          "label": "最好按已经习惯的方式过，不折腾",
+          "weights": {
+            "novelty": -2
+          }
+        }
+      ]
+    },
+    {
+      "id": "q03",
+      "type": "single-choice",
+      "text": "你感觉对方最近状态不太对，但对方没主动说，你通常更想：",
+      "required": true,
+      "options": [
+        {
+          "id": "a",
+          "label": "先问问他的感受，陪他把情绪说出来",
+          "weights": {
+            "care_signal": 2
+          }
+        },
+        {
+          "id": "b",
+          "label": "先表达我在，有需要可以告诉我",
+          "weights": {
+            "care_signal": 1
+          }
+        },
+        {
+          "id": "c",
+          "label": "给他做点实际能减轻负担的事",
+          "weights": {
+            "care_signal": -1
+          }
+        },
+        {
+          "id": "d",
+          "label": "直接帮他处理眼前最麻烦的问题",
+          "weights": {
+            "care_signal": -2
+          }
+        }
+      ]
+    },
+    {
+      "id": "q04",
+      "type": "single-choice",
+      "text": "计划一起做一件事时，你更偏向：",
+      "required": true,
+      "options": [
+        {
+          "id": "a",
+          "label": "时间、步骤大致提前定好，心里比较踏实",
+          "weights": {
+            "planning": 2
+          }
+        },
+        {
+          "id": "b",
+          "label": "先定关键节点，细节到时候再看",
+          "weights": {
+            "planning": 1
+          }
+        },
+        {
+          "id": "c",
+          "label": "只约一个大概时间，其他随机应变",
+          "weights": {
+            "planning": -1
+          }
+        },
+        {
+          "id": "d",
+          "label": "最好别定太细，临时决定反而更自在",
+          "weights": {
+            "planning": -2
+          }
+        }
+      ]
+    },
+    {
+      "id": "q05",
+      "type": "single-choice",
+      "text": "如果你很想念对方，你更可能：",
+      "required": true,
+      "options": [
+        {
+          "id": "a",
+          "label": "直接说“我想你了”，也希望对方回应",
+          "weights": {
+            "expression": 2
+          }
+        },
+        {
+          "id": "b",
+          "label": "发点带情绪的小消息，让对方知道",
+          "weights": {
+            "expression": 1
+          }
+        },
+        {
+          "id": "c",
+          "label": "找个理由聊两句，不一定说破",
+          "weights": {
+            "expression": -1
+          }
+        },
+        {
+          "id": "d",
+          "label": "通常不会特别说，见面自然就知道",
+          "weights": {
+            "expression": -2
+          }
+        }
+      ]
+    },
+    {
+      "id": "q06",
+      "type": "single-choice",
+      "text": "两个人刚发生一点不愉快，你第一反应更接近：",
+      "required": true,
+      "options": [
+        {
+          "id": "a",
+          "label": "趁事情还清楚，尽快把哪里不舒服说开",
+          "weights": {
+            "conflict": 2
+          }
+        },
+        {
+          "id": "b",
+          "label": "稍微缓一下，但当天最好能聊清楚",
+          "weights": {
+            "conflict": 1
+          }
+        },
+        {
+          "id": "c",
+          "label": "先各自静一静，等情绪过去再谈",
+          "weights": {
+            "conflict": -1
+          }
+        },
+        {
+          "id": "d",
+          "label": "我通常需要比较长的缓冲，不想马上讨论",
+          "weights": {
+            "conflict": -2
+          }
+        }
+      ]
+    },
+    {
+      "id": "q07",
+      "type": "single-choice",
+      "text": "在一段关系里，理想的“各自空间”是：",
+      "required": true,
+      "options": [
+        {
+          "id": "a",
+          "label": "大多数日常都愿意一起分享和参与",
+          "weights": {
+            "connection": 2
+          }
+        },
+        {
+          "id": "b",
+          "label": "经常在一起，但也保留固定自己的时间",
+          "weights": {
+            "connection": 1
+          }
+        },
+        {
+          "id": "c",
+          "label": "各自有完整生活，需要时自然靠近",
+          "weights": {
+            "connection": -1
+          }
+        },
+        {
+          "id": "d",
+          "label": "彼此独立最舒服，不需要频繁参与对方日常",
+          "weights": {
+            "connection": -2
+          }
+        }
+      ]
+    },
+    {
+      "id": "q08",
+      "type": "single-choice",
+      "text": "对方做了一件让你很感动的事，你更自然的反应是：",
+      "required": true,
+      "options": [
+        {
+          "id": "a",
+          "label": "当场把感动、喜欢和感谢都说出来",
+          "weights": {
+            "expression": 2
+          }
+        },
+        {
+          "id": "b",
+          "label": "会明确表达开心，但不会说很多",
+          "weights": {
+            "expression": 1
+          }
+        },
+        {
+          "id": "c",
+          "label": "更可能用行动回报，不太讲感受",
+          "weights": {
+            "expression": -1
+          }
+        },
+        {
+          "id": "d",
+          "label": "心里知道就好，通常不会特别表达",
+          "weights": {
+            "expression": -2
+          }
+        }
+      ]
+    },
+    {
+      "id": "q09",
+      "type": "single-choice",
+      "text": "一次约会临时被打乱，你通常会：",
+      "required": true,
+      "options": [
+        {
+          "id": "a",
+          "label": "希望马上重新确认新的安排，别一直悬着",
+          "weights": {
+            "planning": 2
+          }
+        },
+        {
+          "id": "b",
+          "label": "先商量一个替代方案，之后再细化",
+          "weights": {
+            "planning": 1
+          }
+        },
+        {
+          "id": "c",
+          "label": "没关系，到时候看什么方便做什么",
+          "weights": {
+            "planning": -1
+          }
+        },
+        {
+          "id": "d",
+          "label": "反而觉得临时变化也挺有意思",
+          "weights": {
+            "planning": -2
+          }
+        }
+      ]
+    },
+    {
+      "id": "q10",
+      "type": "single-choice",
+      "text": "你们对同一件事意见明显不同，你更希望对方：",
+      "required": true,
+      "options": [
+        {
+          "id": "a",
+          "label": "直接说真实想法，哪怕语气有点硬",
+          "weights": {
+            "conflict": 2
+          }
+        },
+        {
+          "id": "b",
+          "label": "把分歧讲出来，但给彼此一点余地",
+          "weights": {
+            "conflict": 1
+          }
+        },
+        {
+          "id": "c",
+          "label": "先别急着下结论，过一阵再讨论",
+          "weights": {
+            "conflict": -1
+          }
+        },
+        {
+          "id": "d",
+          "label": "如果不是大事，不一定非要马上谈透",
+          "weights": {
+            "conflict": -2
+          }
+        }
+      ]
+    },
+    {
+      "id": "q11",
+      "type": "single-choice",
+      "text": "你更容易把哪种行为理解成“很在乎我”？",
+      "required": true,
+      "options": [
+        {
+          "id": "a",
+          "label": "认真听我说，并回应我的情绪",
+          "weights": {
+            "care_signal": 2
+          }
+        },
+        {
+          "id": "b",
+          "label": "经常主动问我最近感觉怎么样",
+          "weights": {
+            "care_signal": 1
+          }
+        },
+        {
+          "id": "c",
+          "label": "记住我需要什么，并默默帮我准备好",
+          "weights": {
+            "care_signal": -1
+          }
+        },
+        {
+          "id": "d",
+          "label": "我遇到麻烦时直接帮我解决实际问题",
+          "weights": {
+            "care_signal": -2
+          }
+        }
+      ]
+    },
+    {
+      "id": "q12",
+      "type": "single-choice",
+      "text": "旅行时你更喜欢两个人：",
+      "required": true,
+      "options": [
+        {
+          "id": "a",
+          "label": "每天都可以临时改路线，哪里有趣去哪里",
+          "weights": {
+            "novelty": 2
+          }
+        },
+        {
+          "id": "b",
+          "label": "有几个必去点，其他看当天心情",
+          "weights": {
+            "novelty": 1
+          }
+        },
+        {
+          "id": "c",
+          "label": "大部分安排提前确认，偶尔留点自由时间",
+          "weights": {
+            "novelty": -1
+          }
+        },
+        {
+          "id": "d",
+          "label": "路线和节奏尽量确定，按计划走最舒服",
+          "weights": {
+            "novelty": -2
+          }
+        }
+      ]
+    },
+    {
+      "id": "q13",
+      "type": "single-choice",
+      "text": "一天发生了很多小事，你回到家后更希望：",
+      "required": true,
+      "options": [
+        {
+          "id": "a",
+          "label": "从头到尾跟对方分享，感觉才完整",
+          "weights": {
+            "connection": 2
+          }
+        },
+        {
+          "id": "b",
+          "label": "挑几件最想说的聊聊",
+          "weights": {
+            "connection": 1
+          }
+        },
+        {
+          "id": "c",
+          "label": "有特别的事再说，没必要每天汇报",
+          "weights": {
+            "connection": -1
+          }
+        },
+        {
+          "id": "d",
+          "label": "先自己消化，除非对方问我才可能提",
+          "weights": {
+            "connection": -2
+          }
+        }
+      ]
+    },
+    {
+      "id": "q14",
+      "type": "single-choice",
+      "text": "关系稳定后，你觉得“仪式感”更像：",
+      "required": true,
+      "options": [
+        {
+          "id": "a",
+          "label": "很重要，喜欢明确表达和纪念彼此",
+          "weights": {
+            "expression": 2
+          }
+        },
+        {
+          "id": "b",
+          "label": "有一些固定表达会让我觉得被重视",
+          "weights": {
+            "expression": 1
+          }
+        },
+        {
+          "id": "c",
+          "label": "偶尔有就好，日常相处更重要",
+          "weights": {
+            "expression": -1
+          }
+        },
+        {
+          "id": "d",
+          "label": "不太需要专门表达，做到了比说出来重要",
+          "weights": {
+            "expression": -2
+          }
+        }
+      ]
+    },
+    {
+      "id": "q15",
+      "type": "single-choice",
+      "text": "如果下个月有件两个人都要参与的重要事情，你会：",
+      "required": true,
+      "options": [
+        {
+          "id": "a",
+          "label": "尽早把时间和分工确认下来",
+          "weights": {
+            "planning": 2
+          }
+        },
+        {
+          "id": "b",
+          "label": "先定核心安排，其他以后补",
+          "weights": {
+            "planning": 1
+          }
+        },
+        {
+          "id": "c",
+          "label": "临近了再一起商量也来得及",
+          "weights": {
+            "planning": -1
+          }
+        },
+        {
+          "id": "d",
+          "label": "除非必须，否则不想提前把事情排死",
+          "weights": {
+            "planning": -2
+          }
+        }
+      ]
+    },
+    {
+      "id": "q16",
+      "type": "single-choice",
+      "text": "争执后，如果对方说“我现在不想聊”，你的真实感受更接近：",
+      "required": true,
+      "options": [
+        {
+          "id": "a",
+          "label": "会有点难受，我更希望先把核心问题说清楚",
+          "weights": {
+            "conflict": 2
+          }
+        },
+        {
+          "id": "b",
+          "label": "可以先停，但希望约定什么时候再谈",
+          "weights": {
+            "conflict": 1
+          }
+        },
+        {
+          "id": "c",
+          "label": "我能理解，等双方舒服了再谈更有效",
+          "weights": {
+            "conflict": -1
+          }
+        },
+        {
+          "id": "d",
+          "label": "我也更喜欢彻底冷静后再决定要不要谈",
+          "weights": {
+            "conflict": -2
+          }
+        }
+      ]
+    },
+    {
+      "id": "q17",
+      "type": "single-choice",
+      "text": "相处久了以后，你更希望两个人的生活：",
+      "required": true,
+      "options": [
+        {
+          "id": "a",
+          "label": "不断有新的共同体验，关系才会有活力",
+          "weights": {
+            "novelty": 2
+          }
+        },
+        {
+          "id": "b",
+          "label": "稳定里偶尔制造一点新鲜感",
+          "weights": {
+            "novelty": 1
+          }
+        },
+        {
+          "id": "c",
+          "label": "熟悉的节奏更重要，新鲜感有最好没有也行",
+          "weights": {
+            "novelty": -1
+          }
+        },
+        {
+          "id": "d",
+          "label": "越稳定越舒服，重复的小习惯反而让我安心",
+          "weights": {
+            "novelty": -2
+          }
+        }
+      ]
+    },
+    {
+      "id": "q18",
+      "type": "single-choice",
+      "text": "对方工作特别累的时候，你更自然会：",
+      "required": true,
+      "options": [
+        {
+          "id": "a",
+          "label": "陪他聊聊累在哪里，让他感觉有人接住",
+          "weights": {
+            "care_signal": 2
+          }
+        },
+        {
+          "id": "b",
+          "label": "先安慰几句，再看他想不想继续说",
+          "weights": {
+            "care_signal": 1
+          }
+        },
+        {
+          "id": "c",
+          "label": "给他准备吃的、收拾一下，让他少操心",
+          "weights": {
+            "care_signal": -1
+          }
+        },
+        {
+          "id": "d",
+          "label": "直接想办法解决让他最累的那个具体问题",
+          "weights": {
+            "care_signal": -2
+          }
+        }
+      ]
+    },
+    {
+      "id": "q19",
+      "type": "single-choice",
+      "text": "如果一周只能见一次，你更接近哪种状态？",
+      "required": true,
+      "options": [
+        {
+          "id": "a",
+          "label": "会明显觉得不够，希望增加见面或联系",
+          "weights": {
+            "connection": 2
+          }
+        },
+        {
+          "id": "b",
+          "label": "可以接受，但会想通过聊天补足连接感",
+          "weights": {
+            "connection": 1
+          }
+        },
+        {
+          "id": "c",
+          "label": "只要见面质量好，一周一次也挺舒服",
+          "weights": {
+            "connection": -1
+          }
+        },
+        {
+          "id": "d",
+          "label": "完全没问题，我本来就需要比较多自己的时间",
+          "weights": {
+            "connection": -2
+          }
+        }
+      ]
+    },
+    {
+      "id": "q20",
+      "type": "single-choice",
+      "text": "有件事你很开心，但在别人看来可能没什么，你会不会专门告诉对方？",
+      "required": true,
+      "options": [
+        {
+          "id": "a",
+          "label": "会，我希望第一时间和对方共享这种小情绪",
+          "weights": {
+            "expression": 2
+          }
+        },
+        {
+          "id": "b",
+          "label": "多半会，尤其当下很想分享的时候",
+          "weights": {
+            "expression": 1
+          }
+        },
+        {
+          "id": "c",
+          "label": "不一定，聊到相关话题再提也可以",
+          "weights": {
+            "expression": -1
+          }
+        },
+        {
+          "id": "d",
+          "label": "通常不会，除非这件事跟对方也有关",
+          "weights": {
+            "expression": -2
+          }
+        }
+      ]
+    }
+  ],
+  "scoring": {
+    "pipeline": [
+      {
+        "strategy": "weighted-dimension"
+      },
+      {
+        "strategy": "normalize"
+      },
+      {
+        "strategy": "profile-match",
+        "topN": 3
+      }
+    ]
+  },
+  "results": {
+    "catalog": [
+      {
+        "id": "close-companion",
+        "title": "高频陪伴派",
+        "summary": "你把“关系在线”看得很重要。日常分享、及时回应和明确表达会让你更有连接感；你通常不怕靠近，但也需要对方真的参与其中。",
+        "tags": [
+          "高连接",
+          "会表达",
+          "共享日常"
+        ]
+      },
+      {
+        "id": "easy-parallel",
+        "title": "松弛并肩派",
+        "summary": "你喜欢一种不黏、不催、但彼此知道对方在的关系。你接受临时变化，也不要求所有情绪都马上说清，更看重相处时的轻松感。",
+        "tags": [
+          "松弛",
+          "留空间",
+          "随性"
+        ]
+      },
+      {
+        "id": "steady-builder",
+        "title": "稳定共建派",
+        "summary": "你把关系当成可以一起经营的长期项目。约定、分工、可靠兑现和把问题讲清楚，会比一时热烈更让你安心。",
+        "tags": [
+          "稳定",
+          "有计划",
+          "能解决问题"
+        ]
+      },
+      {
+        "id": "spark-sync",
+        "title": "热烈共振派",
+        "summary": "你享受高浓度的互动：想分享、想表达，也愿意一起制造新鲜体验。关系有回应、有变化、有火花时，你最容易进入状态。",
+        "tags": [
+          "热烈",
+          "高表达",
+          "新鲜感"
+        ]
+      },
+      {
+        "id": "gentle-buffer",
+        "title": "温柔缓冲派",
+        "summary": "你重视情绪被接住，也重视关系里的柔软余地。你愿意靠近和表达，但发生冲突时更希望先稳住情绪，而不是立刻分出对错。",
+        "tags": [
+          "温柔",
+          "情绪回应",
+          "慢冲突"
+        ]
+      },
+      {
+        "id": "independent-partner",
+        "title": "独立合伙派",
+        "summary": "你需要清晰、可靠，同时也需要自己的完整空间。你不一定频繁表达，但会用行动承担；遇到问题时更愿意把事情讲明白、解决掉。",
+        "tags": [
+          "独立",
+          "务实",
+          "边界清楚"
+        ]
+      }
+    ],
+    "profiles": [
+      {
+        "id": "profile-close-companion",
+        "resultId": "close-companion",
+        "dimensionTargets": {
+          "connection": 84,
+          "expression": 76,
+          "planning": 55,
+          "conflict": 58,
+          "novelty": 52,
+          "care_signal": 68
+        }
+      },
+      {
+        "id": "profile-easy-parallel",
+        "resultId": "easy-parallel",
+        "dimensionTargets": {
+          "connection": 28,
+          "expression": 38,
+          "planning": 30,
+          "conflict": 38,
+          "novelty": 76,
+          "care_signal": 42
+        }
+      },
+      {
+        "id": "profile-steady-builder",
+        "resultId": "steady-builder",
+        "dimensionTargets": {
+          "connection": 55,
+          "expression": 50,
+          "planning": 84,
+          "conflict": 72,
+          "novelty": 28,
+          "care_signal": 34
+        }
+      },
+      {
+        "id": "profile-spark-sync",
+        "resultId": "spark-sync",
+        "dimensionTargets": {
+          "connection": 82,
+          "expression": 88,
+          "planning": 34,
+          "conflict": 72,
+          "novelty": 88,
+          "care_signal": 74
+        }
+      },
+      {
+        "id": "profile-gentle-buffer",
+        "resultId": "gentle-buffer",
+        "dimensionTargets": {
+          "connection": 68,
+          "expression": 76,
+          "planning": 58,
+          "conflict": 26,
+          "novelty": 42,
+          "care_signal": 86
+        }
+      },
+      {
+        "id": "profile-independent-partner",
+        "resultId": "independent-partner",
+        "dimensionTargets": {
+          "connection": 24,
+          "expression": 30,
+          "planning": 80,
+          "conflict": 76,
+          "novelty": 48,
+          "care_signal": 24
+        }
+      }
+    ],
+    "entities": [],
+    "compatibility": {
+      "enabled": true,
+      "mode": "symmetric",
+      "allowPartialCoverage": false,
+      "dimensions": [
+        {
+          "id": "rhythm",
+          "label": "节奏契合"
+        },
+        {
+          "id": "communication",
+          "label": "沟通契合"
+        },
+        {
+          "id": "support",
+          "label": "支持契合"
+        }
+      ]
+    },
+    "compatibilityPairs": [
+      {
+        "id": "pair-close-companion-close-companion",
+        "resultAId": "close-companion",
+        "resultBId": "close-companion",
+        "scores": {
+          "overall": 92,
+          "rhythm": 98,
+          "communication": 98,
+          "support": 92
+        },
+        "strengths": [
+          "回应速度和陪伴需求接近",
+          "情绪与生活信息流动顺畅"
+        ],
+        "frictionPoints": [
+          "容易把“暂时没回应”放大成关系信号"
+        ],
+        "summary": "两个人都愿意把日常交叠得比较深，容易形成“什么都想告诉你”的高在线关系。",
+        "advice": "把“我喜欢怎样相处”说成具体行为约定，而不是要求对方自动理解；尤其先对齐联系频率、冲突处理时机和关心方式。",
+        "relationshipCopy": "高频同频｜两个人都愿意把日常交叠得比较深，容易形成“什么都想告诉你”的高在线关系。"
+      },
+      {
+        "id": "pair-close-companion-easy-parallel",
+        "resultAId": "close-companion",
+        "resultBId": "easy-parallel",
+        "scores": {
+          "overall": 72,
+          "rhythm": 81,
+          "communication": 86,
+          "support": 83
+        },
+        "strengths": [
+          "一方提供连接感，一方提供松弛感",
+          "能互相补充社交和生活节奏"
+        ],
+        "frictionPoints": [
+          "联系频率容易被理解成“黏”或“冷”"
+        ],
+        "summary": "一个靠近确认连接，一个靠空间维持舒服；磨合好后会是既有牵挂又不窒息的组合。",
+        "advice": "把“我喜欢怎样相处”说成具体行为约定，而不是要求对方自动理解；尤其先对齐联系频率、冲突处理时机和关心方式。",
+        "relationshipCopy": "一近一松｜一个靠近确认连接，一个靠空间维持舒服；磨合好后会是既有牵挂又不窒息的组合。"
+      },
+      {
+        "id": "pair-close-companion-steady-builder",
+        "resultAId": "close-companion",
+        "resultBId": "steady-builder",
+        "scores": {
+          "overall": 84,
+          "rhythm": 85,
+          "communication": 90,
+          "support": 80
+        },
+        "strengths": [
+          "稳定感和参与感都比较强",
+          "适合共同生活与长期安排"
+        ],
+        "frictionPoints": [
+          "一方想先被理解，另一方可能先进入解决模式"
+        ],
+        "summary": "一个负责让关系有温度，一个负责让关系有结构，适合把日常过得既有回应又有秩序。",
+        "advice": "把“我喜欢怎样相处”说成具体行为约定，而不是要求对方自动理解；尤其先对齐联系频率、冲突处理时机和关心方式。",
+        "relationshipCopy": "陪伴共建｜一个负责让关系有温度，一个负责让关系有结构，适合把日常过得既有回应又有秩序。"
+      },
+      {
+        "id": "pair-close-companion-spark-sync",
+        "resultAId": "close-companion",
+        "resultBId": "spark-sync",
+        "scores": {
+          "overall": 91,
+          "rhythm": 89,
+          "communication": 94,
+          "support": 90
+        },
+        "strengths": [
+          "分享欲强、共同体验多",
+          "情绪回应通常很及时"
+        ],
+        "frictionPoints": [
+          "关系浓度太高时容易互相放大情绪"
+        ],
+        "summary": "互动密度和表达欲都高，很容易快速建立“我们是一队”的感觉。",
+        "advice": "把“我喜欢怎样相处”说成具体行为约定，而不是要求对方自动理解；尤其先对齐联系频率、冲突处理时机和关心方式。",
+        "relationshipCopy": "高浓度共振｜互动密度和表达欲都高，很容易快速建立“我们是一队”的感觉。"
+      },
+      {
+        "id": "pair-close-companion-gentle-buffer",
+        "resultAId": "close-companion",
+        "resultBId": "gentle-buffer",
+        "scores": {
+          "overall": 89,
+          "rhythm": 95,
+          "communication": 92,
+          "support": 86
+        },
+        "strengths": [
+          "容易互相提供安全感",
+          "对细小情绪变化比较敏感"
+        ],
+        "frictionPoints": [
+          "冲突时一个想马上确认，一个想缓一缓"
+        ],
+        "summary": "双方都重视情绪连接，只是一个更想及时靠近，一个更会先稳住氛围。",
+        "advice": "把“我喜欢怎样相处”说成具体行为约定，而不是要求对方自动理解；尤其先对齐联系频率、冲突处理时机和关心方式。",
+        "relationshipCopy": "温柔黏合｜双方都重视情绪连接，只是一个更想及时靠近，一个更会先稳住氛围。"
+      },
+      {
+        "id": "pair-close-companion-independent-partner",
+        "resultAId": "close-companion",
+        "resultBId": "independent-partner",
+        "scores": {
+          "overall": 68,
+          "rhythm": 84,
+          "communication": 84,
+          "support": 77
+        },
+        "strengths": [
+          "一方提供情感温度，一方提供稳定边界",
+          "遇到现实问题时行动力不错"
+        ],
+        "frictionPoints": [
+          "最容易卡在“为什么不主动”和“为什么要一直报备”"
+        ],
+        "summary": "一个需要高频连接，一个更习惯独立运转；如果能把联系频率说清楚，反而能减少猜测。",
+        "advice": "把“我喜欢怎样相处”说成具体行为约定，而不是要求对方自动理解；尤其先对齐联系频率、冲突处理时机和关心方式。",
+        "relationshipCopy": "靠近与边界｜一个需要高频连接，一个更习惯独立运转；如果能把联系频率说清楚，反而能减少猜测。"
+      },
+      {
+        "id": "pair-easy-parallel-easy-parallel",
+        "resultAId": "easy-parallel",
+        "resultBId": "easy-parallel",
+        "scores": {
+          "overall": 88,
+          "rhythm": 98,
+          "communication": 98,
+          "support": 92
+        },
+        "strengths": [
+          "空间感高度一致",
+          "对临时变化容忍度高"
+        ],
+        "frictionPoints": [
+          "重要问题可能因为都不急着谈而拖延"
+        ],
+        "summary": "两个人都不需要高频确认，也能自然地保持亲近，关系像两个完整的人并排前进。",
+        "advice": "把“我喜欢怎样相处”说成具体行为约定，而不是要求对方自动理解；尤其先对齐联系频率、冲突处理时机和关心方式。",
+        "relationshipCopy": "松弛并肩｜两个人都不需要高频确认，也能自然地保持亲近，关系像两个完整的人并排前进。"
+      },
+      {
+        "id": "pair-easy-parallel-steady-builder",
+        "resultAId": "easy-parallel",
+        "resultBId": "steady-builder",
+        "scores": {
+          "overall": 74,
+          "rhythm": 76,
+          "communication": 88,
+          "support": 89
+        },
+        "strengths": [
+          "既有自由度又不容易失控",
+          "生活执行层面互补"
+        ],
+        "frictionPoints": [
+          "计划细节和临时改动容易反复拉扯"
+        ],
+        "summary": "一个让关系保持弹性，一个把重要事情稳住；配合得好会很高效。",
+        "advice": "把“我喜欢怎样相处”说成具体行为约定，而不是要求对方自动理解；尤其先对齐联系频率、冲突处理时机和关心方式。",
+        "relationshipCopy": "自由与秩序｜一个让关系保持弹性，一个把重要事情稳住；配合得好会很高效。"
+      },
+      {
+        "id": "pair-easy-parallel-spark-sync",
+        "resultAId": "easy-parallel",
+        "resultBId": "spark-sync",
+        "scores": {
+          "overall": 76,
+          "rhythm": 87,
+          "communication": 79,
+          "support": 81
+        },
+        "strengths": [
+          "新鲜感充足",
+          "不容易陷入过度流程化"
+        ],
+        "frictionPoints": [
+          "互动密度差异会让一方觉得不够热、一方觉得太满"
+        ],
+        "summary": "一个带来变化和表达，一个提供不紧绷的空间，容易有很好玩的相处体验。",
+        "advice": "把“我喜欢怎样相处”说成具体行为约定，而不是要求对方自动理解；尤其先对齐联系频率、冲突处理时机和关心方式。",
+        "relationshipCopy": "火花牵引｜一个带来变化和表达，一个提供不紧绷的空间，容易有很好玩的相处体验。"
+      },
+      {
+        "id": "pair-easy-parallel-gentle-buffer",
+        "resultAId": "easy-parallel",
+        "resultBId": "gentle-buffer",
+        "scores": {
+          "overall": 79,
+          "rhythm": 81,
+          "communication": 88,
+          "support": 77
+        },
+        "strengths": [
+          "尊重空间，情绪压力较低",
+          "比较少出现硬碰硬"
+        ],
+        "frictionPoints": [
+          "双方都等对方先开口时，问题会沉下去"
+        ],
+        "summary": "两个人都不喜欢强推冲突，关系通常温和、给彼此余地。",
+        "advice": "把“我喜欢怎样相处”说成具体行为约定，而不是要求对方自动理解；尤其先对齐联系频率、冲突处理时机和关心方式。",
+        "relationshipCopy": "柔软留白｜两个人都不喜欢强推冲突，关系通常温和、给彼此余地。"
+      },
+      {
+        "id": "pair-easy-parallel-independent-partner",
+        "resultAId": "easy-parallel",
+        "resultBId": "independent-partner",
+        "scores": {
+          "overall": 86,
+          "rhythm": 85,
+          "communication": 88,
+          "support": 86
+        },
+        "strengths": [
+          "边界和自主需求接近",
+          "现实事务配合效率高"
+        ],
+        "frictionPoints": [
+          "情绪表达可能过少，容易把默契想当然"
+        ],
+        "summary": "双方都认可“各自完整，再一起合作”，日常不需要频繁确认也能保持稳定。",
+        "advice": "把“我喜欢怎样相处”说成具体行为约定，而不是要求对方自动理解；尤其先对齐联系频率、冲突处理时机和关心方式。",
+        "relationshipCopy": "独立搭档｜双方都认可“各自完整，再一起合作”，日常不需要频繁确认也能保持稳定。"
+      },
+      {
+        "id": "pair-steady-builder-steady-builder",
+        "resultAId": "steady-builder",
+        "resultBId": "steady-builder",
+        "scores": {
+          "overall": 93,
+          "rhythm": 98,
+          "communication": 98,
+          "support": 92
+        },
+        "strengths": [
+          "计划、承诺和执行方式一致",
+          "遇到问题愿意处理而不是放着"
+        ],
+        "frictionPoints": [
+          "关系可能过度功能化，需要主动创造轻松感"
+        ],
+        "summary": "双方都偏好明确、稳定、可兑现的关系，很适合一起处理长期目标和现实生活。",
+        "advice": "把“我喜欢怎样相处”说成具体行为约定，而不是要求对方自动理解；尤其先对齐联系频率、冲突处理时机和关心方式。",
+        "relationshipCopy": "长期共建｜双方都偏好明确、稳定、可兑现的关系，很适合一起处理长期目标和现实生活。"
+      },
+      {
+        "id": "pair-steady-builder-spark-sync",
+        "resultAId": "steady-builder",
+        "resultBId": "spark-sync",
+        "scores": {
+          "overall": 73,
+          "rhythm": 75,
+          "communication": 90,
+          "support": 78
+        },
+        "strengths": [
+          "一个稳，一个活，适合一起做事",
+          "既有行动也有体验感"
+        ],
+        "frictionPoints": [
+          "临时起意与提前计划会经常碰撞"
+        ],
+        "summary": "一个负责把事情落地，一个负责让关系保持活力，是典型的强互补组合。",
+        "advice": "把“我喜欢怎样相处”说成具体行为约定，而不是要求对方自动理解；尤其先对齐联系频率、冲突处理时机和关心方式。",
+        "relationshipCopy": "结构遇上火花｜一个负责把事情落地，一个负责让关系保持活力，是典型的强互补组合。"
+      },
+      {
+        "id": "pair-steady-builder-gentle-buffer",
+        "resultAId": "steady-builder",
+        "resultBId": "gentle-buffer",
+        "scores": {
+          "overall": 82,
+          "rhythm": 90,
+          "communication": 82,
+          "support": 74
+        },
+        "strengths": [
+          "现实支持和情绪支持互补",
+          "长期相处的安全感较强"
+        ],
+        "frictionPoints": [
+          "解决问题的速度和情绪处理节奏不一致"
+        ],
+        "summary": "一个擅长搭框架，一个擅长照顾情绪，关系很容易形成可靠的支持系统。",
+        "advice": "把“我喜欢怎样相处”说成具体行为约定，而不是要求对方自动理解；尤其先对齐联系频率、冲突处理时机和关心方式。",
+        "relationshipCopy": "稳住彼此｜一个擅长搭框架，一个擅长照顾情绪，关系很容易形成可靠的支持系统。"
+      },
+      {
+        "id": "pair-steady-builder-independent-partner",
+        "resultAId": "steady-builder",
+        "resultBId": "independent-partner",
+        "scores": {
+          "overall": 90,
+          "rhythm": 90,
+          "communication": 94,
+          "support": 88
+        },
+        "strengths": [
+          "分工和承诺感强",
+          "遇到现实压力时不容易乱"
+        ],
+        "frictionPoints": [
+          "容易只讨论“怎么解决”，忽略“我现在是什么感受”"
+        ],
+        "summary": "两个人都重视可靠、边界和问题解决，适合形成非常清楚的共同生活规则。",
+        "advice": "把“我喜欢怎样相处”说成具体行为约定，而不是要求对方自动理解；尤其先对齐联系频率、冲突处理时机和关心方式。",
+        "relationshipCopy": "高效合伙｜两个人都重视可靠、边界和问题解决，适合形成非常清楚的共同生活规则。"
+      },
+      {
+        "id": "pair-spark-sync-spark-sync",
+        "resultAId": "spark-sync",
+        "resultBId": "spark-sync",
+        "scores": {
+          "overall": 87,
+          "rhythm": 98,
+          "communication": 98,
+          "support": 92
+        },
+        "strengths": [
+          "情绪与体验同步度高",
+          "很会给关系制造故事感"
+        ],
+        "frictionPoints": [
+          "冲突也可能同样升温很快"
+        ],
+        "summary": "两个人都追求表达、回应和新鲜感，关系很容易有强烈的共同记忆。",
+        "advice": "把“我喜欢怎样相处”说成具体行为约定，而不是要求对方自动理解；尤其先对齐联系频率、冲突处理时机和关心方式。",
+        "relationshipCopy": "热烈共振｜两个人都追求表达、回应和新鲜感，关系很容易有强烈的共同记忆。"
+      },
+      {
+        "id": "pair-spark-sync-gentle-buffer",
+        "resultAId": "spark-sync",
+        "resultBId": "gentle-buffer",
+        "scores": {
+          "overall": 83,
+          "rhythm": 85,
+          "communication": 86,
+          "support": 88
+        },
+        "strengths": [
+          "表达丰富、情绪连接强",
+          "彼此很容易感受到被重视"
+        ],
+        "frictionPoints": [
+          "一个想立刻说清，一个可能需要先降温"
+        ],
+        "summary": "一个把关系点亮，一个把关系接住；只要冲突节奏协调好，通常既有火花又有安全感。",
+        "advice": "把“我喜欢怎样相处”说成具体行为约定，而不是要求对方自动理解；尤其先对齐联系频率、冲突处理时机和关心方式。",
+        "relationshipCopy": "热度与柔软｜一个把关系点亮，一个把关系接住；只要冲突节奏协调好，通常既有火花又有安全感。"
+      },
+      {
+        "id": "pair-spark-sync-independent-partner",
+        "resultAId": "spark-sync",
+        "resultBId": "independent-partner",
+        "scores": {
+          "overall": 66,
+          "rhythm": 74,
+          "communication": 84,
+          "support": 74
+        },
+        "strengths": [
+          "互相带来自己缺少的体验",
+          "共同目标明确时执行力很强"
+        ],
+        "frictionPoints": [
+          "高频表达、临时变化和个人空间是三大磨合点"
+        ],
+        "summary": "一个靠互动和变化充电，一个靠边界和秩序保持稳定，吸引力和摩擦都可能很明显。",
+        "advice": "把“我喜欢怎样相处”说成具体行为约定，而不是要求对方自动理解；尤其先对齐联系频率、冲突处理时机和关心方式。",
+        "relationshipCopy": "强反差搭档｜一个靠互动和变化充电，一个靠边界和秩序保持稳定，吸引力和摩擦都可能很明显。"
+      },
+      {
+        "id": "pair-gentle-buffer-gentle-buffer",
+        "resultAId": "gentle-buffer",
+        "resultBId": "gentle-buffer",
+        "scores": {
+          "overall": 91,
+          "rhythm": 98,
+          "communication": 98,
+          "support": 92
+        },
+        "strengths": [
+          "很会体察和安抚彼此",
+          "冲突中的攻击性较低"
+        ],
+        "frictionPoints": [
+          "容易因为都怕破坏气氛而把真实不满说得太晚"
+        ],
+        "summary": "双方都重视被理解、被安慰和不被逼迫，关系通常有很强的情绪安全感。",
+        "advice": "把“我喜欢怎样相处”说成具体行为约定，而不是要求对方自动理解；尤其先对齐联系频率、冲突处理时机和关心方式。",
+        "relationshipCopy": "温柔共栖｜双方都重视被理解、被安慰和不被逼迫，关系通常有很强的情绪安全感。"
+      },
+      {
+        "id": "pair-gentle-buffer-independent-partner",
+        "resultAId": "gentle-buffer",
+        "resultBId": "independent-partner",
+        "scores": {
+          "overall": 70,
+          "rhythm": 87,
+          "communication": 76,
+          "support": 70
+        },
+        "strengths": [
+          "情绪支持和实际解决能力互补",
+          "边界明确后安全感会提升"
+        ],
+        "frictionPoints": [
+          "“我想被理解”与“我在帮你解决”容易错频"
+        ],
+        "summary": "一个先照顾感受，一个先厘清问题；如果彼此学会翻译关心方式，会很稳。",
+        "advice": "把“我喜欢怎样相处”说成具体行为约定，而不是要求对方自动理解；尤其先对齐联系频率、冲突处理时机和关心方式。",
+        "relationshipCopy": "柔软与清晰｜一个先照顾感受，一个先厘清问题；如果彼此学会翻译关心方式，会很稳。"
+      },
+      {
+        "id": "pair-independent-partner-independent-partner",
+        "resultAId": "independent-partner",
+        "resultBId": "independent-partner",
+        "scores": {
+          "overall": 89,
+          "rhythm": 98,
+          "communication": 98,
+          "support": 92
+        },
+        "strengths": [
+          "自主空间一致",
+          "处理现实问题非常直接"
+        ],
+        "frictionPoints": [
+          "缺少主动表达时，关系可能显得过于理性"
+        ],
+        "summary": "双方都能独立运转，也都认可规则和责任，关系通常清楚、不拖泥带水。",
+        "advice": "把“我喜欢怎样相处”说成具体行为约定，而不是要求对方自动理解；尤其先对齐联系频率、冲突处理时机和关心方式。",
+        "relationshipCopy": "并肩合伙｜双方都能独立运转，也都认可规则和责任，关系通常清楚、不拖泥带水。"
+      }
+    ]
+  },
+  "presentation": {
+    "theme": "warm",
+    "blocks": [
+      {
+        "type": "hero",
+        "variant": "identity",
+        "showSecondary": true,
+        "showMatch": true,
+        "showTags": true
+      },
+      {
+        "type": "radar",
+        "max": 100
+      },
+      {
+        "type": "tags"
+      },
+      {
+        "type": "compatibility"
+      },
+      {
+        "type": "highlight",
+        "title": "你们的相处重点",
+        "facts": [
+          {
+            "source": "primary-title",
+            "label": "你的相处偏好"
+          },
+          {
+            "source": "match-percentage",
+            "label": "个人匹配"
+          }
+        ]
+      }
+    ],
+    "shareCard": {
+      "enabled": true,
+      "layout": "portrait",
+      "headline": "我们最适合怎样相处？",
+      "subtitle": "双人相处模式测试",
+      "showTags": true,
+      "showMatch": false,
+      "showRadarSummary": false,
+      "dimensionIds": [],
+      "qrCode": true,
+      "brandingText": "双人相处模式测试"
+    }
+  },
+  "assets": {}
+}

@@ -2,9 +2,11 @@
 import assessmentPackage0 from "../content/tests/demo-personality/test.json";
 import assessmentPackage1 from "../content/tests/demo-ranking/test.json";
 import assessmentPackage2 from "../content/tests/demo-relationship/test.json";
+import assessmentPackage3 from "../content/tests/two-person-relationship-fit/test.json";
 
 export const discoveredAssessmentPackages: ReadonlyArray<{ source: string; packageData: unknown }> = [
   { source: "content/tests/demo-personality/test.json", packageData: assessmentPackage0 },
   { source: "content/tests/demo-ranking/test.json", packageData: assessmentPackage1 },
-  { source: "content/tests/demo-relationship/test.json", packageData: assessmentPackage2 }
+  { source: "content/tests/demo-relationship/test.json", packageData: assessmentPackage2 },
+  { source: "content/tests/two-person-relationship-fit/test.json", packageData: assessmentPackage3 }
 ];

@@ -1,6 +1,13 @@
 import assert from "node:assert/strict";
 import { beforeEach, describe, it } from "node:test";
 import { createRunnerSession, answerQuestion } from "../engine/runner/runner";
+import { scoreAssessment } from "../engine/scoring/scorers";
+import {
+  clearCompletedResult,
+  completedResultStorageKey,
+  loadCompletedResult,
+  saveCompletedResult
+} from "../engine/storage/completedResultStorage";
 import { clearProgress, loadProgress, progressStorageKey, saveProgress } from "../engine/storage/progressStorage";
 import { registeredAssessments } from "../registry/assessmentRegistry";
 import { sessionKey, useAssessmentStore } from "../store/assessmentStore";
@@ -8,6 +15,8 @@ import { sessionKey, useAssessmentStore } from "../store/assessmentStore";
 describe("progress persistence", () => {
   const assessment = registeredAssessments.find((item) => item.metadata.id === "demo-personality");
   assert.ok(assessment);
+  const otherAssessment = registeredAssessments.find((item) => item.metadata.id === "demo-ranking");
+  assert.ok(otherAssessment);
 
   beforeEach(() => {
     installLocalStorageMock();
@@ -79,10 +88,72 @@ describe("progress persistence", () => {
     assert.doesNotThrow(() => saveProgress(session));
     assert.doesNotThrow(() => clearProgress(assessment!));
   });
+
+  it("uses one completed-result storage key per test id", () => {
+    assert.equal(completedResultStorageKey("animal"), "assessment:animal:completed");
+  });
+
+  it("saves, restores, and clears a completed single-person result", () => {
+    const answers = validAnswers(assessment!);
+    const result = scoreAssessment(assessment!, answers);
+
+    saveCompletedResult(assessment!, answers, result);
+    const restored = loadCompletedResult(assessment!);
+
+    assert.equal(restored?.testVersion, assessment!.metadata.version);
+    assert.deepEqual(restored?.answers, answers);
+    assert.equal(restored?.result.primaryResult?.id, result.primaryResult?.id);
+
+    clearCompletedResult(assessment!);
+    assert.equal(loadCompletedResult(assessment!), undefined);
+  });
+
+  it("ignores and discards a completed result from an old test version", () => {
+    const answers = validAnswers(assessment!);
+    const result = scoreAssessment(assessment!, answers);
+    localStorage.setItem(
+      completedResultStorageKey(assessment!.metadata.id),
+      JSON.stringify({
+        answers,
+        result: { ...result, metadata: { ...result.metadata, assessmentVersion: "old-version" } },
+        completedAt: result.metadata.completedAt,
+        testVersion: "old-version"
+      })
+    );
+
+    assert.equal(loadCompletedResult(assessment!), undefined);
+    assert.equal(localStorage.getItem(completedResultStorageKey(assessment!.metadata.id)), null);
+  });
+
+  it("clears only the completed record for the current test id", () => {
+    const answers = validAnswers(assessment!);
+    const otherAnswers = validAnswers(otherAssessment!);
+    saveCompletedResult(assessment!, answers, scoreAssessment(assessment!, answers));
+    saveCompletedResult(otherAssessment!, otherAnswers, scoreAssessment(otherAssessment!, otherAnswers));
+
+    clearCompletedResult(assessment!);
+
+    assert.equal(loadCompletedResult(assessment!), undefined);
+    assert.equal(loadCompletedResult(otherAssessment!)?.testVersion, otherAssessment!.metadata.version);
+  });
+
+  it("keeps completed-result persistence best-effort when storage writes and removals throw", () => {
+    installThrowingLocalStorageMock();
+    const answers = validAnswers(assessment!);
+    const result = scoreAssessment(assessment!, answers);
+
+    assert.doesNotThrow(() => saveCompletedResult(assessment!, answers, result));
+    assert.doesNotThrow(() => clearCompletedResult(assessment!));
+    assert.equal(loadCompletedResult(assessment!), undefined);
+  });
 });
 
 function storeRawSession(assessment: NonNullable<(typeof registeredAssessments)[number]>, session: unknown) {
   localStorage.setItem(progressStorageKey(assessment.metadata.id, assessment.metadata.version), JSON.stringify(session));
+}
+
+function validAnswers(assessment: NonNullable<(typeof registeredAssessments)[number]>) {
+  return Object.fromEntries(assessment.questions.map((question) => [question.id, question.options[0].id]));
 }
 
 function installLocalStorageMock() {

@@ -3,12 +3,14 @@ import { Link, Navigate, Route, Routes, useNavigate, useParams, useSearchParams 
 import type { DiscoveryCategoryId } from "../engine/capabilities";
 import { hasCompatibility, isValidResultIdParam } from "../engine/compatibility/compatibility";
 import { canProceed, isComplete, progressPercent } from "../engine/runner/runner";
+import { clearCompletedResult, loadCompletedResult, saveCompletedResult, type CompletedResultRecord } from "../engine/storage/completedResultStorage";
 import { getAssessmentById, registeredAssessments } from "../registry/assessmentRegistry";
 import { sessionKey, useAssessmentStore } from "../store/assessmentStore";
 import { formatCopy, zhCN } from "./i18n/zh-CN";
 import { siteConfig } from "./siteConfig";
 
 const ResultPage = lazy(() => import("./results/ResultPage"));
+const PreviewPage = lazy(() => import("./preview/PreviewPage"));
 
 const categoryOrder: Array<DiscoveryCategoryId | "all"> = [
   "all",
@@ -25,6 +27,14 @@ export function App() {
   return (
     <Routes>
       <Route path="/" element={<HomePage />} />
+      <Route
+        path="/preview"
+        element={
+          <Suspense fallback={<main className="page"><p className="state-message">{zhCN.common.loadingAssessment}</p></main>}>
+            <PreviewPage />
+          </Suspense>
+        }
+      />
       <Route path="/test/:testId" element={<TestLandingPage />} />
       <Route path="/test/:testId/run" element={<AssessmentRunner />} />
       <Route path="/assessment/:testId" element={<LegacyAssessmentRedirect />} />
@@ -107,15 +117,59 @@ function TestCard({ assessment, featured = false }: { assessment: (typeof regist
 function TestLandingPage() {
   const { testId } = useParams();
   const [searchParams] = useSearchParams();
+  const navigate = useNavigate();
   const assessment = testId ? getAssessmentById(testId) : undefined;
+  const restartAssessment = useAssessmentStore((state) => state.restartAssessment);
+  const [completedRecord, setCompletedRecord] = useState<CompletedResultRecord | undefined>();
+  const [showCompletedResult, setShowCompletedResult] = useState(false);
+  const pairParam = safePairParam(assessment, searchParams.get("pair"));
+
+  useEffect(() => {
+    setShowCompletedResult(false);
+    setCompletedRecord(assessment && !pairParam ? loadCompletedResult(assessment) : undefined);
+  }, [assessment, pairParam]);
 
   if (!assessment) {
     return <NotFoundPage />;
   }
 
   const discovery = assessment.metadata.discovery;
-  const pairParam = safePairParam(assessment, searchParams.get("pair"));
   const runUrl = `/test/${assessment.metadata.id}/run${pairParam ? `?pair=${encodeURIComponent(pairParam)}` : ""}`;
+  const canUseCompletedRecord = !pairParam && completedRecord;
+
+  function retakeFromLanding() {
+    if (!assessment) {
+      return;
+    }
+    clearCompletedResult(assessment);
+    restartAssessment(assessment);
+    navigate(runUrl);
+  }
+
+  if (showCompletedResult && canUseCompletedRecord) {
+    return (
+      <main className="page">
+        <button className="link-button" type="button" onClick={() => setShowCompletedResult(false)}>
+          {zhCN.common.backToTests}
+        </button>
+        <div className="result-actions">
+          <button type="button" onClick={retakeFromLanding}>
+            {zhCN.common.retake}
+          </button>
+        </div>
+        <Suspense fallback={<section className="runner">{zhCN.common.loadingResult}</section>}>
+          <ResultPage
+            assessment={assessment}
+            assessmentTitle={assessment.metadata.title}
+            blocks={assessment.presentation.blocks}
+            result={completedRecord.result}
+            shareCard={assessment.presentation.shareCard}
+            theme={assessment.presentation.theme}
+          />
+        </Suspense>
+      </main>
+    );
+  }
 
   return (
     <main className="page">
@@ -133,9 +187,20 @@ function TestLandingPage() {
         <p>{assessment.metadata.description}</p>
         {pairParam ? <p className="test-landing__preview">{zhCN.compatibility.inviteHint}</p> : null}
         {discovery.resultPreview ? <p className="test-landing__preview">{discovery.resultPreview}</p> : null}
-        <Link className="button button--large" to={runUrl}>
-          {pairParam ? zhCN.compatibility.inviteCta : zhCN.common.startNow}
-        </Link>
+        {canUseCompletedRecord ? (
+          <div className="actions test-landing__actions">
+            <button className="button button--large" type="button" onClick={() => setShowCompletedResult(true)}>
+              {zhCN.common.viewLastResult}
+            </button>
+            <button type="button" onClick={retakeFromLanding}>
+              {zhCN.common.retake}
+            </button>
+          </div>
+        ) : (
+          <Link className="button button--large" to={runUrl}>
+            {pairParam ? zhCN.compatibility.inviteCta : zhCN.common.startNow}
+          </Link>
+        )}
       </section>
     </main>
   );
@@ -179,6 +244,7 @@ function AssessmentRunner() {
     if (!assessment) {
       return;
     }
+    clearCompletedResult(assessment);
     restartAssessment(assessment);
     navigate(`/test/${assessment.metadata.id}/run`);
   }
@@ -243,7 +309,16 @@ function AssessmentRunner() {
               {zhCN.common.previous}
             </button>
             {isLastQuestion ? (
-              <button type="button" onClick={() => submit(assessment)} disabled={!isComplete(assessment, session)}>
+              <button
+                type="button"
+                onClick={() => {
+                  const completedResult = submit(assessment);
+                  if (!pairParam) {
+                    saveCompletedResult(assessment, session.answers, completedResult);
+                  }
+                }}
+                disabled={!isComplete(assessment, session)}
+              >
                 {zhCN.common.submit}
               </button>
             ) : (
