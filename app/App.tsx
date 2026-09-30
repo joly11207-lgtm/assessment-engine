@@ -3,7 +3,7 @@ import { Link, Navigate, Route, Routes, useNavigate, useParams, useSearchParams 
 import type { DiscoveryCategoryId } from "../engine/capabilities";
 import { hasCompatibility, isValidResultIdParam } from "../engine/compatibility/compatibility";
 import { canProceed, isComplete, progressPercent } from "../engine/runner/runner";
-import { clearCompletedResult, loadCompletedResult, saveCompletedResult, type CompletedResultRecord } from "../engine/storage/completedResultStorage";
+import { loadCompletedResult, saveCompletedResult, type CompletedResultRecord } from "../engine/storage/completedResultStorage";
 import { getAssessmentById, registeredAssessments } from "../registry/assessmentRegistry";
 import { sessionKey, useAssessmentStore } from "../store/assessmentStore";
 import { formatCopy, zhCN } from "./i18n/zh-CN";
@@ -182,7 +182,7 @@ function AssessmentRunner() {
   const [searchParams] = useSearchParams();
   const navigate = useNavigate();
   const assessment = testId ? getAssessmentById(testId) : undefined;
-  const { sessions, results, startAssessment, restartAssessment, answer, previous, next, submit } = useAssessmentStore();
+  const { sessions, results, startAssessment, answer, previous, next, submit } = useAssessmentStore();
   const key = assessment ? sessionKey(assessment) : undefined;
   const session = key ? sessions[key] : undefined;
 
@@ -211,15 +211,6 @@ function AssessmentRunner() {
   const isLastQuestion = session.currentIndex === assessment.questions.length - 1;
   const progress = progressPercent(assessment, session);
 
-  function restart() {
-    if (!assessment) {
-      return;
-    }
-    clearCompletedResult(assessment);
-    restartAssessment(assessment);
-    navigate(`/test/${assessment.metadata.id}/run`);
-  }
-
   return (
     <main className="page">
       <button className="link-button" type="button" onClick={() => navigate(`/test/${assessment.metadata.id}`)}>
@@ -232,24 +223,17 @@ function AssessmentRunner() {
       </header>
 
       {result ? (
-        <>
-          <div className="result-actions">
-            <button type="button" onClick={restart}>
-              {zhCN.common.retake}
-            </button>
-          </div>
-          <Suspense fallback={<section className="runner">{zhCN.common.loadingResult}</section>}>
-            <ResultPage
-              assessment={assessment}
-              assessmentTitle={assessment.metadata.title}
-              blocks={assessment.presentation.blocks}
-              inviteSourceResultId={pairParam}
-              result={result}
-              shareCard={assessment.presentation.shareCard}
-              theme={assessment.presentation.theme}
-            />
-          </Suspense>
-        </>
+        <Suspense fallback={<section className="runner">{zhCN.common.loadingResult}</section>}>
+          <ResultPage
+            assessment={assessment}
+            assessmentTitle={assessment.metadata.title}
+            blocks={assessment.presentation.blocks}
+            inviteSourceResultId={pairParam}
+            result={result}
+            shareCard={assessment.presentation.shareCard}
+            theme={assessment.presentation.theme}
+          />
+        </Suspense>
       ) : question ? (
         <section className="runner">
           <div className="progress" aria-label={zhCN.runner.progressLabel}>

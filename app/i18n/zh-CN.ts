@@ -6,7 +6,6 @@ export const zhCN = {
     previous: "上一题",
     next: "下一题",
     submit: "查看结果",
-    retake: "重新测试",
     loadingAssessment: "正在加载测试...",
     loadingResult: "正在生成你的结果...",
     testNotFound: "没有找到这个测试",

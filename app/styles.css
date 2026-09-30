@@ -375,13 +375,6 @@ button:disabled {
   background: linear-gradient(180deg, rgba(255, 255, 255, 0), #ffffff 34%);
 }
 
-.result-actions {
-  display: flex;
-  justify-content: flex-end;
-  width: min(740px, 100%);
-  margin: 0 auto 14px;
-}
-
 .test-landing {
   position: relative;
   margin-top: 20px;
