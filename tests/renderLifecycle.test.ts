@@ -1,4 +1,5 @@
 import assert from "node:assert/strict";
+import { readFileSync } from "node:fs";
 import { describe, it } from "node:test";
 import { createElement } from "react";
 import { renderToString } from "react-dom/server";
@@ -19,5 +20,19 @@ describe("assessment runner rendering", () => {
     );
 
     assert.deepEqual(useAssessmentStore.getState().sessions, {});
+  });
+
+  it("renders stored completed results from the test landing without retake controls", () => {
+    const appSource = readFileSync("app/App.tsx", "utf8");
+    const landingSource = appSource.slice(
+      appSource.indexOf("function TestLandingPage()"),
+      appSource.indexOf("function AssessmentRunner()")
+    );
+
+    assert.match(landingSource, /loadCompletedResult/);
+    assert.match(landingSource, /<ResultPage/);
+    assert.doesNotMatch(landingSource, /viewLastResult/);
+    assert.doesNotMatch(landingSource, /clearCompletedResult/);
+    assert.doesNotMatch(landingSource, /restartAssessment/);
   });
 });

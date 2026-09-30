@@ -117,15 +117,11 @@ function TestCard({ assessment, featured = false }: { assessment: (typeof regist
 function TestLandingPage() {
   const { testId } = useParams();
   const [searchParams] = useSearchParams();
-  const navigate = useNavigate();
   const assessment = testId ? getAssessmentById(testId) : undefined;
-  const restartAssessment = useAssessmentStore((state) => state.restartAssessment);
   const [completedRecord, setCompletedRecord] = useState<CompletedResultRecord | undefined>();
-  const [showCompletedResult, setShowCompletedResult] = useState(false);
   const pairParam = safePairParam(assessment, searchParams.get("pair"));
 
   useEffect(() => {
-    setShowCompletedResult(false);
     setCompletedRecord(assessment && !pairParam ? loadCompletedResult(assessment) : undefined);
   }, [assessment, pairParam]);
 
@@ -137,26 +133,12 @@ function TestLandingPage() {
   const runUrl = `/test/${assessment.metadata.id}/run${pairParam ? `?pair=${encodeURIComponent(pairParam)}` : ""}`;
   const canUseCompletedRecord = !pairParam && completedRecord;
 
-  function retakeFromLanding() {
-    if (!assessment) {
-      return;
-    }
-    clearCompletedResult(assessment);
-    restartAssessment(assessment);
-    navigate(runUrl);
-  }
-
-  if (showCompletedResult && canUseCompletedRecord) {
+  if (canUseCompletedRecord) {
     return (
       <main className="page">
-        <button className="link-button" type="button" onClick={() => setShowCompletedResult(false)}>
+        <Link className="link-button" to="/">
           {zhCN.common.backToTests}
-        </button>
-        <div className="result-actions">
-          <button type="button" onClick={retakeFromLanding}>
-            {zhCN.common.retake}
-          </button>
-        </div>
+        </Link>
         <Suspense fallback={<section className="runner">{zhCN.common.loadingResult}</section>}>
           <ResultPage
             assessment={assessment}
@@ -187,20 +169,9 @@ function TestLandingPage() {
         <p>{assessment.metadata.description}</p>
         {pairParam ? <p className="test-landing__preview">{zhCN.compatibility.inviteHint}</p> : null}
         {discovery.resultPreview ? <p className="test-landing__preview">{discovery.resultPreview}</p> : null}
-        {canUseCompletedRecord ? (
-          <div className="actions test-landing__actions">
-            <button className="button button--large" type="button" onClick={() => setShowCompletedResult(true)}>
-              {zhCN.common.viewLastResult}
-            </button>
-            <button type="button" onClick={retakeFromLanding}>
-              {zhCN.common.retake}
-            </button>
-          </div>
-        ) : (
-          <Link className="button button--large" to={runUrl}>
-            {pairParam ? zhCN.compatibility.inviteCta : zhCN.common.startNow}
-          </Link>
-        )}
+        <Link className="button button--large" to={runUrl}>
+          {pairParam ? zhCN.compatibility.inviteCta : zhCN.common.startNow}
+        </Link>
       </section>
     </main>
   );
