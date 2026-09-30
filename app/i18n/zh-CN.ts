@@ -1,6 +1,7 @@
 export const zhCN = {
   common: {
     backToTests: "返回测试列表",
+    backToTest: "返回测试",
     start: "开始测试",
     startNow: "开始测试",
     previous: "上一题",

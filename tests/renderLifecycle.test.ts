@@ -45,6 +45,32 @@ describe("assessment runner rendering", () => {
     assert.doesNotMatch(completedResultBranch, /link-button/);
   });
 
+  it("keeps the answering page back control pointed at the current test landing", () => {
+    const appSource = readFileSync("app/App.tsx", "utf8");
+    const runnerSource = appSource.slice(
+      appSource.indexOf("function AssessmentRunner()"),
+      appSource.indexOf("function safePairParam")
+    );
+
+    assert.match(runnerSource, /!result \?/);
+    assert.match(runnerSource, /zhCN\.common\.backToTest/);
+    assert.match(runnerSource, /navigate\(`\/test\/\$\{assessment\.metadata\.id\}`\)/);
+  });
+
+  it("does not render the test-list back link on the normal test landing", () => {
+    useAssessmentStore.setState({ sessions: {}, results: {} });
+
+    const markup = renderToString(
+      createElement(
+        MemoryRouter,
+        { initialEntries: ["/test/demo-personality"] },
+        createElement(App)
+      )
+    );
+
+    assert.doesNotMatch(markup, /link-button/);
+  });
+
   it("does not render a retake entry after completing a test on the run route", () => {
     const assessment = registeredAssessments.find((item) => item.metadata.id === "demo-personality");
     assert.ok(assessment);

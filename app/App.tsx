@@ -152,9 +152,6 @@ function TestLandingPage() {
 
   return (
     <main className="page">
-      <Link className="link-button" to="/">
-        {zhCN.common.backToTests}
-      </Link>
       <section className={`test-landing cover-${discovery.coverStyle}`}>
         <div className="test-landing__meta">
           <span>{zhCN.categories[discovery.category]}</span>
@@ -212,7 +209,7 @@ function AssessmentRunner() {
     <main className="page">
       {!result ? (
         <button className="link-button" type="button" onClick={() => navigate(`/test/${assessment.metadata.id}`)}>
-          {zhCN.common.backToTests}
+          {zhCN.common.backToTest}
         </button>
       ) : null}
       <header className="header runner-header">
