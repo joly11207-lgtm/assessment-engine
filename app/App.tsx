@@ -136,9 +136,6 @@ function TestLandingPage() {
   if (canUseCompletedRecord) {
     return (
       <main className="page">
-        <Link className="link-button" to="/">
-          {zhCN.common.backToTests}
-        </Link>
         <Suspense fallback={<section className="runner">{zhCN.common.loadingResult}</section>}>
           <ResultPage
             assessment={assessment}
@@ -213,9 +210,11 @@ function AssessmentRunner() {
 
   return (
     <main className="page">
-      <button className="link-button" type="button" onClick={() => navigate(`/test/${assessment.metadata.id}`)}>
-        {zhCN.common.backToTests}
-      </button>
+      {!result ? (
+        <button className="link-button" type="button" onClick={() => navigate(`/test/${assessment.metadata.id}`)}>
+          {zhCN.common.backToTests}
+        </button>
+      ) : null}
       <header className="header runner-header">
         <p className="product-kicker">{zhCN.categories[assessment.metadata.discovery.category]}</p>
         <h1>{assessment.metadata.title}</h1>

@@ -31,12 +31,18 @@ describe("assessment runner rendering", () => {
       appSource.indexOf("function TestLandingPage()"),
       appSource.indexOf("function AssessmentRunner()")
     );
+    const completedResultBranch = landingSource.slice(
+      landingSource.indexOf("if (canUseCompletedRecord)"),
+      landingSource.indexOf("return (", landingSource.indexOf("if (canUseCompletedRecord)") + 1)
+    );
 
     assert.match(landingSource, /loadCompletedResult/);
     assert.match(landingSource, /<ResultPage/);
     assert.doesNotMatch(landingSource, /viewLastResult/);
     assert.doesNotMatch(landingSource, /clearCompletedResult/);
     assert.doesNotMatch(landingSource, /restartAssessment/);
+    assert.doesNotMatch(completedResultBranch, /backToTests/);
+    assert.doesNotMatch(completedResultBranch, /link-button/);
   });
 
   it("does not render a retake entry after completing a test on the run route", () => {
@@ -58,6 +64,7 @@ describe("assessment runner rendering", () => {
     );
 
     assert.doesNotMatch(markup, /重新测试/);
+    assert.doesNotMatch(markup, /link-button/);
     assert.doesNotMatch(markup, /result-actions/);
   });
 });
