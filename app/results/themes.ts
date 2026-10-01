@@ -23,15 +23,15 @@ export const resultThemes = {
     label: "Editorial",
     className: "theme-editorial",
     tokens: {
-      background: "#f2f3ef",
-      surface: "#ffffff",
-      primary: "#156f64",
-      secondary: "#273c47",
-      accent: "#f2a900",
-      text: "#17231f",
-      muted: "#66716c",
-      border: "#daddd7",
-      shadow: "0 12px 32px rgba(31, 47, 41, 0.07)"
+      background: "#f5efe5",
+      surface: "#fffaf1",
+      primary: "#1f5f58",
+      secondary: "#221a16",
+      accent: "#d28b2c",
+      text: "#211d18",
+      muted: "#786f62",
+      border: "#e5d6c2",
+      shadow: "0 22px 60px rgba(56, 42, 28, 0.16)"
     }
   },
   aurora: {
@@ -39,15 +39,15 @@ export const resultThemes = {
     label: "Aurora",
     className: "theme-aurora",
     tokens: {
-      background: "#edf7f3",
-      surface: "#ffffff",
-      primary: "#157a6e",
-      secondary: "#4b5f9f",
-      accent: "#ff7f6e",
-      text: "#16302d",
-      muted: "#536c66",
-      border: "#cfe4dd",
-      shadow: "0 18px 42px rgba(21, 122, 110, 0.12)"
+      background: "#eef7ff",
+      surface: "#fbfdff",
+      primary: "#4a66ff",
+      secondary: "#27c0c7",
+      accent: "#ff7bc4",
+      text: "#15213f",
+      muted: "#60708d",
+      border: "#cbd8ff",
+      shadow: "0 28px 70px rgba(74, 102, 255, 0.2)"
     }
   },
   midnight: {
@@ -55,15 +55,15 @@ export const resultThemes = {
     label: "Midnight",
     className: "theme-midnight",
     tokens: {
-      background: "#111827",
-      surface: "#1f2937",
-      primary: "#8bd3ff",
-      secondary: "#d8b4fe",
-      accent: "#facc15",
-      text: "#f8fafc",
-      muted: "#b6c2cf",
-      border: "#334155",
-      shadow: "0 22px 48px rgba(0, 0, 0, 0.28)"
+      background: "#070a18",
+      surface: "#11172a",
+      primary: "#6ee7ff",
+      secondary: "#a78bfa",
+      accent: "#f8e16c",
+      text: "#f7fbff",
+      muted: "#a9b6ca",
+      border: "#2e3a58",
+      shadow: "0 30px 80px rgba(0, 0, 0, 0.42)"
     }
   },
   playful: {
@@ -71,15 +71,15 @@ export const resultThemes = {
     label: "Playful",
     className: "theme-playful",
     tokens: {
-      background: "#fff7ed",
+      background: "#fff2f4",
       surface: "#ffffff",
-      primary: "#e4572e",
+      primary: "#ff4f8b",
       secondary: "#2f80ed",
-      accent: "#27ae60",
-      text: "#2b241f",
-      muted: "#76685e",
-      border: "#f1d4bd",
-      shadow: "0 16px 38px rgba(228, 87, 46, 0.13)"
+      accent: "#27d17f",
+      text: "#24142a",
+      muted: "#7a6074",
+      border: "#ffd1dd",
+      shadow: "0 24px 56px rgba(255, 79, 139, 0.22)"
     }
   },
   warm: {
@@ -87,15 +87,15 @@ export const resultThemes = {
     label: "Warm",
     className: "theme-warm",
     tokens: {
-      background: "#fff8f1",
-      surface: "#fffefd",
-      primary: "#b75f3a",
-      secondary: "#8a5a78",
-      accent: "#e9a23b",
-      text: "#2e221d",
-      muted: "#77645b",
-      border: "#efd8ca",
-      shadow: "0 18px 40px rgba(183, 95, 58, 0.13)"
+      background: "#fff5e9",
+      surface: "#fffdfa",
+      primary: "#c65d4b",
+      secondary: "#9b5c7f",
+      accent: "#f0b44d",
+      text: "#33211c",
+      muted: "#80695d",
+      border: "#f0d1bd",
+      shadow: "0 24px 60px rgba(198, 93, 75, 0.18)"
     }
   },
   electric: {
@@ -103,15 +103,15 @@ export const resultThemes = {
     label: "Electric",
     className: "theme-electric",
     tokens: {
-      background: "#eef2ff",
+      background: "#eff2ff",
       surface: "#ffffff",
-      primary: "#2354ff",
-      secondary: "#08a88a",
-      accent: "#ff4f8b",
-      text: "#111827",
-      muted: "#5d6474",
-      border: "#cfd8ff",
-      shadow: "0 18px 42px rgba(35, 84, 255, 0.13)"
+      primary: "#1a33ff",
+      secondary: "#00b7a8",
+      accent: "#ffcf21",
+      text: "#0c1024",
+      muted: "#58607b",
+      border: "#bdc7ff",
+      shadow: "0 26px 66px rgba(26, 51, 255, 0.22)"
     }
   }
 } as const satisfies Record<PresentationThemeId, ResultTheme>;

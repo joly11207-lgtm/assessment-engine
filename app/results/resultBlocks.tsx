@@ -92,17 +92,17 @@ export function RadarBlock({ config, index, result }: ResultBlockProps<"radar">)
       <div className="radar-wrap" role="img" aria-label={zhCN.result.radarAlt}>
         <div className="radar-chart" aria-hidden="true">
           <ResponsiveContainer width="100%" height="100%">
-            <RadarChart data={data} outerRadius="62%" margin={{ top: 18, right: 42, bottom: 18, left: 42 }}>
-              <PolarGrid stroke="#d8ddd9" />
-              <PolarAngleAxis dataKey="dimension" tick={{ fill: "#34413c", fontSize: 10.5 }} />
+            <RadarChart data={data} outerRadius="76%" margin={{ top: 6, right: 18, bottom: 6, left: 18 }}>
+              <PolarGrid stroke="var(--result-border)" radialLines={false} />
+              <PolarAngleAxis dataKey="dimension" tick={{ fill: "var(--result-text)", fontSize: 11, fontWeight: 750 }} />
               <PolarRadiusAxis angle={90} domain={[0, config.max]} tickCount={5} tick={false} axisLine={false} />
               <RechartsRadar
                 dataKey="value"
-                stroke="#157a6e"
-                fill="#34a394"
-                fillOpacity={0.34}
-                strokeWidth={2}
-                dot={{ fill: "#f2674a", r: 3, strokeWidth: 0 }}
+                stroke="var(--result-primary)"
+                fill="var(--result-primary)"
+                fillOpacity={0.26}
+                strokeWidth={3}
+                dot={{ fill: "var(--result-accent)", r: 4, strokeWidth: 0 }}
                 isAnimationActive={!reduceMotion}
                 animationDuration={700}
               />
@@ -137,6 +137,7 @@ export function RankingBlock({ config, index, result }: ResultBlockProps<"rankin
           {rankings.map((ranking, rankingIndex) => (
             <motion.li
               key={ranking.id}
+              className={rankingIndex === 0 ? "ranking-item ranking-item--top" : "ranking-item"}
               initial={reduceMotion ? false : { opacity: 0, x: -12 }}
               animate={{ opacity: 1, x: 0 }}
               transition={{ duration: 0.3, delay: reduceMotion ? 0 : 0.12 + rankingIndex * 0.06 }}
