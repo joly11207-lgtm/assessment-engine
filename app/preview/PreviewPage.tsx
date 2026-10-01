@@ -18,12 +18,25 @@ import {
 
 type PreviewMode = "summary" | "runner" | "quick" | "acceptance";
 
+interface PublishState {
+  error?: string;
+  existing?: boolean;
+  pending?: boolean;
+  result?: {
+    commitSha?: string;
+    commitUrl?: string;
+    testId: string;
+  };
+}
+
 export default function PreviewPage() {
   const [loadResult, setLoadResult] = useState<PreviewPackageLoadResult | undefined>();
   const [mode, setMode] = useState<PreviewMode>("summary");
   const [isDragging, setIsDragging] = useState(false);
   const [selectedResult, setSelectedResult] = useState<AssessmentResult | undefined>();
   const [acceptanceRuns, setAcceptanceRuns] = useState<AcceptanceCaseRun[]>([]);
+  const [publishSecret, setPublishSecret] = useState("");
+  const [publishState, setPublishState] = useState<PublishState>({});
   const fileInputRef = useRef<HTMLInputElement>(null);
   const assessment = loadResult?.assessment;
 
@@ -33,6 +46,7 @@ export default function PreviewPage() {
     setMode("summary");
     setSelectedResult(undefined);
     setAcceptanceRuns([]);
+    setPublishState({});
   }
 
   function onDrop(event: DragEvent<HTMLElement>) {
@@ -82,6 +96,17 @@ export default function PreviewPage() {
       </section>
 
       {loadResult ? <PackageSummary loadResult={loadResult} /> : null}
+      {assessment && loadResult.schemaStatus === "pass" && loadResult.errors.length === 0 ? (
+        <PublishPanel
+          acceptanceCases={loadResult.acceptanceCases}
+          assessment={assessment}
+          publishSecret={publishSecret}
+          publishState={publishState}
+          setAcceptanceRuns={setAcceptanceRuns}
+          setPublishSecret={setPublishSecret}
+          setPublishState={setPublishState}
+        />
+      ) : null}
 
       {assessment ? (
         <nav className="preview-actions" aria-label="Preview actions">
@@ -115,6 +140,125 @@ export default function PreviewPage() {
         />
       ) : null}
     </main>
+  );
+}
+
+function PublishPanel({
+  acceptanceCases,
+  assessment,
+  publishSecret,
+  publishState,
+  setAcceptanceRuns,
+  setPublishSecret,
+  setPublishState
+}: {
+  acceptanceCases: PreviewPackageLoadResult["acceptanceCases"];
+  assessment: AssessmentPackage;
+  publishSecret: string;
+  publishState: PublishState;
+  setAcceptanceRuns: (runs: AcceptanceCaseRun[]) => void;
+  setPublishSecret: (secret: string) => void;
+  setPublishState: (state: PublishState) => void;
+}) {
+  async function publish(overwrite: boolean) {
+    setPublishState({ pending: true });
+    if (acceptanceCases.length > 0) {
+      const runs = runAcceptanceCases(assessment, acceptanceCases);
+      setAcceptanceRuns(runs);
+      if (runs.some((run) => !run.passed)) {
+        setPublishState({ error: "Acceptance Cases 未通过，请先修复测试。" });
+        return;
+      }
+    }
+
+    try {
+      const response = await fetch("/api/admin/publish-test", {
+        method: "POST",
+        headers: {
+          Authorization: `Bearer ${publishSecret}`,
+          "Content-Type": "application/json"
+        },
+        body: JSON.stringify({ assessment, overwrite })
+      });
+      const data = (await response.json().catch(() => ({}))) as {
+        commitSha?: string;
+        commitUrl?: string;
+        existing?: boolean;
+        testId?: string;
+        error?: string;
+      };
+
+      if (response.status === 409 && data.existing) {
+        setPublishState({ existing: true, error: "此 testId 已存在" });
+        return;
+      }
+      if (!response.ok) {
+        setPublishState({ error: data.error ?? "发布失败，请稍后重试。" });
+        return;
+      }
+
+      setPublishState({
+        result: {
+          commitSha: data.commitSha,
+          commitUrl: data.commitUrl,
+          testId: data.testId ?? assessment.metadata.id
+        }
+      });
+    } catch {
+      setPublishState({ error: "发布失败，请检查网络后重试。" });
+    }
+  }
+
+  return (
+    <section className="preview-publish">
+      <div>
+        <p className="product-kicker">Publish</p>
+        <h2>发布到正式站</h2>
+        <p>仅发送已通过校验的 test.json；ZIP 和 GitHub token 不会进入浏览器。</p>
+      </div>
+      <label>
+        <span>管理员发布密码</span>
+        <input
+          autoComplete="off"
+          onChange={(event) => setPublishSecret(event.currentTarget.value)}
+          placeholder="Publish secret"
+          type="password"
+          value={publishSecret}
+        />
+      </label>
+      <div className="preview-actions">
+        <button disabled={!publishSecret || publishState.pending} onClick={() => void publish(false)} type="button">
+          {publishState.pending ? "发布中..." : "发布到正式站"}
+        </button>
+      </div>
+      {publishState.existing ? (
+        <div className="preview-publish__conflict">
+          <p>此 testId 已存在</p>
+          <button type="button" onClick={() => setPublishState({})}>
+            取消
+          </button>
+          <button disabled={publishState.pending} type="button" onClick={() => void publish(true)}>
+            更新现有测试
+          </button>
+        </div>
+      ) : null}
+      {publishState.error && !publishState.existing ? <p className="preview-publish__error">{publishState.error}</p> : null}
+      {publishState.result ? (
+        <div className="preview-publish__success">
+          <h3>发布成功</h3>
+          <p>Test: {assessment.metadata.title}</p>
+          <p>ID: {assessment.metadata.id}</p>
+          <p>Commit: {publishState.result.commitSha ? publishState.result.commitSha.slice(0, 7) : "GitHub 已提交"}</p>
+          <p>GitHub 已提交</p>
+          <p>Cloudflare Pages 正在自动部署</p>
+          {publishState.result.commitUrl ? (
+            <a href={publishState.result.commitUrl} rel="noreferrer" target="_blank">
+              查看 Commit
+            </a>
+          ) : null}
+        </div>
+      ) : null}
+    </section>
   );
 }
 

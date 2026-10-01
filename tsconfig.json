@@ -16,5 +16,5 @@
     "noEmit": true,
     "jsx": "react-jsx"
   },
-  "include": ["app", "content", "engine", "registry", "schema", "src", "store", "tests", "tools"]
+  "include": ["app", "content", "engine", "functions", "registry", "schema", "src", "store", "tests", "tools"]
 }

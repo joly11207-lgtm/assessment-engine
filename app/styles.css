@@ -456,6 +456,56 @@ button:disabled {
   margin-top: 18px;
 }
 
+.preview-publish {
+  display: grid;
+  gap: 14px;
+  margin-top: 18px;
+  padding: 22px;
+  border: 1px solid #daddd7;
+  border-radius: 8px;
+  background: #ffffff;
+}
+
+.preview-publish h2,
+.preview-publish h3,
+.preview-publish p {
+  margin: 0;
+}
+
+.preview-publish label {
+  display: grid;
+  gap: 6px;
+  color: #66716c;
+  font-size: 13px;
+  font-weight: 850;
+}
+
+.preview-publish input {
+  min-height: 44px;
+  padding: 0 12px;
+  border: 1px solid #daddd7;
+  border-radius: 8px;
+}
+
+.preview-publish__conflict,
+.preview-publish__success {
+  display: grid;
+  gap: 10px;
+  padding: 14px;
+  border-radius: 8px;
+  background: #fff8e4;
+}
+
+.preview-publish__success {
+  background: #edf8f5;
+}
+
+.preview-publish__error {
+  padding: 12px 14px;
+  border-left: 4px solid #d94d3d;
+  background: #fff1ef;
+}
+
 .preview-summary {
   padding: 22px;
   border: 1px solid #daddd7;

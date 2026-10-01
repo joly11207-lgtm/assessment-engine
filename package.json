@@ -9,7 +9,7 @@
     "build": "npm run validate && tsc --noEmit -p tsconfig.json && vite build",
     "preview": "vite preview",
     "screenshots": "node tools/captureResultScreenshots.mjs",
-    "test": "npm run validate && node --import tsx --test tests/schemaValidation.test.ts tests/scoring.test.ts tests/compatibility.test.ts tests/previewZipLoader.test.ts tests/persistence.test.ts tests/submission.test.ts tests/registryDiscovery.test.ts tests/buildGate.test.ts tests/renderLifecycle.test.ts tests/resultBlocks.test.ts tests/endToEndFixtures.test.ts",
+    "test": "npm run validate && node --import tsx --test tests/schemaValidation.test.ts tests/scoring.test.ts tests/compatibility.test.ts tests/previewZipLoader.test.ts tests/publishTestFunction.test.ts tests/persistence.test.ts tests/submission.test.ts tests/registryDiscovery.test.ts tests/buildGate.test.ts tests/renderLifecycle.test.ts tests/resultBlocks.test.ts tests/endToEndFixtures.test.ts",
     "validate": "tsx tools/validateAssessments.ts"
   },
   "dependencies": {
