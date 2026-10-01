@@ -1,0 +1,1012 @@
+{
+  "schemaVersion": "1.0",
+  "metadata": {
+    "id": "animal-personality-6",
+    "version": "v1",
+    "title": "你的动物人格是哪一种？",
+    "description": "20个日常情景，看看你更像金毛、猫、狐狸、猫头鹰、海豚还是狼。娱乐向人格测试，不用于心理诊断。",
+    "discovery": {
+      "category": "personality",
+      "shortTitle": "你的动物人格",
+      "estimatedMinutes": 4,
+      "featured": false,
+      "badge": "动物人格",
+      "coverStyle": "aurora",
+      "resultPreview": "20题测出最像你的动物人格"
+    }
+  },
+  "dimensions": [
+    {
+      "id": "social",
+      "label": "社交能量",
+      "description": "在人群中主动连接、表达和参与的倾向",
+      "min": -8,
+      "max": 8
+    },
+    {
+      "id": "warmth",
+      "label": "情感温度",
+      "description": "表达关心、接住情绪和建立亲近感的倾向",
+      "min": -8,
+      "max": 8
+    },
+    {
+      "id": "independence",
+      "label": "独立边界",
+      "description": "自主决策、保留个人空间和独立行动的倾向",
+      "min": -8,
+      "max": 8
+    },
+    {
+      "id": "structure",
+      "label": "秩序规划",
+      "description": "偏好计划、确定性、规则和稳定节奏的倾向",
+      "min": -8,
+      "max": 8
+    },
+    {
+      "id": "novelty",
+      "label": "探索新鲜",
+      "description": "主动尝试变化、新体验和未知可能的倾向",
+      "min": -8,
+      "max": 8
+    }
+  ],
+  "questions": [
+    {
+      "id": "q01",
+      "type": "single-choice",
+      "text": "到了一个几乎谁都不认识的聚会，你通常会？",
+      "required": true,
+      "options": [
+        {
+          "id": "a",
+          "label": "先找个舒服的位置待着，等别人来聊",
+          "weights": {
+            "social": -2
+          }
+        },
+        {
+          "id": "b",
+          "label": "只和身边一两个人慢慢聊",
+          "weights": {
+            "social": -1
+          }
+        },
+        {
+          "id": "c",
+          "label": "看到有趣的人会主动加入话题",
+          "weights": {
+            "social": 1
+          }
+        },
+        {
+          "id": "d",
+          "label": "很快在场子里转起来，认识一圈人",
+          "weights": {
+            "social": 2
+          }
+        }
+      ]
+    },
+    {
+      "id": "q02",
+      "type": "single-choice",
+      "text": "朋友临时约你，但你原本安排了一个人的时间，你更可能？",
+      "required": true,
+      "options": [
+        {
+          "id": "a",
+          "label": "大多会改掉自己的安排去见朋友",
+          "weights": {
+            "independence": -2
+          }
+        },
+        {
+          "id": "b",
+          "label": "看朋友是否特别需要我再决定",
+          "weights": {
+            "independence": -1
+          }
+        },
+        {
+          "id": "c",
+          "label": "如果时间合适就去，不合适会说明",
+          "weights": {
+            "independence": 1
+          }
+        },
+        {
+          "id": "d",
+          "label": "通常优先保留自己的安排，下次再约",
+          "weights": {
+            "independence": 2
+          }
+        }
+      ]
+    },
+    {
+      "id": "q03",
+      "type": "single-choice",
+      "text": "周末突然多出一天假期，你更想？",
+      "required": true,
+      "options": [
+        {
+          "id": "a",
+          "label": "照熟悉的节奏过，舒服最重要",
+          "weights": {
+            "novelty": -2
+          }
+        },
+        {
+          "id": "b",
+          "label": "去一个熟悉但久没去的地方",
+          "weights": {
+            "novelty": -1
+          }
+        },
+        {
+          "id": "c",
+          "label": "临时找个没试过的活动",
+          "weights": {
+            "novelty": 1
+          }
+        },
+        {
+          "id": "d",
+          "label": "直接安排一次完全陌生的小冒险",
+          "weights": {
+            "novelty": 2
+          }
+        }
+      ]
+    },
+    {
+      "id": "q04",
+      "type": "single-choice",
+      "text": "朋友明显心情不好，却说“没事”，你会？",
+      "required": true,
+      "options": [
+        {
+          "id": "a",
+          "label": "尊重他说没事，不特别追问",
+          "weights": {
+            "warmth": -2
+          }
+        },
+        {
+          "id": "b",
+          "label": "告诉他需要时可以找我",
+          "weights": {
+            "warmth": -1
+          }
+        },
+        {
+          "id": "c",
+          "label": "陪在旁边，找机会让他放松一点",
+          "weights": {
+            "warmth": 1
+          }
+        },
+        {
+          "id": "d",
+          "label": "会主动确认他的感受，并想办法陪他度过",
+          "weights": {
+            "warmth": 2
+          }
+        }
+      ]
+    },
+    {
+      "id": "q05",
+      "type": "single-choice",
+      "text": "面对一次多人出行，你比较喜欢？",
+      "required": true,
+      "options": [
+        {
+          "id": "a",
+          "label": "到了再说，临场决定最好玩",
+          "weights": {
+            "structure": -2
+          }
+        },
+        {
+          "id": "b",
+          "label": "只定最关键的交通住宿",
+          "weights": {
+            "structure": -1
+          }
+        },
+        {
+          "id": "c",
+          "label": "提前列个大致计划，保留弹性",
+          "weights": {
+            "structure": 1
+          }
+        },
+        {
+          "id": "d",
+          "label": "时间、路线、备选方案都先安排清楚",
+          "weights": {
+            "structure": 2
+          }
+        }
+      ]
+    },
+    {
+      "id": "q06",
+      "type": "single-choice",
+      "text": "群聊突然热闹起来，你一般是？",
+      "required": true,
+      "options": [
+        {
+          "id": "a",
+          "label": "看看就好，很少发言",
+          "weights": {
+            "social": -2
+          }
+        },
+        {
+          "id": "b",
+          "label": "有和自己相关的话题才会接",
+          "weights": {
+            "social": -1
+          }
+        },
+        {
+          "id": "c",
+          "label": "经常接梗、分享、回应别人",
+          "weights": {
+            "social": 1
+          }
+        },
+        {
+          "id": "d",
+          "label": "通常就是把群聊带热的人之一",
+          "weights": {
+            "social": 2
+          }
+        }
+      ]
+    },
+    {
+      "id": "q07",
+      "type": "single-choice",
+      "text": "别人送了你一份很用心的小礼物，你的第一反应更像？",
+      "required": true,
+      "options": [
+        {
+          "id": "a",
+          "label": "喜欢就收下，不太会表现得很明显",
+          "weights": {
+            "warmth": -2
+          }
+        },
+        {
+          "id": "b",
+          "label": "会认真说谢谢，也会表达自己的喜欢",
+          "weights": {
+            "warmth": -1
+          }
+        },
+        {
+          "id": "c",
+          "label": "会马上表达惊喜，并记住这份心意",
+          "weights": {
+            "warmth": 1
+          }
+        },
+        {
+          "id": "d",
+          "label": "除了表达开心，还会想着找机会回馈对方",
+          "weights": {
+            "warmth": 2
+          }
+        }
+      ]
+    },
+    {
+      "id": "q08",
+      "type": "single-choice",
+      "text": "突然有人把已经定好的计划改了，你通常？",
+      "required": true,
+      "options": [
+        {
+          "id": "a",
+          "label": "没关系，改就改，我适应很快",
+          "weights": {
+            "structure": -2
+          }
+        },
+        {
+          "id": "b",
+          "label": "会有一点打乱，但很快调整",
+          "weights": {
+            "structure": -1
+          }
+        },
+        {
+          "id": "c",
+          "label": "希望先说明原因，再重新确定安排",
+          "weights": {
+            "structure": 1
+          }
+        },
+        {
+          "id": "d",
+          "label": "会明显不舒服，尤其不喜欢反复变化",
+          "weights": {
+            "structure": 2
+          }
+        }
+      ]
+    },
+    {
+      "id": "q09",
+      "type": "single-choice",
+      "text": "如果大家都推荐一个选择，但你自己不太喜欢，你会？",
+      "required": true,
+      "options": [
+        {
+          "id": "a",
+          "label": "多数时候顺着大家，省得麻烦",
+          "weights": {
+            "independence": -2
+          }
+        },
+        {
+          "id": "b",
+          "label": "可能跟着选，但心里会保留意见",
+          "weights": {
+            "independence": -1
+          }
+        },
+        {
+          "id": "c",
+          "label": "会说出自己的偏好，看看能否协调",
+          "weights": {
+            "independence": 1
+          }
+        },
+        {
+          "id": "d",
+          "label": "只要不是必须统一，我通常按自己的选择来",
+          "weights": {
+            "independence": 2
+          }
+        }
+      ]
+    },
+    {
+      "id": "q10",
+      "type": "single-choice",
+      "text": "看到一家评价不多、但很特别的新店，你会？",
+      "required": true,
+      "options": [
+        {
+          "id": "a",
+          "label": "还是去自己熟悉的店更安心",
+          "weights": {
+            "novelty": -2
+          }
+        },
+        {
+          "id": "b",
+          "label": "先看看更多评价再决定",
+          "weights": {
+            "novelty": -1
+          }
+        },
+        {
+          "id": "c",
+          "label": "如果刚好顺路，会愿意试试",
+          "weights": {
+            "novelty": 1
+          }
+        },
+        {
+          "id": "d",
+          "label": "越是没试过越想进去看看",
+          "weights": {
+            "novelty": 2
+          }
+        }
+      ]
+    },
+    {
+      "id": "q11",
+      "type": "single-choice",
+      "text": "朋友取得了一个对他很重要的小成就，你通常？",
+      "required": true,
+      "options": [
+        {
+          "id": "a",
+          "label": "觉得不错，但未必会专门表达",
+          "weights": {
+            "warmth": -2
+          }
+        },
+        {
+          "id": "b",
+          "label": "会发一句恭喜",
+          "weights": {
+            "warmth": -1
+          }
+        },
+        {
+          "id": "c",
+          "label": "会认真替他开心，聊聊过程",
+          "weights": {
+            "warmth": 1
+          }
+        },
+        {
+          "id": "d",
+          "label": "会很有参与感，甚至想帮他庆祝一下",
+          "weights": {
+            "warmth": 2
+          }
+        }
+      ]
+    },
+    {
+      "id": "q12",
+      "type": "single-choice",
+      "text": "需要在一群人面前介绍自己时，你更像？",
+      "required": true,
+      "options": [
+        {
+          "id": "a",
+          "label": "希望越短越好，赶紧结束",
+          "weights": {
+            "social": -2
+          }
+        },
+        {
+          "id": "b",
+          "label": "能说清楚基本信息就行",
+          "weights": {
+            "social": -1
+          }
+        },
+        {
+          "id": "c",
+          "label": "会自然讲一点有趣的细节",
+          "weights": {
+            "social": 1
+          }
+        },
+        {
+          "id": "d",
+          "label": "很容易把介绍变成一个轻松的小互动",
+          "weights": {
+            "social": 2
+          }
+        }
+      ]
+    },
+    {
+      "id": "q13",
+      "type": "single-choice",
+      "text": "有一个两周后要交的任务，你通常？",
+      "required": true,
+      "options": [
+        {
+          "id": "a",
+          "label": "临近截止再集中处理效率更高",
+          "weights": {
+            "structure": -2
+          }
+        },
+        {
+          "id": "b",
+          "label": "前期不急，过几天再开始",
+          "weights": {
+            "structure": -1
+          }
+        },
+        {
+          "id": "c",
+          "label": "会分成几步，按进度推进",
+          "weights": {
+            "structure": 1
+          }
+        },
+        {
+          "id": "d",
+          "label": "一开始就会拆解计划并留出缓冲时间",
+          "weights": {
+            "structure": 2
+          }
+        }
+      ]
+    },
+    {
+      "id": "q14",
+      "type": "single-choice",
+      "text": "和很亲近的人相处时，你觉得最舒服的是？",
+      "required": true,
+      "options": [
+        {
+          "id": "a",
+          "label": "很多事情一起做，会更有连接感",
+          "weights": {
+            "independence": -2
+          }
+        },
+        {
+          "id": "b",
+          "label": "大部分时间一起，偶尔各忙各的",
+          "weights": {
+            "independence": -1
+          }
+        },
+        {
+          "id": "c",
+          "label": "亲近和各自空间都要有",
+          "weights": {
+            "independence": 1
+          }
+        },
+        {
+          "id": "d",
+          "label": "即使关系很好，也需要稳定的个人时间",
+          "weights": {
+            "independence": 2
+          }
+        }
+      ]
+    },
+    {
+      "id": "q15",
+      "type": "single-choice",
+      "text": "选旅行目的地时，你更容易被什么吸引？",
+      "required": true,
+      "options": [
+        {
+          "id": "a",
+          "label": "去过而且体验很好，知道不会踩雷",
+          "weights": {
+            "novelty": -2
+          }
+        },
+        {
+          "id": "b",
+          "label": "经典路线，信息充分、好安排",
+          "weights": {
+            "novelty": -1
+          }
+        },
+        {
+          "id": "c",
+          "label": "有特色、没去过，但整体可控",
+          "weights": {
+            "novelty": 1
+          }
+        },
+        {
+          "id": "d",
+          "label": "陌生、特别、可能会有意外发现的地方",
+          "weights": {
+            "novelty": 2
+          }
+        }
+      ]
+    },
+    {
+      "id": "q16",
+      "type": "single-choice",
+      "text": "在一个新团队里，你通常多久会和大家熟起来？",
+      "required": true,
+      "options": [
+        {
+          "id": "a",
+          "label": "需要比较长时间，先观察环境",
+          "weights": {
+            "social": -2
+          }
+        },
+        {
+          "id": "b",
+          "label": "和固定几个人先熟起来",
+          "weights": {
+            "social": -1
+          }
+        },
+        {
+          "id": "c",
+          "label": "会主动参与，很快认识不少人",
+          "weights": {
+            "social": 1
+          }
+        },
+        {
+          "id": "d",
+          "label": "通常很快就能和大多数人自然互动",
+          "weights": {
+            "social": 2
+          }
+        }
+      ]
+    },
+    {
+      "id": "q17",
+      "type": "single-choice",
+      "text": "买一个价格不低的东西前，你比较像？",
+      "required": true,
+      "options": [
+        {
+          "id": "a",
+          "label": "喜欢就买，想太多反而累",
+          "weights": {
+            "structure": -2
+          }
+        },
+        {
+          "id": "b",
+          "label": "大致比较一下就决定",
+          "weights": {
+            "structure": -1
+          }
+        },
+        {
+          "id": "c",
+          "label": "会查参数、评价和替代选项",
+          "weights": {
+            "structure": 1
+          }
+        },
+        {
+          "id": "d",
+          "label": "会把需求、预算、风险都想清楚再下单",
+          "weights": {
+            "structure": 2
+          }
+        }
+      ]
+    },
+    {
+      "id": "q18",
+      "type": "single-choice",
+      "text": "和亲近的人发生小摩擦后，你更常做什么？",
+      "required": true,
+      "options": [
+        {
+          "id": "a",
+          "label": "先各自冷静，没必要马上处理",
+          "weights": {
+            "warmth": -2
+          }
+        },
+        {
+          "id": "b",
+          "label": "过一阵子再自然恢复",
+          "weights": {
+            "warmth": -1
+          }
+        },
+        {
+          "id": "c",
+          "label": "会找机会把误会说开",
+          "weights": {
+            "warmth": 1
+          }
+        },
+        {
+          "id": "d",
+          "label": "会主动确认对方感受，也希望关系尽快修复",
+          "weights": {
+            "warmth": 2
+          }
+        }
+      ]
+    },
+    {
+      "id": "q19",
+      "type": "single-choice",
+      "text": "别人给你很多建议时，你通常？",
+      "required": true,
+      "options": [
+        {
+          "id": "a",
+          "label": "有经验的人怎么说，我往往就怎么做",
+          "weights": {
+            "independence": -2
+          }
+        },
+        {
+          "id": "b",
+          "label": "会参考多数人的看法",
+          "weights": {
+            "independence": -1
+          }
+        },
+        {
+          "id": "c",
+          "label": "会听，但最后还是自己判断",
+          "weights": {
+            "independence": 1
+          }
+        },
+        {
+          "id": "d",
+          "label": "更习惯先形成自己的判断，再决定参考什么",
+          "weights": {
+            "independence": 2
+          }
+        }
+      ]
+    },
+    {
+      "id": "q20",
+      "type": "single-choice",
+      "text": "如果一种方法已经很好用，你会？",
+      "required": true,
+      "options": [
+        {
+          "id": "a",
+          "label": "继续用，不太需要改变",
+          "weights": {
+            "novelty": -2
+          }
+        },
+        {
+          "id": "b",
+          "label": "除非遇到问题，否则不折腾",
+          "weights": {
+            "novelty": -1
+          }
+        },
+        {
+          "id": "c",
+          "label": "看到更好的新方法会愿意试",
+          "weights": {
+            "novelty": 1
+          }
+        },
+        {
+          "id": "d",
+          "label": "即使现在能用，我也喜欢主动探索新玩法",
+          "weights": {
+            "novelty": 2
+          }
+        }
+      ]
+    }
+  ],
+  "scoring": {
+    "pipeline": [
+      {
+        "strategy": "weighted-dimension"
+      },
+      {
+        "strategy": "normalize"
+      },
+      {
+        "strategy": "profile-match",
+        "topN": 3
+      }
+    ]
+  },
+  "results": {
+    "catalog": [
+      {
+        "id": "golden-retriever",
+        "title": "金毛人格",
+        "summary": "你像一只热情又有回应感的金毛：愿意主动靠近人，也擅长让别人感到被欢迎。你享受连接、分享和一起行动，关系中的温度对你很重要。",
+        "tags": [
+          "热情",
+          "好相处",
+          "有回应感",
+          "气氛担当"
+        ]
+      },
+      {
+        "id": "cat",
+        "title": "猫系人格",
+        "summary": "你像一只很有自己节奏的猫：可以亲近，也需要空间。你不喜欢被关系绑住，更看重自然、舒服和边界清楚，熟悉之后会展现很细腻的一面。",
+        "tags": [
+          "独立",
+          "边界感",
+          "慢热",
+          "有自己的节奏"
+        ]
+      },
+      {
+        "id": "fox",
+        "title": "狐狸人格",
+        "summary": "你像一只灵活机敏的狐狸：脑子转得快，喜欢新鲜感，也习惯自己判断。你不一定是最热闹的人，但很容易发现别人没注意到的可能性。",
+        "tags": [
+          "机敏",
+          "探索欲",
+          "自主",
+          "灵活"
+        ]
+      },
+      {
+        "id": "owl",
+        "title": "猫头鹰人格",
+        "summary": "你像一只安静而有秩序的猫头鹰：先观察、再判断，喜欢把事情想清楚。你重视稳定、逻辑和可控感，不追求热闹，但往往是让人放心的存在。",
+        "tags": [
+          "理性",
+          "稳重",
+          "有规划",
+          "观察型"
+        ]
+      },
+      {
+        "id": "dolphin",
+        "title": "海豚人格",
+        "summary": "你像一只活力十足的海豚：喜欢互动，也容易被新鲜体验点燃。你擅长把快乐扩散出去，越有变化、越有参与感的环境，越容易发挥你的魅力。",
+        "tags": [
+          "活力",
+          "外向",
+          "好奇",
+          "感染力"
+        ]
+      },
+      {
+        "id": "wolf",
+        "title": "狼系人格",
+        "summary": "你像一只稳定而有担当的狼：既能独立行动，也很看重真正重要的关系和承诺。你不需要一直热闹，但一旦认定目标或伙伴，通常会长期投入。",
+        "tags": [
+          "可靠",
+          "有主见",
+          "重承诺",
+          "稳定"
+        ]
+      }
+    ],
+    "profiles": [
+      {
+        "id": "profile-golden-retriever",
+        "resultId": "golden-retriever",
+        "dimensionTargets": {
+          "social": 84,
+          "warmth": 91,
+          "independence": 38,
+          "structure": 52,
+          "novelty": 62
+        }
+      },
+      {
+        "id": "profile-cat",
+        "resultId": "cat",
+        "dimensionTargets": {
+          "social": 34,
+          "warmth": 61,
+          "independence": 88,
+          "structure": 52,
+          "novelty": 44
+        }
+      },
+      {
+        "id": "profile-fox",
+        "resultId": "fox",
+        "dimensionTargets": {
+          "social": 56,
+          "warmth": 43,
+          "independence": 81,
+          "structure": 45,
+          "novelty": 91
+        }
+      },
+      {
+        "id": "profile-owl",
+        "resultId": "owl",
+        "dimensionTargets": {
+          "social": 28,
+          "warmth": 45,
+          "independence": 67,
+          "structure": 91,
+          "novelty": 31
+        }
+      },
+      {
+        "id": "profile-dolphin",
+        "resultId": "dolphin",
+        "dimensionTargets": {
+          "social": 93,
+          "warmth": 76,
+          "independence": 45,
+          "structure": 31,
+          "novelty": 92
+        }
+      },
+      {
+        "id": "profile-wolf",
+        "resultId": "wolf",
+        "dimensionTargets": {
+          "social": 49,
+          "warmth": 72,
+          "independence": 70,
+          "structure": 84,
+          "novelty": 52
+        }
+      }
+    ],
+    "entities": [],
+    "compatibility": {
+      "enabled": false,
+      "mode": "symmetric",
+      "allowPartialCoverage": true,
+      "dimensions": []
+    },
+    "compatibilityPairs": []
+  },
+  "presentation": {
+    "theme": "playful",
+    "blocks": [
+      {
+        "type": "hero",
+        "variant": "identity",
+        "showSecondary": true,
+        "showMatch": true,
+        "showTags": true
+      },
+      {
+        "type": "quote",
+        "statements": [
+          {
+            "resultId": "golden-retriever",
+            "text": "“有我在，气氛就不会冷下来。”"
+          },
+          {
+            "resultId": "cat",
+            "text": "“我会靠近你，但也要保留属于自己的窗台。”"
+          },
+          {
+            "resultId": "fox",
+            "text": "“世界这么大，总有一条更有意思的路。”"
+          },
+          {
+            "resultId": "owl",
+            "text": "“先看清楚，再出手，也不迟。”"
+          },
+          {
+            "resultId": "dolphin",
+            "text": "“好玩的事，当然要拉上大家一起。”"
+          },
+          {
+            "resultId": "wolf",
+            "text": "“我不轻易承诺，但答应了就会认真走下去。”"
+          }
+        ]
+      },
+      {
+        "type": "tags"
+      },
+      {
+        "type": "radar",
+        "max": 100
+      },
+      {
+        "type": "highlight",
+        "title": "一眼看懂你的动物人格",
+        "facts": [
+          {
+            "source": "primary-title",
+            "label": "你的动物人格"
+          },
+          {
+            "source": "match-percentage",
+            "label": "匹配度"
+          }
+        ]
+      }
+    ],
+    "shareCard": {
+      "enabled": true,
+      "layout": "portrait",
+      "headline": "我的动物人格",
+      "subtitle": "20题测出你最像哪种动物",
+      "showTags": true,
+      "showMatch": true,
+      "showRadarSummary": false,
+      "dimensionIds": [],
+      "qrCode": true,
+      "brandingText": "Animal Personality"
+    }
+  },
+  "assets": {}
+}
