@@ -1,0 +1,1329 @@
+{
+  "schemaVersion": "1.0",
+  "metadata": {
+    "id": "soul-city-china",
+    "version": "v1",
+    "title": "你的灵魂最适合中国哪座城市？",
+    "description": "24道生活方式情境题，从节奏、社交、新鲜感、秩序、人文与自然偏好，匹配与你更合拍的中国城市生活气质。娱乐向测试，不代表现实迁居建议。",
+    "discovery": {
+      "category": "city",
+      "shortTitle": "灵魂最适合哪座中国城市",
+      "estimatedMinutes": 4,
+      "featured": false,
+      "badge": "城市灵魂测试",
+      "coverStyle": "electric",
+      "resultPreview": "测测哪座中国城市，最像你想过的那种生活。"
+    }
+  },
+  "dimensions": [
+    {
+      "id": "pace",
+      "label": "生活节奏",
+      "description": "你对高效率、快速变化与紧凑日程的舒适度",
+      "min": -8,
+      "max": 8
+    },
+    {
+      "id": "social",
+      "label": "社交密度",
+      "description": "你从热闹、人群连接与即时互动中获得能量的程度",
+      "min": -8,
+      "max": 8
+    },
+    {
+      "id": "novelty",
+      "label": "新鲜探索",
+      "description": "你对新事物、新场景与变化感的需求",
+      "min": -8,
+      "max": 8
+    },
+    {
+      "id": "order",
+      "label": "秩序规划",
+      "description": "你对规则清晰、可预期与生活组织感的偏好",
+      "min": -8,
+      "max": 8
+    },
+    {
+      "id": "culture",
+      "label": "文化沉浸",
+      "description": "你对历史、人文、展览、街区故事与审美氛围的需求",
+      "min": -8,
+      "max": 8
+    },
+    {
+      "id": "nature",
+      "label": "自然亲近",
+      "description": "你对山水、海岸、绿意与户外空间的日常需求",
+      "min": -8,
+      "max": 8
+    }
+  ],
+  "questions": [
+    {
+      "id": "q01",
+      "type": "single-choice",
+      "text": "一个完全属于你的周六，你更想怎么过？",
+      "required": true,
+      "options": [
+        {
+          "id": "a",
+          "label": "睡到自然醒，临时决定去哪儿",
+          "weights": {
+            "pace": -2
+          }
+        },
+        {
+          "id": "b",
+          "label": "只安排一件想做的事，其他随缘",
+          "weights": {
+            "pace": -1
+          }
+        },
+        {
+          "id": "c",
+          "label": "提前约好两三件事，充实一点更舒服",
+          "weights": {
+            "pace": 1
+          }
+        },
+        {
+          "id": "d",
+          "label": "从早到晚排满行程，越高效越有满足感",
+          "weights": {
+            "pace": 2
+          }
+        }
+      ]
+    },
+    {
+      "id": "q02",
+      "type": "single-choice",
+      "text": "搬到一个新地方后的第一个月，你最舒服的状态是？",
+      "required": true,
+      "options": [
+        {
+          "id": "a",
+          "label": "先把自己的生活安顿好，不急着认识人",
+          "weights": {
+            "social": -2
+          }
+        },
+        {
+          "id": "b",
+          "label": "有一两个聊得来的人就够了",
+          "weights": {
+            "social": -1
+          }
+        },
+        {
+          "id": "c",
+          "label": "愿意主动加入兴趣局，慢慢扩大圈子",
+          "weights": {
+            "social": 1
+          }
+        },
+        {
+          "id": "d",
+          "label": "很快认识一群人，饭局活动越多越来劲",
+          "weights": {
+            "social": 2
+          }
+        }
+      ]
+    },
+    {
+      "id": "q03",
+      "type": "single-choice",
+      "text": "面对一家熟悉店和一家新店，你通常选哪边？",
+      "required": true,
+      "options": [
+        {
+          "id": "a",
+          "label": "还是去那家熟悉的，稳定最重要",
+          "weights": {
+            "novelty": -2
+          }
+        },
+        {
+          "id": "b",
+          "label": "看当天状态，多半选熟悉的",
+          "weights": {
+            "novelty": -1
+          }
+        },
+        {
+          "id": "c",
+          "label": "更愿意试试新店，踩雷也算体验",
+          "weights": {
+            "novelty": 1
+          }
+        },
+        {
+          "id": "d",
+          "label": "一定去新的，我就喜欢未知感",
+          "weights": {
+            "novelty": 2
+          }
+        }
+      ]
+    },
+    {
+      "id": "q04",
+      "type": "single-choice",
+      "text": "旅行前你会准备到什么程度？",
+      "required": true,
+      "options": [
+        {
+          "id": "a",
+          "label": "买好票就出发，到了再说",
+          "weights": {
+            "order": -2
+          }
+        },
+        {
+          "id": "b",
+          "label": "只定住处和大方向",
+          "weights": {
+            "order": -1
+          }
+        },
+        {
+          "id": "c",
+          "label": "会列路线和备选方案，但允许调整",
+          "weights": {
+            "order": 1
+          }
+        },
+        {
+          "id": "d",
+          "label": "时间、路线、餐厅、交通都提前安排好",
+          "weights": {
+            "order": 2
+          }
+        }
+      ]
+    },
+    {
+      "id": "q05",
+      "type": "single-choice",
+      "text": "如果住处附近只能长期保留一种公共空间，你更希望是？",
+      "required": true,
+      "options": [
+        {
+          "id": "a",
+          "label": "大型商场和便利生活配套",
+          "weights": {
+            "culture": -2
+          }
+        },
+        {
+          "id": "b",
+          "label": "舒服的咖啡馆与社区小店",
+          "weights": {
+            "culture": -1
+          }
+        },
+        {
+          "id": "c",
+          "label": "书店、展览馆、剧场这类文化空间",
+          "weights": {
+            "culture": 1
+          }
+        },
+        {
+          "id": "d",
+          "label": "老街、博物馆、古迹与城市故事密集的区域",
+          "weights": {
+            "culture": 2
+          }
+        }
+      ]
+    },
+    {
+      "id": "q06",
+      "type": "single-choice",
+      "text": "下班后还有一小时空闲，你更容易被哪种去处吸引？",
+      "required": true,
+      "options": [
+        {
+          "id": "a",
+          "label": "室内娱乐或商场，天气影响小",
+          "weights": {
+            "nature": -2
+          }
+        },
+        {
+          "id": "b",
+          "label": "街区散步就很好，不必专门看风景",
+          "weights": {
+            "nature": -1
+          }
+        },
+        {
+          "id": "c",
+          "label": "公园、江边、湖边走一圈会很治愈",
+          "weights": {
+            "nature": 1
+          }
+        },
+        {
+          "id": "d",
+          "label": "只要方便，我会直接去山边、海边或大块绿地",
+          "weights": {
+            "nature": 2
+          }
+        }
+      ]
+    },
+    {
+      "id": "q07",
+      "type": "single-choice",
+      "text": "工作突然多出三件临时任务，你第一反应更像？",
+      "required": true,
+      "options": [
+        {
+          "id": "a",
+          "label": "会明显烦躁，希望今天别再加事",
+          "weights": {
+            "pace": -2
+          }
+        },
+        {
+          "id": "b",
+          "label": "先缓一缓，一件件来",
+          "weights": {
+            "pace": -1
+          }
+        },
+        {
+          "id": "c",
+          "label": "快速排优先级，忙起来也能进入状态",
+          "weights": {
+            "pace": 1
+          }
+        },
+        {
+          "id": "d",
+          "label": "反而兴奋，越是多线程越有战斗感",
+          "weights": {
+            "pace": 2
+          }
+        }
+      ]
+    },
+    {
+      "id": "q08",
+      "type": "single-choice",
+      "text": "朋友临时说“今晚来个八人局”，你会？",
+      "required": true,
+      "options": [
+        {
+          "id": "a",
+          "label": "大概率婉拒，人多太耗电",
+          "weights": {
+            "social": -2
+          }
+        },
+        {
+          "id": "b",
+          "label": "看有没有熟人，有就去坐一会儿",
+          "weights": {
+            "social": -1
+          }
+        },
+        {
+          "id": "c",
+          "label": "挺愿意去，认识新朋友也不错",
+          "weights": {
+            "social": 1
+          }
+        },
+        {
+          "id": "d",
+          "label": "马上答应，最好还能再叫几个人",
+          "weights": {
+            "social": 2
+          }
+        }
+      ]
+    },
+    {
+      "id": "q09",
+      "type": "single-choice",
+      "text": "如果一条通勤路线更快，另一条会经过没逛过的小街，你会？",
+      "required": true,
+      "options": [
+        {
+          "id": "a",
+          "label": "长期固定走最快的那条",
+          "weights": {
+            "novelty": -2
+          }
+        },
+        {
+          "id": "b",
+          "label": "大多数时候走熟路，偶尔换换",
+          "weights": {
+            "novelty": -1
+          }
+        },
+        {
+          "id": "c",
+          "label": "时间允许就换路线，看看有没有新发现",
+          "weights": {
+            "novelty": 1
+          }
+        },
+        {
+          "id": "d",
+          "label": "经常故意绕路，我喜欢不断解锁城市",
+          "weights": {
+            "novelty": 2
+          }
+        }
+      ]
+    },
+    {
+      "id": "q10",
+      "type": "single-choice",
+      "text": "面对“今天去哪儿吃”这种小事，你更喜欢？",
+      "required": true,
+      "options": [
+        {
+          "id": "a",
+          "label": "走到哪儿算哪儿，不想做决定",
+          "weights": {
+            "order": -2
+          }
+        },
+        {
+          "id": "b",
+          "label": "现场看哪家顺眼",
+          "weights": {
+            "order": -1
+          }
+        },
+        {
+          "id": "c",
+          "label": "先收藏几家，再根据距离选",
+          "weights": {
+            "order": 1
+          }
+        },
+        {
+          "id": "d",
+          "label": "提前选好并确认营业时间，最好还能预约",
+          "weights": {
+            "order": 2
+          }
+        }
+      ]
+    },
+    {
+      "id": "q11",
+      "type": "single-choice",
+      "text": "一个城市最容易让你真正留下来的东西是什么？",
+      "required": true,
+      "options": [
+        {
+          "id": "a",
+          "label": "效率、机会和方便",
+          "weights": {
+            "culture": -2
+          }
+        },
+        {
+          "id": "b",
+          "label": "日常舒服、吃喝顺手",
+          "weights": {
+            "culture": -1
+          }
+        },
+        {
+          "id": "c",
+          "label": "有自己的审美气质和文化活动",
+          "weights": {
+            "culture": 1
+          }
+        },
+        {
+          "id": "d",
+          "label": "能不断读到历史层次与地方故事",
+          "weights": {
+            "culture": 2
+          }
+        }
+      ]
+    },
+    {
+      "id": "q12",
+      "type": "single-choice",
+      "text": "你理想中的窗外或周边环境更接近？",
+      "required": true,
+      "options": [
+        {
+          "id": "a",
+          "label": "城市灯光和高楼，越有都市感越好",
+          "weights": {
+            "nature": -2
+          }
+        },
+        {
+          "id": "b",
+          "label": "成熟街区，生活方便最重要",
+          "weights": {
+            "nature": -1
+          }
+        },
+        {
+          "id": "c",
+          "label": "最好能看到树、河、湖或大片天空",
+          "weights": {
+            "nature": 1
+          }
+        },
+        {
+          "id": "d",
+          "label": "山海就在日常半径里，会让我很难离开",
+          "weights": {
+            "nature": 2
+          }
+        }
+      ]
+    },
+    {
+      "id": "q13",
+      "type": "single-choice",
+      "text": "排队、等位、慢慢逛这类“低效率时间”，你怎么看？",
+      "required": true,
+      "options": [
+        {
+          "id": "a",
+          "label": "挺享受，生活不必一直赶",
+          "weights": {
+            "pace": -2
+          }
+        },
+        {
+          "id": "b",
+          "label": "偶尔慢一点也没关系",
+          "weights": {
+            "pace": -1
+          }
+        },
+        {
+          "id": "c",
+          "label": "能省则省，我更喜欢利落完成",
+          "weights": {
+            "pace": 1
+          }
+        },
+        {
+          "id": "d",
+          "label": "很难忍受，最好所有事情都快速推进",
+          "weights": {
+            "pace": 2
+          }
+        }
+      ]
+    },
+    {
+      "id": "q14",
+      "type": "single-choice",
+      "text": "你理想中的社区氛围是？",
+      "required": true,
+      "options": [
+        {
+          "id": "a",
+          "label": "彼此礼貌但互不打扰",
+          "weights": {
+            "social": -2
+          }
+        },
+        {
+          "id": "b",
+          "label": "熟悉几个邻居，偶尔打招呼",
+          "weights": {
+            "social": -1
+          }
+        },
+        {
+          "id": "c",
+          "label": "有常去的小店和熟面孔，会自然聊天",
+          "weights": {
+            "social": 1
+          }
+        },
+        {
+          "id": "d",
+          "label": "楼下就能碰到朋友，随时能约饭约活动",
+          "weights": {
+            "social": 2
+          }
+        }
+      ]
+    },
+    {
+      "id": "q15",
+      "type": "single-choice",
+      "text": "如果未来三年都住在同一座城市，你希望它怎样？",
+      "required": true,
+      "options": [
+        {
+          "id": "a",
+          "label": "变化别太快，熟悉感会让我安心",
+          "weights": {
+            "novelty": -2
+          }
+        },
+        {
+          "id": "b",
+          "label": "稳定为主，偶尔有点新东西",
+          "weights": {
+            "novelty": -1
+          }
+        },
+        {
+          "id": "c",
+          "label": "持续出现新空间、新活动、新玩法",
+          "weights": {
+            "novelty": 1
+          }
+        },
+        {
+          "id": "d",
+          "label": "最好每隔一阵就像换了张地图，总有新鲜刺激",
+          "weights": {
+            "novelty": 2
+          }
+        }
+      ]
+    },
+    {
+      "id": "q16",
+      "type": "single-choice",
+      "text": "你对“规则感很强”的生活环境是什么感受？",
+      "required": true,
+      "options": [
+        {
+          "id": "a",
+          "label": "太拘束，我更喜欢自由发挥",
+          "weights": {
+            "order": -2
+          }
+        },
+        {
+          "id": "b",
+          "label": "基本规则有就行，别管太细",
+          "weights": {
+            "order": -1
+          }
+        },
+        {
+          "id": "c",
+          "label": "会安心，清晰规则能减少很多麻烦",
+          "weights": {
+            "order": 1
+          }
+        },
+        {
+          "id": "d",
+          "label": "非常喜欢，越明确、越可预期越舒服",
+          "weights": {
+            "order": 2
+          }
+        }
+      ]
+    },
+    {
+      "id": "q17",
+      "type": "single-choice",
+      "text": "周末突然空出半天，你最可能选？",
+      "required": true,
+      "options": [
+        {
+          "id": "a",
+          "label": "去新商场、乐园或热门娱乐项目",
+          "weights": {
+            "culture": -2
+          }
+        },
+        {
+          "id": "b",
+          "label": "找家好吃的，再随便逛逛",
+          "weights": {
+            "culture": -1
+          }
+        },
+        {
+          "id": "c",
+          "label": "看展、逛书店、听现场或看演出",
+          "weights": {
+            "culture": 1
+          }
+        },
+        {
+          "id": "d",
+          "label": "钻进老城、古建、博物馆，把一段地方史走一遍",
+          "weights": {
+            "culture": 2
+          }
+        }
+      ]
+    },
+    {
+      "id": "q18",
+      "type": "single-choice",
+      "text": "如果城市中心很精彩，但去真正的自然风景要两小时，你会？",
+      "required": true,
+      "options": [
+        {
+          "id": "a",
+          "label": "完全没问题，我本来就更爱城市",
+          "weights": {
+            "nature": -2
+          }
+        },
+        {
+          "id": "b",
+          "label": "可以接受，偶尔周末去就行",
+          "weights": {
+            "nature": -1
+          }
+        },
+        {
+          "id": "c",
+          "label": "会有点遗憾，希望自然更近一些",
+          "weights": {
+            "nature": 1
+          }
+        },
+        {
+          "id": "d",
+          "label": "很难接受，我需要经常接触真正的山水或海岸",
+          "weights": {
+            "nature": 2
+          }
+        }
+      ]
+    },
+    {
+      "id": "q19",
+      "type": "single-choice",
+      "text": "你更喜欢哪种一天结束后的感觉？",
+      "required": true,
+      "options": [
+        {
+          "id": "a",
+          "label": "“今天没赶什么，但很松弛”",
+          "weights": {
+            "pace": -2
+          }
+        },
+        {
+          "id": "b",
+          "label": "“做了点事，也留了很多空白”",
+          "weights": {
+            "pace": -1
+          }
+        },
+        {
+          "id": "c",
+          "label": "“事情推进得很顺，挺充实”",
+          "weights": {
+            "pace": 1
+          }
+        },
+        {
+          "id": "d",
+          "label": "“跑完一整套任务，效率拉满”",
+          "weights": {
+            "pace": 2
+          }
+        }
+      ]
+    },
+    {
+      "id": "q20",
+      "type": "single-choice",
+      "text": "在一家常去的小店里，你更希望？",
+      "required": true,
+      "options": [
+        {
+          "id": "a",
+          "label": "店员别记住我，安静完成消费最好",
+          "weights": {
+            "social": -2
+          }
+        },
+        {
+          "id": "b",
+          "label": "点头之交就够了",
+          "weights": {
+            "social": -1
+          }
+        },
+        {
+          "id": "c",
+          "label": "慢慢混成熟客，偶尔聊两句",
+          "weights": {
+            "social": 1
+          }
+        },
+        {
+          "id": "d",
+          "label": "最好老板和常客都认识我，像半个朋友圈",
+          "weights": {
+            "social": 2
+          }
+        }
+      ]
+    },
+    {
+      "id": "q21",
+      "type": "single-choice",
+      "text": "遇到一种从没吃过、看起来有点冒险的地方食物，你会？",
+      "required": true,
+      "options": [
+        {
+          "id": "a",
+          "label": "不太想试，还是吃确定喜欢的",
+          "weights": {
+            "novelty": -2
+          }
+        },
+        {
+          "id": "b",
+          "label": "别人推荐得很强烈才会试",
+          "weights": {
+            "novelty": -1
+          }
+        },
+        {
+          "id": "c",
+          "label": "会点一份尝尝，新体验挺重要",
+          "weights": {
+            "novelty": 1
+          }
+        },
+        {
+          "id": "d",
+          "label": "越陌生越想试，旅行就靠这种惊喜",
+          "weights": {
+            "novelty": 2
+          }
+        }
+      ]
+    },
+    {
+      "id": "q22",
+      "type": "single-choice",
+      "text": "临时计划被打乱时，你通常？",
+      "required": true,
+      "options": [
+        {
+          "id": "a",
+          "label": "顺势换个玩法，甚至觉得更有意思",
+          "weights": {
+            "order": -2
+          }
+        },
+        {
+          "id": "b",
+          "label": "有点影响，但很快就能随遇而安",
+          "weights": {
+            "order": -1
+          }
+        },
+        {
+          "id": "c",
+          "label": "会迅速重排计划，重新找回掌控感",
+          "weights": {
+            "order": 1
+          }
+        },
+        {
+          "id": "d",
+          "label": "很不舒服，我需要事情按预期运行",
+          "weights": {
+            "order": 2
+          }
+        }
+      ]
+    },
+    {
+      "id": "q23",
+      "type": "single-choice",
+      "text": "你会因为一座城市“有故事”而反复去吗？",
+      "required": true,
+      "options": [
+        {
+          "id": "a",
+          "label": "不会，城市主要是功能和体验",
+          "weights": {
+            "culture": -2
+          }
+        },
+        {
+          "id": "b",
+          "label": "故事是加分项，但不是决定因素",
+          "weights": {
+            "culture": -1
+          }
+        },
+        {
+          "id": "c",
+          "label": "会，街区气质和人文记忆很吸引我",
+          "weights": {
+            "culture": 1
+          }
+        },
+        {
+          "id": "d",
+          "label": "非常会，我喜欢在历史层层叠叠的地方生活",
+          "weights": {
+            "culture": 2
+          }
+        }
+      ]
+    },
+    {
+      "id": "q24",
+      "type": "single-choice",
+      "text": "假设收入和工作都一样，你更愿意把家安在哪里？",
+      "required": true,
+      "options": [
+        {
+          "id": "a",
+          "label": "最繁华的核心区，出门就是城市资源",
+          "weights": {
+            "nature": -2
+          }
+        },
+        {
+          "id": "b",
+          "label": "成熟便利的城区，绿化够用就好",
+          "weights": {
+            "nature": -1
+          }
+        },
+        {
+          "id": "c",
+          "label": "靠近公园、江湖或大块绿地的区域",
+          "weights": {
+            "nature": 1
+          }
+        },
+        {
+          "id": "d",
+          "label": "能方便接触山、海、森林的地方",
+          "weights": {
+            "nature": 2
+          }
+        }
+      ]
+    }
+  ],
+  "scoring": {
+    "pipeline": [
+      {
+        "strategy": "weighted-dimension"
+      },
+      {
+        "strategy": "normalize"
+      },
+      {
+        "strategy": "entity-ranking",
+        "topN": 5
+      }
+    ]
+  },
+  "results": {
+    "catalog": [
+      {
+        "id": "beijing",
+        "title": "北京",
+        "summary": "你需要高密度的文化与机会，也能接受快节奏和清晰目标。",
+        "tags": [
+          "大城能量",
+          "文化浓度",
+          "目标感"
+        ]
+      },
+      {
+        "id": "shanghai",
+        "title": "上海",
+        "summary": "你偏爱效率、边界、审美与秩序并存的都市生活。",
+        "tags": [
+          "效率感",
+          "边界感",
+          "都会审美"
+        ]
+      },
+      {
+        "id": "guangzhou",
+        "title": "广州",
+        "summary": "你喜欢高效但不端着的生活，热闹、人情和新鲜体验都要有。",
+        "tags": [
+          "务实",
+          "烟火气",
+          "包容"
+        ]
+      },
+      {
+        "id": "shenzhen",
+        "title": "深圳",
+        "summary": "你对变化和效率耐受度很高，喜欢向前走、持续更新的环境。",
+        "tags": [
+          "速度",
+          "新鲜感",
+          "行动派"
+        ]
+      },
+      {
+        "id": "chengdu",
+        "title": "成都",
+        "summary": "你想把生活过得有滋有味：不必太赶，但需要社交、吃喝与日常温度。",
+        "tags": [
+          "松弛感",
+          "会生活",
+          "人情味"
+        ]
+      },
+      {
+        "id": "chongqing",
+        "title": "重庆",
+        "summary": "你喜欢强烈、鲜活、有点不可预测的城市体验，热闹比规整更重要。",
+        "tags": [
+          "热烈",
+          "立体感",
+          "冒险味"
+        ]
+      },
+      {
+        "id": "hangzhou",
+        "title": "杭州",
+        "summary": "你既要新鲜与效率，也希望自然、审美和生活品质离日常很近。",
+        "tags": [
+          "山水感",
+          "新潮",
+          "生活品质"
+        ]
+      },
+      {
+        "id": "suzhou",
+        "title": "苏州",
+        "summary": "你喜欢有章法的日常，也重视文化质感、安静边界与细腻审美。",
+        "tags": [
+          "雅致",
+          "秩序",
+          "慢品"
+        ]
+      },
+      {
+        "id": "xian",
+        "title": "西安",
+        "summary": "你很容易被历史厚度和地方性打动，也接受热闹而真实的城市日常。",
+        "tags": [
+          "历史感",
+          "地方性",
+          "厚重"
+        ]
+      },
+      {
+        "id": "qingdao",
+        "title": "青岛",
+        "summary": "你要的是城市便利与自然松弛之间的平衡，社交不必过载，生活要能呼吸。",
+        "tags": [
+          "海风感",
+          "平衡",
+          "松弛边界"
+        ]
+      },
+      {
+        "id": "kunming",
+        "title": "昆明",
+        "summary": "你更在意舒展、自然和可持续的日常节奏，不想长期被速度推着走。",
+        "tags": [
+          "自然感",
+          "慢生活",
+          "舒展"
+        ]
+      },
+      {
+        "id": "changsha",
+        "title": "长沙",
+        "summary": "你喜欢热闹、直接、好玩且有参与感的城市，生活最好随时有局。",
+        "tags": [
+          "高能量",
+          "热闹",
+          "好玩"
+        ]
+      }
+    ],
+    "profiles": [],
+    "entities": [
+      {
+        "id": "entity-beijing",
+        "resultId": "beijing",
+        "dimensionTargets": {
+          "pace": 78,
+          "social": 58,
+          "novelty": 64,
+          "order": 72,
+          "culture": 92,
+          "nature": 42
+        }
+      },
+      {
+        "id": "entity-shanghai",
+        "resultId": "shanghai",
+        "dimensionTargets": {
+          "pace": 86,
+          "social": 50,
+          "novelty": 72,
+          "order": 90,
+          "culture": 74,
+          "nature": 34
+        }
+      },
+      {
+        "id": "entity-guangzhou",
+        "resultId": "guangzhou",
+        "dimensionTargets": {
+          "pace": 70,
+          "social": 78,
+          "novelty": 70,
+          "order": 56,
+          "culture": 54,
+          "nature": 48
+        }
+      },
+      {
+        "id": "entity-shenzhen",
+        "resultId": "shenzhen",
+        "dimensionTargets": {
+          "pace": 94,
+          "social": 60,
+          "novelty": 94,
+          "order": 76,
+          "culture": 38,
+          "nature": 52
+        }
+      },
+      {
+        "id": "entity-chengdu",
+        "resultId": "chengdu",
+        "dimensionTargets": {
+          "pace": 28,
+          "social": 78,
+          "novelty": 58,
+          "order": 42,
+          "culture": 62,
+          "nature": 54
+        }
+      },
+      {
+        "id": "entity-chongqing",
+        "resultId": "chongqing",
+        "dimensionTargets": {
+          "pace": 64,
+          "social": 86,
+          "novelty": 82,
+          "order": 30,
+          "culture": 58,
+          "nature": 70
+        }
+      },
+      {
+        "id": "entity-hangzhou",
+        "resultId": "hangzhou",
+        "dimensionTargets": {
+          "pace": 72,
+          "social": 46,
+          "novelty": 80,
+          "order": 70,
+          "culture": 68,
+          "nature": 84
+        }
+      },
+      {
+        "id": "entity-suzhou",
+        "resultId": "suzhou",
+        "dimensionTargets": {
+          "pace": 44,
+          "social": 34,
+          "novelty": 42,
+          "order": 86,
+          "culture": 88,
+          "nature": 68
+        }
+      },
+      {
+        "id": "entity-xian",
+        "resultId": "xian",
+        "dimensionTargets": {
+          "pace": 52,
+          "social": 68,
+          "novelty": 44,
+          "order": 48,
+          "culture": 96,
+          "nature": 40
+        }
+      },
+      {
+        "id": "entity-qingdao",
+        "resultId": "qingdao",
+        "dimensionTargets": {
+          "pace": 42,
+          "social": 44,
+          "novelty": 48,
+          "order": 64,
+          "culture": 50,
+          "nature": 94
+        }
+      },
+      {
+        "id": "entity-kunming",
+        "resultId": "kunming",
+        "dimensionTargets": {
+          "pace": 18,
+          "social": 42,
+          "novelty": 50,
+          "order": 44,
+          "culture": 48,
+          "nature": 96
+        }
+      },
+      {
+        "id": "entity-changsha",
+        "resultId": "changsha",
+        "dimensionTargets": {
+          "pace": 62,
+          "social": 94,
+          "novelty": 76,
+          "order": 38,
+          "culture": 50,
+          "nature": 42
+        }
+      }
+    ],
+    "compatibility": {
+      "enabled": false,
+      "mode": "symmetric",
+      "allowPartialCoverage": true,
+      "dimensions": []
+    },
+    "compatibilityPairs": []
+  },
+  "presentation": {
+    "theme": "electric",
+    "blocks": [
+      {
+        "type": "hero",
+        "variant": "poster",
+        "showSecondary": true,
+        "showMatch": true,
+        "showTags": true
+      },
+      {
+        "type": "spectrum",
+        "max": 100,
+        "endpoints": {}
+      },
+      {
+        "type": "ranking",
+        "limit": 5
+      },
+      {
+        "type": "highlight",
+        "title": "你的城市匹配",
+        "facts": [
+          {
+            "source": "primary-title",
+            "label": "灵魂城市"
+          },
+          {
+            "source": "match-percentage",
+            "label": "匹配度"
+          },
+          {
+            "source": "top-ranking",
+            "label": "城市候选"
+          }
+        ]
+      },
+      {
+        "type": "quote",
+        "statements": [
+          {
+            "resultId": "beijing",
+            "text": "你适合把生活放进更大的坐标系里。"
+          },
+          {
+            "resultId": "shanghai",
+            "text": "你喜欢的不是忙，而是事情各就各位。"
+          },
+          {
+            "resultId": "guangzhou",
+            "text": "好好做事，也要好好吃饭。"
+          },
+          {
+            "resultId": "shenzhen",
+            "text": "比起怀旧，你更容易被下一站吸引。"
+          },
+          {
+            "resultId": "chengdu",
+            "text": "日子不是任务表，过得有味道才算数。"
+          },
+          {
+            "resultId": "chongqing",
+            "text": "你要的城市，最好拐个弯就有惊喜。"
+          },
+          {
+            "resultId": "hangzhou",
+            "text": "效率和山水，你并不想二选一。"
+          },
+          {
+            "resultId": "suzhou",
+            "text": "真正让你安心的，是细节里的秩序和美。"
+          },
+          {
+            "resultId": "xian",
+            "text": "你会为一条街背后的几百年停下脚步。"
+          },
+          {
+            "resultId": "qingdao",
+            "text": "你需要一座能让呼吸慢下来的城市。"
+          },
+          {
+            "resultId": "kunming",
+            "text": "你想把自然从周末旅行变成普通日常。"
+          },
+          {
+            "resultId": "changsha",
+            "text": "生活对你来说，最好随时都有参与感。"
+          }
+        ]
+      }
+    ],
+    "shareCard": {
+      "enabled": true,
+      "layout": "portrait",
+      "headline": "我的灵魂城市是",
+      "subtitle": "24道题，看看哪座中国城市最像你想过的生活。",
+      "showTags": true,
+      "showMatch": true,
+      "showRadarSummary": false,
+      "dimensionIds": [
+        "pace",
+        "culture",
+        "nature"
+      ],
+      "qrCode": true,
+      "brandingText": "灵魂城市测试"
+    }
+  },
+  "assets": {}
+}
