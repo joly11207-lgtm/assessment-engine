@@ -1,0 +1,1373 @@
+{
+  "schemaVersion": "1.0",
+  "metadata": {
+    "id": "matchmaking-market-positioning-v2",
+    "version": "v1",
+    "title": "相亲市场定位测试",
+    "description": "从现实条件、个人经营与关系能力三层，生成你的当前相亲条件画像。结果为本测试内部量表，用于娱乐与自我梳理，不代表人口排名、婚恋价值或成功概率。",
+    "discovery": {
+      "category": "love",
+      "shortTitle": "相亲市场定位",
+      "estimatedMinutes": 6,
+      "featured": false,
+      "badge": "三层画像",
+      "coverStyle": "warm",
+      "resultPreview": "看清现实基础、个人经营与关系能力，找到真正影响匹配范围的关键项。"
+    }
+  },
+  "dimensions": [
+    {
+      "id": "settlement",
+      "label": "城市与定居",
+      "description": "当前城市/定居约束与跨区域匹配弹性",
+      "min": 0,
+      "max": 9
+    },
+    {
+      "id": "career",
+      "label": "教育职业基础",
+      "description": "教育/职业状态、稳定性与可持续发展基础",
+      "min": 0,
+      "max": 9
+    },
+    {
+      "id": "finance",
+      "label": "个人财务基础",
+      "description": "个人收支稳定、自给能力与既有负担",
+      "min": 0,
+      "max": 9
+    },
+    {
+      "id": "living",
+      "label": "居住生活稳定",
+      "description": "居住安排、独立生活与日常稳定性",
+      "min": 0,
+      "max": 9
+    },
+    {
+      "id": "family",
+      "label": "家庭支持与负担",
+      "description": "家庭支持、照护/经济责任与边界复杂度",
+      "min": 0,
+      "max": 9
+    },
+    {
+      "id": "presentation",
+      "label": "自我呈现",
+      "description": "整洁、形象管理与第一印象投入",
+      "min": 0,
+      "max": 9
+    },
+    {
+      "id": "management",
+      "label": "个人经营能力",
+      "description": "规划、执行与现实问题处理能力",
+      "min": 0,
+      "max": 9
+    },
+    {
+      "id": "communication",
+      "label": "沟通与边界",
+      "description": "表达需求、倾听分歧与边界协商能力",
+      "min": 0,
+      "max": 9
+    },
+    {
+      "id": "readiness",
+      "label": "长期关系准备",
+      "description": "关系意图、投入稳定性与匹配弹性",
+      "min": 0,
+      "max": 9
+    },
+    {
+      "id": "overall_index",
+      "label": "综合定位指数",
+      "description": "按九个维度预设权重汇总的本测试内部0—100定位指数，不代表人口百分位、市场排名或成功概率。",
+      "min": 0,
+      "max": 900
+    }
+  ],
+  "questions": [
+    {
+      "id": "q01",
+      "type": "single-choice",
+      "text": "如果关系进入长期阶段，你目前对未来1—3年的定居地点更接近哪种情况？",
+      "required": true,
+      "options": [
+        {
+          "id": "a",
+          "label": "以当前城市为主，但周边区域可协商",
+          "weights": {
+            "settlement": 1,
+            "overall_index": 10
+          }
+        },
+        {
+          "id": "b",
+          "label": "地点选择较开放，能结合双方发展共同决定",
+          "weights": {
+            "settlement": 3,
+            "overall_index": 30
+          }
+        },
+        {
+          "id": "c",
+          "label": "基本被当前地点锁定，短期很难调整",
+          "weights": {
+            "settlement": 0,
+            "overall_index": 0
+          }
+        },
+        {
+          "id": "d",
+          "label": "有明确偏好，同时能为合适关系做现实协调",
+          "weights": {
+            "settlement": 2,
+            "overall_index": 20
+          }
+        }
+      ]
+    },
+    {
+      "id": "q02",
+      "type": "single-choice",
+      "text": "从现实通勤与见面条件看，你能稳定覆盖的相亲范围是？",
+      "required": true,
+      "options": [
+        {
+          "id": "a",
+          "label": "同城大部分区域或邻近城市都可安排",
+          "weights": {
+            "settlement": 2,
+            "overall_index": 20
+          }
+        },
+        {
+          "id": "b",
+          "label": "仅限很小的本地范围，跨区见面也较困难",
+          "weights": {
+            "settlement": 0,
+            "overall_index": 0
+          }
+        },
+        {
+          "id": "c",
+          "label": "跨区或阶段性异地也能有计划地维持见面",
+          "weights": {
+            "settlement": 3,
+            "overall_index": 30
+          }
+        },
+        {
+          "id": "d",
+          "label": "以本区/本城为主，偶尔跨区可以",
+          "weights": {
+            "settlement": 1,
+            "overall_index": 10
+          }
+        }
+      ]
+    },
+    {
+      "id": "q03",
+      "type": "single-choice",
+      "text": "如果双方工作机会分布在不同城市，你当前的调整空间是？",
+      "required": true,
+      "options": [
+        {
+          "id": "a",
+          "label": "机动性较强，可安排过渡或共同迁移",
+          "weights": {
+            "settlement": 3,
+            "overall_index": 30
+          }
+        },
+        {
+          "id": "b",
+          "label": "只有满足少数现实条件时才能调整",
+          "weights": {
+            "settlement": 1,
+            "overall_index": 10
+          }
+        },
+        {
+          "id": "c",
+          "label": "可以比较双方机会后协商一方调整",
+          "weights": {
+            "settlement": 2,
+            "overall_index": 20
+          }
+        },
+        {
+          "id": "d",
+          "label": "目前基本无法调整工作或居住城市",
+          "weights": {
+            "settlement": 0,
+            "overall_index": 0
+          }
+        }
+      ]
+    },
+    {
+      "id": "q04",
+      "type": "single-choice",
+      "text": "你目前的工作或主要收入来源状态更接近？",
+      "required": true,
+      "options": [
+        {
+          "id": "a",
+          "label": "有工作/收入来源，但波动较大或方向仍在调整",
+          "weights": {
+            "career": 1,
+            "overall_index": 14
+          }
+        },
+        {
+          "id": "b",
+          "label": "稳定且具备持续发展空间，未来2—3年路径也较明确",
+          "weights": {
+            "career": 3,
+            "overall_index": 42
+          }
+        },
+        {
+          "id": "c",
+          "label": "处于明显中断或高度不确定阶段，尚无清晰下一步",
+          "weights": {
+            "career": 0,
+            "overall_index": 0
+          }
+        },
+        {
+          "id": "d",
+          "label": "整体稳定，未来一年路径较清楚",
+          "weights": {
+            "career": 2,
+            "overall_index": 28
+          }
+        }
+      ]
+    },
+    {
+      "id": "q05",
+      "type": "single-choice",
+      "text": "你目前的教育/专业积累与职业方向之间更接近？",
+      "required": true,
+      "options": [
+        {
+          "id": "a",
+          "label": "已有较匹配的教育/技能基础，能支撑当前发展",
+          "weights": {
+            "career": 2,
+            "overall_index": 28
+          }
+        },
+        {
+          "id": "b",
+          "label": "积累与当前方向衔接较弱，正在重新起步",
+          "weights": {
+            "career": 0,
+            "overall_index": 0
+          }
+        },
+        {
+          "id": "c",
+          "label": "专业积累、经验与发展方向形成较完整的长期支撑",
+          "weights": {
+            "career": 3,
+            "overall_index": 42
+          }
+        },
+        {
+          "id": "d",
+          "label": "有部分可迁移积累，但仍需补齐关键能力",
+          "weights": {
+            "career": 1,
+            "overall_index": 14
+          }
+        }
+      ]
+    },
+    {
+      "id": "q06",
+      "type": "single-choice",
+      "text": "面对行业或岗位变化，你当前的职业抗波动能力如何？",
+      "required": true,
+      "options": [
+        {
+          "id": "a",
+          "label": "技能、经验和资源较多元，能主动选择而非被动等待",
+          "weights": {
+            "career": 3,
+            "overall_index": 42
+          }
+        },
+        {
+          "id": "b",
+          "label": "能应对小变化，但替代选择有限",
+          "weights": {
+            "career": 1,
+            "overall_index": 14
+          }
+        },
+        {
+          "id": "c",
+          "label": "有可迁移技能或备用路径，通常能较快调整",
+          "weights": {
+            "career": 2,
+            "overall_index": 28
+          }
+        },
+        {
+          "id": "d",
+          "label": "一旦变化就容易出现较长空档",
+          "weights": {
+            "career": 0,
+            "overall_index": 0
+          }
+        }
+      ]
+    },
+    {
+      "id": "q07",
+      "type": "single-choice",
+      "text": "不考虑家庭额外支持，你目前维持日常生活的财务状态更接近？",
+      "required": true,
+      "options": [
+        {
+          "id": "a",
+          "label": "基本能维持，但遇到较大支出会明显吃紧",
+          "weights": {
+            "finance": 1,
+            "overall_index": 14
+          }
+        },
+        {
+          "id": "b",
+          "label": "自给稳定，有持续储蓄/缓冲，较大支出也有规划空间",
+          "weights": {
+            "finance": 3,
+            "overall_index": 42
+          }
+        },
+        {
+          "id": "c",
+          "label": "经常需要借款或他人持续补贴才能维持",
+          "weights": {
+            "finance": 0,
+            "overall_index": 0
+          }
+        },
+        {
+          "id": "d",
+          "label": "日常自给稳定，并能保留一定结余",
+          "weights": {
+            "finance": 2,
+            "overall_index": 28
+          }
+        }
+      ]
+    },
+    {
+      "id": "q08",
+      "type": "single-choice",
+      "text": "你目前已有债务或固定财务负担对生活选择的影响是？",
+      "required": true,
+      "options": [
+        {
+          "id": "a",
+          "label": "负担可控，按计划偿还/承担，不明显影响生活",
+          "weights": {
+            "finance": 2,
+            "overall_index": 28
+          }
+        },
+        {
+          "id": "b",
+          "label": "压力很大，明显限制日常和未来安排",
+          "weights": {
+            "finance": 0,
+            "overall_index": 0
+          }
+        },
+        {
+          "id": "c",
+          "label": "负担很轻或已有充足缓冲，对生活选择影响较小",
+          "weights": {
+            "finance": 3,
+            "overall_index": 42
+          }
+        },
+        {
+          "id": "d",
+          "label": "有一定压力，需要持续压缩其他选择",
+          "weights": {
+            "finance": 1,
+            "overall_index": 14
+          }
+        }
+      ]
+    },
+    {
+      "id": "q09",
+      "type": "single-choice",
+      "text": "如果未来半年出现搬家、学习、医疗等一笔计划外支出，你的应对状态更接近？",
+      "required": true,
+      "options": [
+        {
+          "id": "a",
+          "label": "已有应急储备或保障，整体可以承受",
+          "weights": {
+            "finance": 3,
+            "overall_index": 42
+          }
+        },
+        {
+          "id": "b",
+          "label": "需要分期借款或明显压缩其他开支",
+          "weights": {
+            "finance": 1,
+            "overall_index": 14
+          }
+        },
+        {
+          "id": "c",
+          "label": "可以承担，但会动用较多现有储备",
+          "weights": {
+            "finance": 2,
+            "overall_index": 28
+          }
+        },
+        {
+          "id": "d",
+          "label": "目前很难独立承担这类计划外支出",
+          "weights": {
+            "finance": 0,
+            "overall_index": 0
+          }
+        }
+      ]
+    },
+    {
+      "id": "q10",
+      "type": "single-choice",
+      "text": "你目前的居住状态更接近？",
+      "required": true,
+      "options": [
+        {
+          "id": "a",
+          "label": "基本稳定，但空间/通勤/合住等现实限制较多",
+          "weights": {
+            "living": 1,
+            "overall_index": 10
+          }
+        },
+        {
+          "id": "b",
+          "label": "居住稳定且具备较好的独立性与未来调整空间",
+          "weights": {
+            "living": 3,
+            "overall_index": 30
+          }
+        },
+        {
+          "id": "c",
+          "label": "频繁变动或居住条件明显不稳定",
+          "weights": {
+            "living": 0,
+            "overall_index": 0
+          }
+        },
+        {
+          "id": "d",
+          "label": "居住稳定，能满足正常生活与交往需要",
+          "weights": {
+            "living": 2,
+            "overall_index": 20
+          }
+        }
+      ]
+    },
+    {
+      "id": "q11",
+      "type": "single-choice",
+      "text": "你目前处理做饭、清洁、缴费、维修等日常事务的状态是？",
+      "required": true,
+      "options": [
+        {
+          "id": "a",
+          "label": "大部分能独立稳定完成",
+          "weights": {
+            "living": 2,
+            "overall_index": 20
+          }
+        },
+        {
+          "id": "b",
+          "label": "多数依赖家人或他人处理",
+          "weights": {
+            "living": 0,
+            "overall_index": 0
+          }
+        },
+        {
+          "id": "c",
+          "label": "有稳定系统，忙碌期也能维持基本生活秩序",
+          "weights": {
+            "living": 3,
+            "overall_index": 30
+          }
+        },
+        {
+          "id": "d",
+          "label": "能处理一部分，但经常积压或临时应付",
+          "weights": {
+            "living": 1,
+            "overall_index": 10
+          }
+        }
+      ]
+    },
+    {
+      "id": "q12",
+      "type": "single-choice",
+      "text": "未来一年如果进入稳定关系，你的生活空间和时间安排能否容纳两个人？",
+      "required": true,
+      "options": [
+        {
+          "id": "a",
+          "label": "已有较成熟的生活节奏，能为关系留出稳定空间",
+          "weights": {
+            "living": 3,
+            "overall_index": 30
+          }
+        },
+        {
+          "id": "b",
+          "label": "可以但需要较大调整",
+          "weights": {
+            "living": 1,
+            "overall_index": 10
+          }
+        },
+        {
+          "id": "c",
+          "label": "大体可以，少数环节需要协调",
+          "weights": {
+            "living": 2,
+            "overall_index": 20
+          }
+        },
+        {
+          "id": "d",
+          "label": "目前很难腾出稳定空间或时间",
+          "weights": {
+            "living": 0,
+            "overall_index": 0
+          }
+        }
+      ]
+    },
+    {
+      "id": "q13",
+      "type": "single-choice",
+      "text": "你目前需要长期承担的家庭照护或经济责任更接近？",
+      "required": true,
+      "options": [
+        {
+          "id": "a",
+          "label": "有固定责任，需要持续协调",
+          "weights": {
+            "family": 1,
+            "overall_index": 8
+          }
+        },
+        {
+          "id": "b",
+          "label": "责任较轻，或家庭内部已有稳定分工与支持",
+          "weights": {
+            "family": 3,
+            "overall_index": 24
+          }
+        },
+        {
+          "id": "c",
+          "label": "责任较重，已明显挤压个人时间或财务",
+          "weights": {
+            "family": 0,
+            "overall_index": 0
+          }
+        },
+        {
+          "id": "d",
+          "label": "有一定责任，但总体可控",
+          "weights": {
+            "family": 2,
+            "overall_index": 16
+          }
+        }
+      ]
+    },
+    {
+      "id": "q14",
+      "type": "single-choice",
+      "text": "当你的长期伴侣选择与家人意见不一致时，你现实中的决策空间是？",
+      "required": true,
+      "options": [
+        {
+          "id": "a",
+          "label": "会认真沟通，但最终能承担自己的选择",
+          "weights": {
+            "family": 2,
+            "overall_index": 16
+          }
+        },
+        {
+          "id": "b",
+          "label": "家人意见通常会直接决定结果",
+          "weights": {
+            "family": 0,
+            "overall_index": 0
+          }
+        },
+        {
+          "id": "c",
+          "label": "家庭边界较清晰，能尊重家人同时自主决策",
+          "weights": {
+            "family": 3,
+            "overall_index": 24
+          }
+        },
+        {
+          "id": "d",
+          "label": "我会很受影响，独立决定较困难",
+          "weights": {
+            "family": 1,
+            "overall_index": 8
+          }
+        }
+      ]
+    },
+    {
+      "id": "q15",
+      "type": "single-choice",
+      "text": "从实际资源看，你的家庭系统对你建立长期关系更接近？",
+      "required": true,
+      "options": [
+        {
+          "id": "a",
+          "label": "能提供情绪或现实支持，同时尊重小家庭边界",
+          "weights": {
+            "family": 3,
+            "overall_index": 24
+          }
+        },
+        {
+          "id": "b",
+          "label": "支持有限，且偶尔会增加现实压力",
+          "weights": {
+            "family": 1,
+            "overall_index": 8
+          }
+        },
+        {
+          "id": "c",
+          "label": "整体中性稳定，不会明显拖累双方生活",
+          "weights": {
+            "family": 2,
+            "overall_index": 16
+          }
+        },
+        {
+          "id": "d",
+          "label": "持续存在较大冲突/负担，需要伴侣共同承担很多",
+          "weights": {
+            "family": 0,
+            "overall_index": 0
+          }
+        }
+      ]
+    },
+    {
+      "id": "q16",
+      "type": "single-choice",
+      "text": "参加第一次正式见面时，你通常会怎样准备外在呈现？",
+      "required": true,
+      "options": [
+        {
+          "id": "a",
+          "label": "会保持干净得体，但较少考虑场合匹配",
+          "weights": {
+            "presentation": 1,
+            "overall_index": 8
+          }
+        },
+        {
+          "id": "b",
+          "label": "有稳定的个人风格，也会根据对象和场合做适度调整",
+          "weights": {
+            "presentation": 3,
+            "overall_index": 24
+          }
+        },
+        {
+          "id": "c",
+          "label": "基本不特别准备，常常临时出门",
+          "weights": {
+            "presentation": 0,
+            "overall_index": 0
+          }
+        },
+        {
+          "id": "d",
+          "label": "会根据场合整理穿搭、发型和细节",
+          "weights": {
+            "presentation": 2,
+            "overall_index": 16
+          }
+        }
+      ]
+    },
+    {
+      "id": "q17",
+      "type": "single-choice",
+      "text": "关于个人照片、资料页或相亲介绍，你目前的状态是？",
+      "required": true,
+      "options": [
+        {
+          "id": "a",
+          "label": "资料真实完整，照片近期且能体现日常状态",
+          "weights": {
+            "presentation": 2,
+            "overall_index": 16
+          }
+        },
+        {
+          "id": "b",
+          "label": "资料长期不更新，照片与本人当前状态差异较大",
+          "weights": {
+            "presentation": 0,
+            "overall_index": 0
+          }
+        },
+        {
+          "id": "c",
+          "label": "真实完整之外，还能清楚呈现生活方式、兴趣与个人特点",
+          "weights": {
+            "presentation": 3,
+            "overall_index": 24
+          }
+        },
+        {
+          "id": "d",
+          "label": "有基本资料，但信息较少或照片比较随意",
+          "weights": {
+            "presentation": 1,
+            "overall_index": 8
+          }
+        }
+      ]
+    },
+    {
+      "id": "q18",
+      "type": "single-choice",
+      "text": "在睡眠、运动、清洁、衣物整理等日常自我管理上，你更接近？",
+      "required": true,
+      "options": [
+        {
+          "id": "a",
+          "label": "形成可持续习惯，整体状态稳定且不过度追求完美",
+          "weights": {
+            "presentation": 3,
+            "overall_index": 24
+          }
+        },
+        {
+          "id": "b",
+          "label": "时好时坏，忙起来容易放弃",
+          "weights": {
+            "presentation": 1,
+            "overall_index": 8
+          }
+        },
+        {
+          "id": "c",
+          "label": "大多数时候能保持稳定基本状态",
+          "weights": {
+            "presentation": 2,
+            "overall_index": 16
+          }
+        },
+        {
+          "id": "d",
+          "label": "经常失序，已经影响精神状态或外在整洁",
+          "weights": {
+            "presentation": 0,
+            "overall_index": 0
+          }
+        }
+      ]
+    },
+    {
+      "id": "q19",
+      "type": "single-choice",
+      "text": "当你决定认真认识一个人后，你通常如何安排见面和沟通？",
+      "required": true,
+      "options": [
+        {
+          "id": "a",
+          "label": "有意愿但容易被工作或情绪打乱",
+          "weights": {
+            "management": 1,
+            "overall_index": 12
+          }
+        },
+        {
+          "id": "b",
+          "label": "能持续推进，同时兼顾双方节奏和现实约束",
+          "weights": {
+            "management": 3,
+            "overall_index": 36
+          }
+        },
+        {
+          "id": "c",
+          "label": "常常拖延，想到哪做到哪",
+          "weights": {
+            "management": 0,
+            "overall_index": 0
+          }
+        },
+        {
+          "id": "d",
+          "label": "会主动安排，并在变化时及时调整",
+          "weights": {
+            "management": 2,
+            "overall_index": 24
+          }
+        }
+      ]
+    },
+    {
+      "id": "q20",
+      "type": "single-choice",
+      "text": "面对职业、财务、居住等需要半年以上解决的问题，你通常？",
+      "required": true,
+      "options": [
+        {
+          "id": "a",
+          "label": "会拆成步骤并持续推进",
+          "weights": {
+            "management": 2,
+            "overall_index": 24
+          }
+        },
+        {
+          "id": "b",
+          "label": "知道问题存在，但长期搁置",
+          "weights": {
+            "management": 0,
+            "overall_index": 0
+          }
+        },
+        {
+          "id": "c",
+          "label": "会设阶段目标、复盘并根据现实变化调整",
+          "weights": {
+            "management": 3,
+            "overall_index": 36
+          }
+        },
+        {
+          "id": "d",
+          "label": "偶尔处理，缺少连续计划",
+          "weights": {
+            "management": 1,
+            "overall_index": 12
+          }
+        }
+      ]
+    },
+    {
+      "id": "q21",
+      "type": "single-choice",
+      "text": "当生活突然变忙时，你对重要关系和个人事务的管理更接近？",
+      "required": true,
+      "options": [
+        {
+          "id": "a",
+          "label": "能快速调整节奏、沟通边界并维持核心事项",
+          "weights": {
+            "management": 3,
+            "overall_index": 36
+          }
+        },
+        {
+          "id": "b",
+          "label": "优先救火，其他事情只能被动延后",
+          "weights": {
+            "management": 1,
+            "overall_index": 12
+          }
+        },
+        {
+          "id": "c",
+          "label": "会重新排序并提前说明，尽量守住关键承诺",
+          "weights": {
+            "management": 2,
+            "overall_index": 24
+          }
+        },
+        {
+          "id": "d",
+          "label": "容易全面失控，常常消失或失约",
+          "weights": {
+            "management": 0,
+            "overall_index": 0
+          }
+        }
+      ]
+    },
+    {
+      "id": "q22",
+      "type": "single-choice",
+      "text": "第一次出现明显意见不合时，你更常见的处理方式是？",
+      "required": true,
+      "options": [
+        {
+          "id": "a",
+          "label": "先回避，等情绪过去再说，但常常说不透",
+          "weights": {
+            "communication": 1,
+            "overall_index": 12
+          }
+        },
+        {
+          "id": "b",
+          "label": "能把事实、感受、需求分开说，并一起找可执行方案",
+          "weights": {
+            "communication": 3,
+            "overall_index": 36
+          }
+        },
+        {
+          "id": "c",
+          "label": "冷处理、讽刺或直接中断沟通",
+          "weights": {
+            "communication": 0,
+            "overall_index": 0
+          }
+        },
+        {
+          "id": "d",
+          "label": "会表达自己的想法，也愿意听对方理由",
+          "weights": {
+            "communication": 2,
+            "overall_index": 24
+          }
+        }
+      ]
+    },
+    {
+      "id": "q23",
+      "type": "single-choice",
+      "text": "当对方提出一个你不愿意接受的要求时，你通常？",
+      "required": true,
+      "options": [
+        {
+          "id": "a",
+          "label": "能明确拒绝并说明边界",
+          "weights": {
+            "communication": 2,
+            "overall_index": 24
+          }
+        },
+        {
+          "id": "b",
+          "label": "勉强答应，之后积累不满，或直接翻脸",
+          "weights": {
+            "communication": 0,
+            "overall_index": 0
+          }
+        },
+        {
+          "id": "c",
+          "label": "能清晰拒绝，同时给出可接受范围或替代方案",
+          "weights": {
+            "communication": 3,
+            "overall_index": 36
+          }
+        },
+        {
+          "id": "d",
+          "label": "会拒绝，但容易解释过度或陷入争执",
+          "weights": {
+            "communication": 1,
+            "overall_index": 12
+          }
+        }
+      ]
+    },
+    {
+      "id": "q24",
+      "type": "single-choice",
+      "text": "聊天中发现对方和你在消费、家庭或生活习惯上不同，你更接近？",
+      "required": true,
+      "options": [
+        {
+          "id": "a",
+          "label": "会区分“偏好不同”和“长期冲突”，再决定是否匹配",
+          "weights": {
+            "communication": 3,
+            "overall_index": 36
+          }
+        },
+        {
+          "id": "b",
+          "label": "表面附和，心里先记一笔",
+          "weights": {
+            "communication": 1,
+            "overall_index": 12
+          }
+        },
+        {
+          "id": "c",
+          "label": "会继续了解差异背后的实际影响",
+          "weights": {
+            "communication": 2,
+            "overall_index": 24
+          }
+        },
+        {
+          "id": "d",
+          "label": "很快贴标签，认为不一样就没必要继续",
+          "weights": {
+            "communication": 0,
+            "overall_index": 0
+          }
+        }
+      ]
+    },
+    {
+      "id": "q25",
+      "type": "single-choice",
+      "text": "你现在参与相亲/认识新人的主要状态是？",
+      "required": true,
+      "options": [
+        {
+          "id": "a",
+          "label": "有想法，但是否进入关系还比较犹豫",
+          "weights": {
+            "readiness": 1,
+            "overall_index": 12
+          }
+        },
+        {
+          "id": "b",
+          "label": "目标较清晰，也准备好为长期关系做现实协商与投入",
+          "weights": {
+            "readiness": 3,
+            "overall_index": 36
+          }
+        },
+        {
+          "id": "c",
+          "label": "更多是被催促或随便看看，暂不想投入",
+          "weights": {
+            "readiness": 0,
+            "overall_index": 0
+          }
+        },
+        {
+          "id": "d",
+          "label": "愿意认真认识合适的人，并投入稳定时间",
+          "weights": {
+            "readiness": 2,
+            "overall_index": 24
+          }
+        }
+      ]
+    },
+    {
+      "id": "q26",
+      "type": "single-choice",
+      "text": "当一个人多数方面合适，但有一两项不完全符合你的原始标准时，你通常？",
+      "required": true,
+      "options": [
+        {
+          "id": "a",
+          "label": "会判断这项差异是否真的影响长期生活",
+          "weights": {
+            "readiness": 2,
+            "overall_index": 24
+          }
+        },
+        {
+          "id": "b",
+          "label": "只要有一项不符就直接淘汰",
+          "weights": {
+            "readiness": 0,
+            "overall_index": 0
+          }
+        },
+        {
+          "id": "c",
+          "label": "会区分核心底线与可协商偏好，用实际相处验证",
+          "weights": {
+            "readiness": 3,
+            "overall_index": 36
+          }
+        },
+        {
+          "id": "d",
+          "label": "会继续接触，但很难放下原标准",
+          "weights": {
+            "readiness": 1,
+            "overall_index": 12
+          }
+        }
+      ]
+    },
+    {
+      "id": "q27",
+      "type": "single-choice",
+      "text": "如果关系逐渐稳定，你对未来一年推进节奏的态度更接近？",
+      "required": true,
+      "options": [
+        {
+          "id": "a",
+          "label": "愿意循序推进，并把重要现实议题逐步谈清楚",
+          "weights": {
+            "readiness": 3,
+            "overall_index": 36
+          }
+        },
+        {
+          "id": "b",
+          "label": "可以相处，但谈到未来会明显回避",
+          "weights": {
+            "readiness": 1,
+            "overall_index": 12
+          }
+        },
+        {
+          "id": "c",
+          "label": "愿意在合适阶段讨论排他、家庭与生活安排",
+          "weights": {
+            "readiness": 2,
+            "overall_index": 24
+          }
+        },
+        {
+          "id": "d",
+          "label": "不希望讨论任何长期安排",
+          "weights": {
+            "readiness": 0,
+            "overall_index": 0
+          }
+        }
+      ]
+    }
+  ],
+  "scoring": {
+    "pipeline": [
+      {
+        "strategy": "weighted-dimension"
+      },
+      {
+        "strategy": "normalize"
+      },
+      {
+        "strategy": "profile-match",
+        "topN": 5
+      }
+    ]
+  },
+  "results": {
+    "catalog": [
+      {
+        "id": "foundation-building",
+        "title": "基础建设区",
+        "summary": "当前画像里有几项现实条件或关系准备仍在搭建。先把最影响选择范围的1—2个约束处理清楚，比追求“全面加分”更有效。",
+        "tags": [
+          "先稳基础",
+          "减少硬约束",
+          "小步升级"
+        ]
+      },
+      {
+        "id": "potential-rising",
+        "title": "潜力提升区",
+        "summary": "你已经具备部分可用基础，但现实条件与关系能力之间还不够均衡。找到最低的关键维度并持续改善，整体体验会明显不同。",
+        "tags": [
+          "有基础",
+          "抓关键项",
+          "提升弹性"
+        ]
+      },
+      {
+        "id": "structure-balanced",
+        "title": "结构均衡区",
+        "summary": "你的现实基础、个人经营与关系能力整体较均衡，没有明显单点决定全局。下一步重点是明确核心需求，减少无效筛选。",
+        "tags": [
+          "整体均衡",
+          "明确需求",
+          "精准匹配"
+        ]
+      },
+      {
+        "id": "advantage-clear",
+        "title": "优势清晰区",
+        "summary": "你在多个关键维度上已经形成稳定优势，且通常能把现实条件转化为可持续的相处体验。匹配时更适合关注长期兼容，而非继续堆条件。",
+        "tags": [
+          "优势清晰",
+          "长期兼容",
+          "稳定推进"
+        ]
+      },
+      {
+        "id": "foundation-solid",
+        "title": "基础稳固区",
+        "summary": "你的现实基础、个人经营与关系能力整体都较成熟，选择空间相对更有弹性。结果重点不是“身价”，而是如何用清晰标准筛选真正适合的长期关系。",
+        "tags": [
+          "基础稳固",
+          "选择弹性",
+          "重视适配"
+        ]
+      }
+    ],
+    "profiles": [
+      {
+        "id": "profile-foundation-building",
+        "resultId": "foundation-building",
+        "dimensionTargets": {
+          "overall_index": 12
+        }
+      },
+      {
+        "id": "profile-potential-rising",
+        "resultId": "potential-rising",
+        "dimensionTargets": {
+          "overall_index": 38
+        }
+      },
+      {
+        "id": "profile-structure-balanced",
+        "resultId": "structure-balanced",
+        "dimensionTargets": {
+          "overall_index": 68
+        }
+      },
+      {
+        "id": "profile-advantage-clear",
+        "resultId": "advantage-clear",
+        "dimensionTargets": {
+          "overall_index": 90
+        }
+      },
+      {
+        "id": "profile-foundation-solid",
+        "resultId": "foundation-solid",
+        "dimensionTargets": {
+          "overall_index": 100
+        }
+      }
+    ],
+    "entities": [],
+    "compatibility": {
+      "enabled": false,
+      "mode": "symmetric",
+      "allowPartialCoverage": true,
+      "dimensions": []
+    },
+    "compatibilityPairs": []
+  },
+  "presentation": {
+    "theme": "warm",
+    "blocks": [
+      {
+        "type": "hero",
+        "variant": "score-focus",
+        "showSecondary": false,
+        "showMatch": true,
+        "showTags": true
+      },
+      {
+        "type": "highlight",
+        "title": "先看三层画像",
+        "facts": [
+          {
+            "source": "primary-title",
+            "label": "当前定位区间"
+          },
+          {
+            "source": "custom",
+            "label": "指数含义",
+            "value": "本测试内部综合定位指数，非人口排名/成功率"
+          },
+          {
+            "source": "dimension-count-high",
+            "label": "高分维度数",
+            "threshold": 70
+          }
+        ]
+      },
+      {
+        "type": "spectrum",
+        "title": "九维条件画像",
+        "max": 100,
+        "endpoints": {}
+      },
+      {
+        "type": "strengths",
+        "title": "当前优势"
+      },
+      {
+        "type": "weaknesses",
+        "title": "限制项与提升杠杆"
+      },
+      {
+        "type": "quote",
+        "statements": [
+          {
+            "resultId": "foundation-building",
+            "text": "先处理最影响选择范围的现实约束，再谈“全面提升”。"
+          },
+          {
+            "resultId": "potential-rising",
+            "text": "你缺的不是重新开始，而是把已有基础变成更稳定的结构。"
+          },
+          {
+            "resultId": "structure-balanced",
+            "text": "条件没有明显短板时，真正拉开差异的是你是否知道自己要什么。"
+          },
+          {
+            "resultId": "advantage-clear",
+            "text": "优势已经够用，下一步更重要的是筛选长期兼容，而不是继续证明自己。"
+          },
+          {
+            "resultId": "foundation-solid",
+            "text": "成熟的定位不是“更高分”，而是有条件、有边界，也有协商空间。"
+          }
+        ]
+      }
+    ],
+    "shareCard": {
+      "enabled": true,
+      "layout": "portrait",
+      "headline": "我的相亲条件定位",
+      "subtitle": "三层九维画像｜看优势，也看真正限制匹配范围的变量",
+      "showTags": true,
+      "showMatch": true,
+      "showRadarSummary": false,
+      "dimensionIds": [
+        "career",
+        "finance",
+        "communication"
+      ],
+      "qrCode": true,
+      "brandingText": "相亲市场定位测试"
+    }
+  },
+  "assets": {}
+}
