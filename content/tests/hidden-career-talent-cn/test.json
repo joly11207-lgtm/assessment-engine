@@ -1,0 +1,1208 @@
+{
+  "schemaVersion": "1.0",
+  "metadata": {
+    "id": "hidden-career-talent-cn",
+    "version": "v1",
+    "title": "测测你的隐藏职业天赋",
+    "description": "24道生活与工作情境题，看看你更自然地用哪种方式创造价值。娱乐与自我探索用途，不作为招聘、职业资格或重大职业决策依据。",
+    "discovery": {
+      "category": "career",
+      "shortTitle": "隐藏职业天赋",
+      "estimatedMinutes": 5,
+      "featured": false,
+      "badge": "职业探索",
+      "coverStyle": "paper",
+      "resultPreview": "你真正擅长的，可能不是某个职位，而是一种别人不容易复制的工作方式。"
+    }
+  },
+  "dimensions": [
+    {
+      "id": "analysis",
+      "label": "分析拆解",
+      "description": "面对复杂问题时，拆结构、找规律并形成判断的倾向",
+      "min": -6,
+      "max": 6
+    },
+    {
+      "id": "creativity",
+      "label": "创意生成",
+      "description": "产生新点子、重组素材并形成独特表达的倾向",
+      "min": -6,
+      "max": 6
+    },
+    {
+      "id": "empathy",
+      "label": "共情洞察",
+      "description": "捕捉他人感受、需求和关系信号的倾向",
+      "min": -6,
+      "max": 6
+    },
+    {
+      "id": "influence",
+      "label": "表达影响",
+      "description": "清晰表达观点、调动注意并推动他人理解或行动的倾向",
+      "min": -6,
+      "max": 6
+    },
+    {
+      "id": "execution",
+      "label": "执行推进",
+      "description": "把目标拆成行动、持续推进并完成交付的倾向",
+      "min": -6,
+      "max": 6
+    },
+    {
+      "id": "organization",
+      "label": "组织统筹",
+      "description": "安排资源、流程、优先级与多人协作的倾向",
+      "min": -6,
+      "max": 6
+    },
+    {
+      "id": "exploration",
+      "label": "探索学习",
+      "description": "主动接触新领域、快速学习并适应变化的倾向",
+      "min": -6,
+      "max": 6
+    },
+    {
+      "id": "craft",
+      "label": "精细打磨",
+      "description": "关注细节、质量、准确性与持续优化的倾向",
+      "min": -6,
+      "max": 6
+    }
+  ],
+  "questions": [
+    {
+      "id": "q01",
+      "type": "single-choice",
+      "text": "接到一个从没做过、信息又很乱的任务，你通常先做什么？",
+      "required": true,
+      "options": [
+        {
+          "id": "a",
+          "label": "先把信息分类，找出关键变量和逻辑关系",
+          "weights": {
+            "analysis": 2
+          }
+        },
+        {
+          "id": "b",
+          "label": "先找一个类似案例照着推进",
+          "weights": {}
+        },
+        {
+          "id": "c",
+          "label": "先和人聊聊，看看大家最在意什么",
+          "weights": {}
+        },
+        {
+          "id": "d",
+          "label": "先动手做一版，边做边改",
+          "weights": {
+            "analysis": -2
+          }
+        }
+      ]
+    },
+    {
+      "id": "q02",
+      "type": "single-choice",
+      "text": "朋友拿两个看起来都不错的方案来问你意见，你更容易注意到什么？",
+      "required": true,
+      "options": [
+        {
+          "id": "a",
+          "label": "各自成立的条件、风险和长期影响",
+          "weights": {
+            "analysis": 2
+          }
+        },
+        {
+          "id": "b",
+          "label": "哪个看起来更新鲜、更有感觉",
+          "weights": {}
+        },
+        {
+          "id": "c",
+          "label": "哪个更容易让大家接受",
+          "weights": {}
+        },
+        {
+          "id": "d",
+          "label": "哪个能最快落地",
+          "weights": {
+            "analysis": -2
+          }
+        }
+      ]
+    },
+    {
+      "id": "q03",
+      "type": "single-choice",
+      "text": "遇到一个反复出现的问题，你最想弄清楚的是？",
+      "required": true,
+      "options": [
+        {
+          "id": "a",
+          "label": "它为什么总发生，背后的机制是什么",
+          "weights": {
+            "analysis": 2
+          }
+        },
+        {
+          "id": "b",
+          "label": "有没有更有趣的解决方式",
+          "weights": {}
+        },
+        {
+          "id": "c",
+          "label": "谁受到的影响最大",
+          "weights": {}
+        },
+        {
+          "id": "d",
+          "label": "下一步具体该做什么",
+          "weights": {
+            "analysis": -2
+          }
+        }
+      ]
+    },
+    {
+      "id": "q04",
+      "type": "single-choice",
+      "text": "一个普通主题交给你做内容，你更自然的反应是？",
+      "required": true,
+      "options": [
+        {
+          "id": "a",
+          "label": "想一个别人没用过的切入角度",
+          "weights": {
+            "creativity": 2
+          }
+        },
+        {
+          "id": "b",
+          "label": "先把资料查全再决定怎么写",
+          "weights": {}
+        },
+        {
+          "id": "c",
+          "label": "先确认受众真正想看什么",
+          "weights": {}
+        },
+        {
+          "id": "d",
+          "label": "先列步骤按时做完",
+          "weights": {
+            "creativity": -2
+          }
+        }
+      ]
+    },
+    {
+      "id": "q05",
+      "type": "single-choice",
+      "text": "看到一个已经很成熟的作品，你最容易冒出的念头是？",
+      "required": true,
+      "options": [
+        {
+          "id": "a",
+          "label": "如果换一种结构或风格，也许会完全不同",
+          "weights": {
+            "creativity": 2
+          }
+        },
+        {
+          "id": "b",
+          "label": "它成功的规律到底是什么",
+          "weights": {}
+        },
+        {
+          "id": "c",
+          "label": "它为什么能打动这些人",
+          "weights": {}
+        },
+        {
+          "id": "d",
+          "label": "它的制作流程能不能复用",
+          "weights": {
+            "creativity": -2
+          }
+        }
+      ]
+    },
+    {
+      "id": "q06",
+      "type": "single-choice",
+      "text": "空出半天完全由你安排，你更愿意做哪类事？",
+      "required": true,
+      "options": [
+        {
+          "id": "a",
+          "label": "做点新东西，哪怕只是一次小实验",
+          "weights": {
+            "creativity": 2
+          }
+        },
+        {
+          "id": "b",
+          "label": "研究一个一直没想明白的问题",
+          "weights": {}
+        },
+        {
+          "id": "c",
+          "label": "和熟人深聊或认识新的人",
+          "weights": {}
+        },
+        {
+          "id": "d",
+          "label": "把拖着的事情一口气处理掉",
+          "weights": {
+            "creativity": -2
+          }
+        }
+      ]
+    },
+    {
+      "id": "q07",
+      "type": "single-choice",
+      "text": "团队里有人突然变得很安静，你通常会？",
+      "required": true,
+      "options": [
+        {
+          "id": "a",
+          "label": "留意他的状态，找合适时机私下问问",
+          "weights": {
+            "empathy": 2
+          }
+        },
+        {
+          "id": "b",
+          "label": "先观察是不是任务本身出了问题",
+          "weights": {}
+        },
+        {
+          "id": "c",
+          "label": "主动把话题带起来让气氛恢复",
+          "weights": {}
+        },
+        {
+          "id": "d",
+          "label": "先保证自己的部分不受影响",
+          "weights": {
+            "empathy": -2
+          }
+        }
+      ]
+    },
+    {
+      "id": "q08",
+      "type": "single-choice",
+      "text": "别人向你抱怨一件事时，你第一反应更接近？",
+      "required": true,
+      "options": [
+        {
+          "id": "a",
+          "label": "先听懂他真正难受或在意的点",
+          "weights": {
+            "empathy": 2
+          }
+        },
+        {
+          "id": "b",
+          "label": "帮他分析问题到底卡在哪里",
+          "weights": {}
+        },
+        {
+          "id": "c",
+          "label": "给他几个能马上执行的办法",
+          "weights": {}
+        },
+        {
+          "id": "d",
+          "label": "用轻松一点的方式让他别陷进去",
+          "weights": {
+            "empathy": -2
+          }
+        }
+      ]
+    },
+    {
+      "id": "q09",
+      "type": "single-choice",
+      "text": "多人合作出现分歧，你最容易发挥的作用是？",
+      "required": true,
+      "options": [
+        {
+          "id": "a",
+          "label": "翻译双方真正的顾虑，让彼此听懂",
+          "weights": {
+            "empathy": 2
+          }
+        },
+        {
+          "id": "b",
+          "label": "把争议拆成几个可判断的问题",
+          "weights": {}
+        },
+        {
+          "id": "c",
+          "label": "提出一个更有突破性的第三方案",
+          "weights": {}
+        },
+        {
+          "id": "d",
+          "label": "快速定出下一步，避免一直争论",
+          "weights": {
+            "empathy": -2
+          }
+        }
+      ]
+    },
+    {
+      "id": "q10",
+      "type": "single-choice",
+      "text": "你有一个很认可的想法，希望大家支持，你更可能？",
+      "required": true,
+      "options": [
+        {
+          "id": "a",
+          "label": "把它讲得清楚、有画面，让人愿意跟上",
+          "weights": {
+            "influence": 2
+          }
+        },
+        {
+          "id": "b",
+          "label": "整理证据，让逻辑自己说服人",
+          "weights": {}
+        },
+        {
+          "id": "c",
+          "label": "先找关键人物理解他的顾虑",
+          "weights": {}
+        },
+        {
+          "id": "d",
+          "label": "先做出结果，再用结果证明",
+          "weights": {
+            "influence": -2
+          }
+        }
+      ]
+    },
+    {
+      "id": "q11",
+      "type": "single-choice",
+      "text": "在一群不太熟的人里，你更容易因为什么被注意到？",
+      "required": true,
+      "options": [
+        {
+          "id": "a",
+          "label": "会接话、会表达，也敢把观点说出来",
+          "weights": {
+            "influence": 2
+          }
+        },
+        {
+          "id": "b",
+          "label": "总能问到关键点或看出漏洞",
+          "weights": {}
+        },
+        {
+          "id": "c",
+          "label": "能很快照顾到不同人的感受",
+          "weights": {}
+        },
+        {
+          "id": "d",
+          "label": "做事靠谱，答应的事情会完成",
+          "weights": {
+            "influence": -2
+          }
+        }
+      ]
+    },
+    {
+      "id": "q12",
+      "type": "single-choice",
+      "text": "如果要代表团队做一次展示，你最在意？",
+      "required": true,
+      "options": [
+        {
+          "id": "a",
+          "label": "听众能不能被抓住并记住核心信息",
+          "weights": {
+            "influence": 2
+          }
+        },
+        {
+          "id": "b",
+          "label": "论证是否严谨，经得住追问",
+          "weights": {}
+        },
+        {
+          "id": "c",
+          "label": "有没有让每个成员都被公平呈现",
+          "weights": {}
+        },
+        {
+          "id": "d",
+          "label": "材料和流程是否万无一失",
+          "weights": {
+            "influence": -2
+          }
+        }
+      ]
+    },
+    {
+      "id": "q13",
+      "type": "single-choice",
+      "text": "一个目标只剩三天，但还有不少事情没做，你会？",
+      "required": true,
+      "options": [
+        {
+          "id": "a",
+          "label": "立刻排优先级，先把关键结果做出来",
+          "weights": {
+            "execution": 2
+          }
+        },
+        {
+          "id": "b",
+          "label": "重新分析目标，确认有没有走偏",
+          "weights": {}
+        },
+        {
+          "id": "c",
+          "label": "想个更省力的新办法绕开旧流程",
+          "weights": {}
+        },
+        {
+          "id": "d",
+          "label": "先协调大家的状态和分工",
+          "weights": {
+            "execution": -2
+          }
+        }
+      ]
+    },
+    {
+      "id": "q14",
+      "type": "single-choice",
+      "text": "你最容易从哪种工作状态里获得满足？",
+      "required": true,
+      "options": [
+        {
+          "id": "a",
+          "label": "清单一项项完成，事情明显往前走",
+          "weights": {
+            "execution": 2
+          }
+        },
+        {
+          "id": "b",
+          "label": "终于想通一个复杂问题",
+          "weights": {}
+        },
+        {
+          "id": "c",
+          "label": "做出了一个很有新意的东西",
+          "weights": {}
+        },
+        {
+          "id": "d",
+          "label": "帮助别人解决了真实困难",
+          "weights": {
+            "execution": -2
+          }
+        }
+      ]
+    },
+    {
+      "id": "q15",
+      "type": "single-choice",
+      "text": "计划执行到一半突然出现变化，你更可能？",
+      "required": true,
+      "options": [
+        {
+          "id": "a",
+          "label": "快速改计划，继续推进最重要的部分",
+          "weights": {
+            "execution": 2
+          }
+        },
+        {
+          "id": "b",
+          "label": "先停下来判断变化意味着什么",
+          "weights": {}
+        },
+        {
+          "id": "c",
+          "label": "顺势试试完全不同的路径",
+          "weights": {}
+        },
+        {
+          "id": "d",
+          "label": "先确认相关人的需求有没有变",
+          "weights": {
+            "execution": -2
+          }
+        }
+      ]
+    },
+    {
+      "id": "q16",
+      "type": "single-choice",
+      "text": "负责一次多人活动时，你最先关注什么？",
+      "required": true,
+      "options": [
+        {
+          "id": "a",
+          "label": "谁负责什么、时间节点和资源有没有对上",
+          "weights": {
+            "organization": 2
+          }
+        },
+        {
+          "id": "b",
+          "label": "活动主题够不够特别",
+          "weights": {}
+        },
+        {
+          "id": "c",
+          "label": "现场的人会不会觉得舒服",
+          "weights": {}
+        },
+        {
+          "id": "d",
+          "label": "有没有值得记录和复盘的数据",
+          "weights": {
+            "organization": -2
+          }
+        }
+      ]
+    },
+    {
+      "id": "q17",
+      "type": "single-choice",
+      "text": "面对五项待办时，你通常怎么开始？",
+      "required": true,
+      "options": [
+        {
+          "id": "a",
+          "label": "按重要性和依赖关系排顺序，再逐个推进",
+          "weights": {
+            "organization": 2
+          }
+        },
+        {
+          "id": "b",
+          "label": "挑最有灵感的一件先做",
+          "weights": {}
+        },
+        {
+          "id": "c",
+          "label": "先处理涉及别人的事情",
+          "weights": {}
+        },
+        {
+          "id": "d",
+          "label": "先研究最难、最复杂的一件",
+          "weights": {
+            "organization": -2
+          }
+        }
+      ]
+    },
+    {
+      "id": "q18",
+      "type": "single-choice",
+      "text": "你觉得一个团队运转顺畅，最重要的信号是？",
+      "required": true,
+      "options": [
+        {
+          "id": "a",
+          "label": "角色清楚、信息同步、事情有人接住",
+          "weights": {
+            "organization": 2
+          }
+        },
+        {
+          "id": "b",
+          "label": "大家愿意不断尝试新方法",
+          "weights": {}
+        },
+        {
+          "id": "c",
+          "label": "成员之间信任且愿意沟通",
+          "weights": {}
+        },
+        {
+          "id": "d",
+          "label": "关键决策有充分的数据支持",
+          "weights": {
+            "organization": -2
+          }
+        }
+      ]
+    },
+    {
+      "id": "q19",
+      "type": "single-choice",
+      "text": "突然出现一个你完全陌生但很有意思的领域，你会？",
+      "required": true,
+      "options": [
+        {
+          "id": "a",
+          "label": "先去试试看，边接触边快速补知识",
+          "weights": {
+            "exploration": 2
+          }
+        },
+        {
+          "id": "b",
+          "label": "先系统搜集资料，弄懂基本框架",
+          "weights": {}
+        },
+        {
+          "id": "c",
+          "label": "先找懂行的人聊一轮",
+          "weights": {}
+        },
+        {
+          "id": "d",
+          "label": "除非和当前目标有关，否则先不碰",
+          "weights": {
+            "exploration": -2
+          }
+        }
+      ]
+    },
+    {
+      "id": "q20",
+      "type": "single-choice",
+      "text": "旅行或休息时，你更喜欢哪种安排？",
+      "required": true,
+      "options": [
+        {
+          "id": "a",
+          "label": "留出大量空白，随时去没计划过的地方",
+          "weights": {
+            "exploration": 2
+          }
+        },
+        {
+          "id": "b",
+          "label": "提前研究路线，把值得看的都弄明白",
+          "weights": {}
+        },
+        {
+          "id": "c",
+          "label": "和熟悉的人一起，体验比打卡重要",
+          "weights": {}
+        },
+        {
+          "id": "d",
+          "label": "安排清楚，尽量不让临时变化打乱节奏",
+          "weights": {
+            "exploration": -2
+          }
+        }
+      ]
+    },
+    {
+      "id": "q21",
+      "type": "single-choice",
+      "text": "工作中出现一个新工具，你通常？",
+      "required": true,
+      "options": [
+        {
+          "id": "a",
+          "label": "很快上手试用，看它能打开什么新可能",
+          "weights": {
+            "exploration": 2
+          }
+        },
+        {
+          "id": "b",
+          "label": "先研究原理、评价和适用边界",
+          "weights": {}
+        },
+        {
+          "id": "c",
+          "label": "先问用过的人实际体验怎么样",
+          "weights": {}
+        },
+        {
+          "id": "d",
+          "label": "等确认稳定且真有用再迁移",
+          "weights": {
+            "exploration": -2
+          }
+        }
+      ]
+    },
+    {
+      "id": "q22",
+      "type": "single-choice",
+      "text": "一份东西已经“能交了”，但还有一点小瑕疵，你通常？",
+      "required": true,
+      "options": [
+        {
+          "id": "a",
+          "label": "愿意再花时间修到自己觉得顺眼、准确",
+          "weights": {
+            "craft": 2
+          }
+        },
+        {
+          "id": "b",
+          "label": "先判断瑕疵会不会影响核心结论",
+          "weights": {}
+        },
+        {
+          "id": "c",
+          "label": "如果时间紧就先交，后面再迭代",
+          "weights": {}
+        },
+        {
+          "id": "d",
+          "label": "更在意别人看到后会不会理解",
+          "weights": {
+            "craft": -2
+          }
+        }
+      ]
+    },
+    {
+      "id": "q23",
+      "type": "single-choice",
+      "text": "你做重复性工作时，最容易进入哪种状态？",
+      "required": true,
+      "options": [
+        {
+          "id": "a",
+          "label": "会逐渐总结细节标准，让结果越来越稳定",
+          "weights": {
+            "craft": 2
+          }
+        },
+        {
+          "id": "b",
+          "label": "会研究有没有更聪明的规律可利用",
+          "weights": {}
+        },
+        {
+          "id": "c",
+          "label": "很快觉得无聊，想换一种做法",
+          "weights": {}
+        },
+        {
+          "id": "d",
+          "label": "只要目标明确，就能持续把量做完",
+          "weights": {
+            "craft": -2
+          }
+        }
+      ]
+    },
+    {
+      "id": "q24",
+      "type": "single-choice",
+      "text": "别人夸你做事，你最希望听到哪一句？",
+      "required": true,
+      "options": [
+        {
+          "id": "a",
+          "label": "“这个细节处理得真漂亮。”",
+          "weights": {
+            "craft": 2
+          }
+        },
+        {
+          "id": "b",
+          "label": "“你一下就抓住了关键。”",
+          "weights": {}
+        },
+        {
+          "id": "c",
+          "label": "“这个想法我真没想到。”",
+          "weights": {}
+        },
+        {
+          "id": "d",
+          "label": "“交给你就能稳稳推进。”",
+          "weights": {
+            "craft": -2
+          }
+        }
+      ]
+    }
+  ],
+  "scoring": {
+    "pipeline": [
+      {
+        "strategy": "weighted-dimension"
+      },
+      {
+        "strategy": "normalize"
+      },
+      {
+        "strategy": "profile-match",
+        "topN": 5
+      }
+    ]
+  },
+  "results": {
+    "catalog": [
+      {
+        "id": "strategist",
+        "title": "策略解题者",
+        "summary": "你擅长把混乱变成结构，把模糊问题拆成可判断、可选择的路径。",
+        "tags": [
+          "逻辑拆解",
+          "复杂决策",
+          "系统思考"
+        ]
+      },
+      {
+        "id": "creator",
+        "title": "创意造物者",
+        "summary": "你最有天赋的地方，是把普通素材重新组合成有辨识度的新东西。",
+        "tags": [
+          "创意生成",
+          "内容表达",
+          "概念设计"
+        ]
+      },
+      {
+        "id": "researcher",
+        "title": "洞察研究者",
+        "summary": "你愿意往表面之下多走几步，用证据、细节和耐心换来更可靠的理解。",
+        "tags": [
+          "深度研究",
+          "证据意识",
+          "精细判断"
+        ]
+      },
+      {
+        "id": "communicator",
+        "title": "表达影响者",
+        "summary": "你能把信息变得好懂、好记、愿意听，并在交流中推动共识。",
+        "tags": [
+          "表达呈现",
+          "影响沟通",
+          "公众连接"
+        ]
+      },
+      {
+        "id": "connector",
+        "title": "关系连接者",
+        "summary": "你对人的状态和需求很敏锐，擅长建立信任、理解差异并促成合作。",
+        "tags": [
+          "共情洞察",
+          "关系建立",
+          "协作促进"
+        ]
+      },
+      {
+        "id": "operator",
+        "title": "落地推进者",
+        "summary": "你不是只想“应该怎么做”，而是很自然地把目标推到真正完成。",
+        "tags": [
+          "行动推进",
+          "结果导向",
+          "快速迭代"
+        ]
+      },
+      {
+        "id": "coordinator",
+        "title": "组织统筹者",
+        "summary": "你擅长让多人、多任务和有限资源形成秩序，让复杂协作不掉链子。",
+        "tags": [
+          "资源统筹",
+          "流程设计",
+          "协作管理"
+        ]
+      },
+      {
+        "id": "explorer",
+        "title": "跨界探索者",
+        "summary": "你学习新东西快，也愿意走进陌生领域，把不同经验连接成新的可能。",
+        "tags": [
+          "快速学习",
+          "跨界迁移",
+          "变化适应"
+        ]
+      },
+      {
+        "id": "craftsperson",
+        "title": "品质打磨者",
+        "summary": "你的优势藏在“别人觉得够了，你还看得到哪里能更好”的那一步。",
+        "tags": [
+          "细节品质",
+          "稳定输出",
+          "专业打磨"
+        ]
+      },
+      {
+        "id": "builder",
+        "title": "项目建造者",
+        "summary": "你能把想法、资源和行动连成一条线，既看整体，也能把事情真正搭起来。",
+        "tags": [
+          "项目构建",
+          "综合推进",
+          "资源整合"
+        ]
+      }
+    ],
+    "profiles": [
+      {
+        "id": "profile-strategist",
+        "resultId": "strategist",
+        "dimensionTargets": {
+          "analysis": 84,
+          "creativity": 48,
+          "empathy": 42,
+          "influence": 50,
+          "execution": 58,
+          "organization": 64,
+          "exploration": 58,
+          "craft": 62
+        }
+      },
+      {
+        "id": "profile-creator",
+        "resultId": "creator",
+        "dimensionTargets": {
+          "analysis": 48,
+          "creativity": 88,
+          "empathy": 52,
+          "influence": 62,
+          "execution": 46,
+          "organization": 38,
+          "exploration": 78,
+          "craft": 58
+        }
+      },
+      {
+        "id": "profile-researcher",
+        "resultId": "researcher",
+        "dimensionTargets": {
+          "analysis": 82,
+          "creativity": 46,
+          "empathy": 52,
+          "influence": 34,
+          "execution": 46,
+          "organization": 54,
+          "exploration": 68,
+          "craft": 84
+        }
+      },
+      {
+        "id": "profile-communicator",
+        "resultId": "communicator",
+        "dimensionTargets": {
+          "analysis": 50,
+          "creativity": 66,
+          "empathy": 60,
+          "influence": 88,
+          "execution": 54,
+          "organization": 46,
+          "exploration": 62,
+          "craft": 44
+        }
+      },
+      {
+        "id": "profile-connector",
+        "resultId": "connector",
+        "dimensionTargets": {
+          "analysis": 42,
+          "creativity": 46,
+          "empathy": 90,
+          "influence": 68,
+          "execution": 48,
+          "organization": 56,
+          "exploration": 52,
+          "craft": 46
+        }
+      },
+      {
+        "id": "profile-operator",
+        "resultId": "operator",
+        "dimensionTargets": {
+          "analysis": 54,
+          "creativity": 44,
+          "empathy": 42,
+          "influence": 50,
+          "execution": 90,
+          "organization": 72,
+          "exploration": 52,
+          "craft": 58
+        }
+      },
+      {
+        "id": "profile-coordinator",
+        "resultId": "coordinator",
+        "dimensionTargets": {
+          "analysis": 62,
+          "creativity": 38,
+          "empathy": 58,
+          "influence": 58,
+          "execution": 74,
+          "organization": 90,
+          "exploration": 38,
+          "craft": 66
+        }
+      },
+      {
+        "id": "profile-explorer",
+        "resultId": "explorer",
+        "dimensionTargets": {
+          "analysis": 58,
+          "creativity": 72,
+          "empathy": 48,
+          "influence": 50,
+          "execution": 46,
+          "organization": 34,
+          "exploration": 92,
+          "craft": 40
+        }
+      },
+      {
+        "id": "profile-craftsperson",
+        "resultId": "craftsperson",
+        "dimensionTargets": {
+          "analysis": 64,
+          "creativity": 50,
+          "empathy": 42,
+          "influence": 34,
+          "execution": 66,
+          "organization": 64,
+          "exploration": 34,
+          "craft": 92
+        }
+      },
+      {
+        "id": "profile-builder",
+        "resultId": "builder",
+        "dimensionTargets": {
+          "analysis": 66,
+          "creativity": 62,
+          "empathy": 50,
+          "influence": 60,
+          "execution": 82,
+          "organization": 82,
+          "exploration": 58,
+          "craft": 54
+        }
+      }
+    ],
+    "entities": [],
+    "compatibility": {
+      "enabled": false,
+      "mode": "symmetric",
+      "allowPartialCoverage": true,
+      "dimensions": []
+    },
+    "compatibilityPairs": []
+  },
+  "presentation": {
+    "theme": "editorial",
+    "blocks": [
+      {
+        "type": "hero",
+        "variant": "identity",
+        "showSecondary": true,
+        "showMatch": true,
+        "showTags": true
+      },
+      {
+        "type": "quote",
+        "title": "你的天赋宣言",
+        "statements": [
+          {
+            "resultId": "strategist",
+            "text": "别人看到一团乱麻，你会先找到线头。"
+          },
+          {
+            "resultId": "creator",
+            "text": "你的价值常常从“还能不能换个做法”开始。"
+          },
+          {
+            "resultId": "researcher",
+            "text": "你不急着下结论，你更想把事情真正弄明白。"
+          },
+          {
+            "resultId": "communicator",
+            "text": "你能让一个好想法被看见、被听懂、被记住。"
+          },
+          {
+            "resultId": "connector",
+            "text": "你常常先看见人，再看见事情。"
+          },
+          {
+            "resultId": "operator",
+            "text": "很多人停在计划里，你更容易把它推到完成。"
+          },
+          {
+            "resultId": "coordinator",
+            "text": "你的厉害，是让复杂的人和事各归其位。"
+          },
+          {
+            "resultId": "explorer",
+            "text": "陌生不是阻力，反而经常是你的启动按钮。"
+          },
+          {
+            "resultId": "craftsperson",
+            "text": "你对“差不多”的敏感，正是专业感的来源。"
+          },
+          {
+            "resultId": "builder",
+            "text": "你擅长把零散资源搭成真正能运行的东西。"
+          }
+        ]
+      },
+      {
+        "type": "radar",
+        "title": "你的职业天赋雷达",
+        "max": 100
+      },
+      {
+        "type": "tags",
+        "title": "你的优势关键词"
+      },
+      {
+        "type": "highlight",
+        "title": "结果速览",
+        "facts": [
+          {
+            "source": "primary-title",
+            "label": "隐藏天赋"
+          },
+          {
+            "source": "match-percentage",
+            "label": "匹配度"
+          }
+        ]
+      }
+    ],
+    "shareCard": {
+      "enabled": true,
+      "layout": "portrait",
+      "headline": "我的隐藏职业天赋是",
+      "subtitle": "真正适合你的，可能不是一个职位，而是一种创造价值的方式",
+      "showTags": true,
+      "showMatch": true,
+      "showRadarSummary": false,
+      "dimensionIds": [],
+      "qrCode": true,
+      "brandingText": "测测你的隐藏职业天赋"
+    }
+  },
+  "assets": {}
+}
