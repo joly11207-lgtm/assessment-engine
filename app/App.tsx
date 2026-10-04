@@ -1,6 +1,5 @@
-import { Suspense, lazy, useEffect, useMemo, useState } from "react";
+import { Suspense, lazy, useEffect, useState } from "react";
 import { Link, Navigate, Route, Routes, useNavigate, useParams, useSearchParams } from "react-router-dom";
-import type { DiscoveryCategoryId } from "../engine/capabilities";
 import { hasCompatibility, isValidResultIdParam } from "../engine/compatibility/compatibility";
 import { canProceed, isComplete, progressPercent } from "../engine/runner/runner";
 import { loadCompletedResult, saveCompletedResult, type CompletedResultRecord } from "../engine/storage/completedResultStorage";
@@ -11,17 +10,6 @@ import { siteConfig } from "./siteConfig";
 
 const ResultPage = lazy(() => import("./results/ResultPage"));
 const PreviewPage = lazy(() => import("./preview/PreviewPage"));
-
-const categoryOrder: Array<DiscoveryCategoryId | "all"> = [
-  "all",
-  "personality",
-  "love",
-  "career",
-  "interest",
-  "city",
-  "literature",
-  "trending"
-];
 
 export function App() {
   return (
@@ -44,12 +32,6 @@ export function App() {
 }
 
 function HomePage() {
-  const [category, setCategory] = useState<DiscoveryCategoryId | "all">("all");
-  const featuredAssessments = registeredAssessments.filter((assessment) => assessment.metadata.discovery.featured);
-  const visibleAssessments = registeredAssessments.filter(
-    (assessment) => category === "all" || assessment.metadata.discovery.category === category
-  );
-
   return (
     <main className="page home-page">
       <header className="product-hero">
@@ -57,60 +39,7 @@ function HomePage() {
         <h1>{siteConfig.name}</h1>
         <p>{siteConfig.description}</p>
       </header>
-
-      <section className="home-section" aria-labelledby="featured-title">
-        <div className="section-heading">
-          <h2 id="featured-title">{zhCN.homepage.featured}</h2>
-        </div>
-        <div className="featured-list">
-          {featuredAssessments.map((assessment) => (
-            <TestCard assessment={assessment} featured key={assessment.metadata.id} />
-          ))}
-        </div>
-      </section>
-
-      <section className="home-section" aria-labelledby="all-tests-title">
-        <div className="section-heading">
-          <h2 id="all-tests-title">{zhCN.homepage.allTests}</h2>
-        </div>
-        <nav className="category-tabs" aria-label="测试分类">
-          {categoryOrder.map((categoryId) => (
-            <button
-              aria-pressed={category === categoryId}
-              key={categoryId}
-              onClick={() => setCategory(categoryId)}
-              type="button"
-            >
-              {zhCN.categories[categoryId]}
-            </button>
-          ))}
-        </nav>
-        <div className="list">
-          {visibleAssessments.map((assessment) => (
-            <TestCard assessment={assessment} key={assessment.metadata.id} />
-          ))}
-        </div>
-      </section>
     </main>
-  );
-}
-
-function TestCard({ assessment, featured = false }: { assessment: (typeof registeredAssessments)[number]; featured?: boolean }) {
-  const discovery = assessment.metadata.discovery;
-  return (
-    <article className={`assessment-card cover-${discovery.coverStyle} ${featured ? "assessment-card--featured" : ""}`.trim()}>
-      <div className="assessment-card__meta">
-        <span>{zhCN.categories[discovery.category]}</span>
-        <span>{formatCopy(zhCN.homepage.questionCount, { count: assessment.questions.length })}</span>
-        <span>{formatCopy(zhCN.homepage.minutes, { minutes: discovery.estimatedMinutes })}</span>
-      </div>
-      {discovery.badge ? <p className="assessment-card__badge">{discovery.badge}</p> : null}
-      <h3>{discovery.shortTitle}</h3>
-      <p>{assessment.metadata.description}</p>
-      <Link className="button" to={`/test/${assessment.metadata.id}`}>
-        {zhCN.homepage.openTest}
-      </Link>
-    </article>
   );
 }
 

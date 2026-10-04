@@ -11,6 +11,38 @@ import { registeredAssessments } from "../registry/assessmentRegistry";
 import { sessionKey, useAssessmentStore } from "../store/assessmentStore";
 
 describe("assessment runner rendering", () => {
+  it("renders the public homepage without published test cards or ids", () => {
+    useAssessmentStore.setState({ sessions: {}, results: {} });
+
+    const markup = renderToString(
+      createElement(
+        MemoryRouter,
+        { initialEntries: ["/"] },
+        createElement(App)
+      )
+    );
+
+    assert.doesNotMatch(markup, /assessment-card/);
+    assert.doesNotMatch(markup, /demo-personality/);
+    assert.doesNotMatch(markup, /demo-ranking/);
+    assert.doesNotMatch(markup, /all-tests-title/);
+  });
+
+  it("keeps direct test landing routes public", () => {
+    useAssessmentStore.setState({ sessions: {}, results: {} });
+
+    const markup = renderToString(
+      createElement(
+        MemoryRouter,
+        { initialEntries: ["/test/demo-personality"] },
+        createElement(App)
+      )
+    );
+
+    assert.match(markup, /test-landing/);
+    assert.ok(markup.includes(registeredAssessments.find((item) => item.metadata.id === "demo-personality")!.metadata.title));
+  });
+
   it("does not initialize runner state during render", () => {
     useAssessmentStore.setState({ sessions: {}, results: {} });
 

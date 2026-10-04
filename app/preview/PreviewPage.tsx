@@ -1,4 +1,4 @@
-import { Suspense, useMemo, useRef, useState, type DragEvent } from "react";
+import { Suspense, useEffect, useRef, useState, type DragEvent, type ReactNode, type RefObject } from "react";
 import { answerQuestion, canProceed, createRunnerSession, isComplete, nextQuestion, previousQuestion, progressPercent, type RunnerSession } from "../../engine/runner/runner";
 import { scoreAssessment } from "../../engine/scoring/scorers";
 import type { AssessmentResult } from "../../engine/result/types";
@@ -18,6 +18,17 @@ import {
 
 type PreviewMode = "summary" | "runner" | "quick" | "acceptance";
 
+const adminSessionKey = "assessment-engine-admin-secret";
+
+interface PublishedAssessmentSummary {
+  category: string;
+  id: string;
+  questionCount: number;
+  resultCount: number;
+  theme: string;
+  title: string;
+}
+
 interface PublishState {
   error?: string;
   existing?: boolean;
@@ -30,15 +41,107 @@ interface PublishState {
 }
 
 export default function PreviewPage() {
+  const [adminSecret, setAdminSecret] = useState("");
+  const [adminInput, setAdminInput] = useState("");
+  const [adminError, setAdminError] = useState("");
+  const [adminPending, setAdminPending] = useState(false);
+  const [publishedTests, setPublishedTests] = useState<PublishedAssessmentSummary[]>([]);
+
+  useEffect(() => {
+    const savedSecret = sessionStorage.getItem(adminSessionKey);
+    if (savedSecret) {
+      void unlockAdmin(savedSecret);
+    }
+  }, []);
+
+  async function unlockAdmin(secret: string) {
+    setAdminPending(true);
+    setAdminError("");
+    const response = await fetch("/api/admin/tests", {
+      headers: { Authorization: `Bearer ${secret}` }
+    }).catch(() => undefined);
+    setAdminPending(false);
+
+    if (!response || response.status === 401) {
+      sessionStorage.removeItem(adminSessionKey);
+      setAdminSecret("");
+      setPublishedTests([]);
+      setAdminError("管理员密码错误");
+      return;
+    }
+    if (!response.ok) {
+      setAdminError("后台暂时不可用，请稍后重试。");
+      return;
+    }
+
+    const tests = (await response.json()) as PublishedAssessmentSummary[];
+    sessionStorage.setItem(adminSessionKey, secret);
+    setAdminSecret(secret);
+    setAdminInput(secret);
+    setPublishedTests(tests);
+  }
+
+  if (!adminSecret) {
+    return (
+      <main className="page preview-page">
+        <section className="admin-login" aria-labelledby="admin-login-title">
+          <h1 id="admin-login-title">管理员后台</h1>
+          <form
+            onSubmit={(event) => {
+              event.preventDefault();
+              void unlockAdmin(adminInput);
+            }}
+          >
+            <label>
+              <span>管理员密码</span>
+              <input
+                autoComplete="off"
+                onChange={(event) => setAdminInput(event.currentTarget.value)}
+                type="password"
+                value={adminInput}
+              />
+            </label>
+            <button disabled={!adminInput || adminPending} type="submit">
+              {adminPending ? "验证中..." : "进入后台"}
+            </button>
+          </form>
+          {adminError ? <p className="preview-publish__error">{adminError}</p> : null}
+        </section>
+      </main>
+    );
+  }
+
+  return (
+    <AdminPreviewContent
+      adminSecret={adminSecret}
+      publishedTests={publishedTests}
+      refreshPublishedTests={() => void unlockAdmin(adminSecret)}
+    />
+  );
+}
+
+function AdminPreviewContent({
+  adminSecret,
+  publishedTests,
+  refreshPublishedTests
+}: {
+  adminSecret: string;
+  publishedTests: PublishedAssessmentSummary[];
+  refreshPublishedTests: () => void;
+}) {
   const [loadResult, setLoadResult] = useState<PreviewPackageLoadResult | undefined>();
   const [mode, setMode] = useState<PreviewMode>("summary");
   const [isDragging, setIsDragging] = useState(false);
   const [selectedResult, setSelectedResult] = useState<AssessmentResult | undefined>();
   const [acceptanceRuns, setAcceptanceRuns] = useState<AcceptanceCaseRun[]>([]);
-  const [publishSecret, setPublishSecret] = useState("");
   const [publishState, setPublishState] = useState<PublishState>({});
+  const [search, setSearch] = useState("");
   const fileInputRef = useRef<HTMLInputElement>(null);
   const assessment = loadResult?.assessment;
+  const filteredTests = publishedTests.filter((test) => {
+    const query = search.trim().toLowerCase();
+    return !query || test.title.toLowerCase().includes(query) || test.id.toLowerCase().includes(query);
+  });
 
   async function importZip(file: File) {
     const bytes = new Uint8Array(await file.arrayBuffer());
@@ -60,6 +163,14 @@ export default function PreviewPage() {
 
   return (
     <main className="page preview-page">
+      <AdminDashboard
+        fileInputRef={fileInputRef}
+        publishedTests={filteredTests}
+        refreshPublishedTests={refreshPublishedTests}
+        search={search}
+        setSearch={setSearch}
+      />
+
       <header className="header">
         <p className="product-kicker">ZIP Test Previewer</p>
         <h1>Test Creator ZIP Preview</h1>
@@ -98,12 +209,11 @@ export default function PreviewPage() {
       {loadResult ? <PackageSummary loadResult={loadResult} /> : null}
       {assessment && loadResult.schemaStatus === "pass" && loadResult.errors.length === 0 ? (
         <PublishPanel
+          adminSecret={adminSecret}
           acceptanceCases={loadResult.acceptanceCases}
           assessment={assessment}
-          publishSecret={publishSecret}
           publishState={publishState}
           setAcceptanceRuns={setAcceptanceRuns}
-          setPublishSecret={setPublishSecret}
           setPublishState={setPublishState}
         />
       ) : null}
@@ -143,21 +253,88 @@ export default function PreviewPage() {
   );
 }
 
+function AdminDashboard({
+  fileInputRef,
+  publishedTests,
+  refreshPublishedTests,
+  search,
+  setSearch
+}: {
+  fileInputRef: RefObject<HTMLInputElement | null>;
+  publishedTests: PublishedAssessmentSummary[];
+  refreshPublishedTests: () => void;
+  search: string;
+  setSearch: (value: string) => void;
+}) {
+  return (
+    <section className="admin-dashboard" aria-labelledby="admin-dashboard-title">
+      <div className="admin-dashboard__heading">
+        <div>
+          <p className="product-kicker">Admin</p>
+          <h1 id="admin-dashboard-title">测试管理</h1>
+        </div>
+        <button type="button" onClick={() => fileInputRef.current?.click()}>
+          上传新测试 ZIP
+        </button>
+      </div>
+      <label className="admin-search">
+        <span>搜索</span>
+        <input onChange={(event) => setSearch(event.currentTarget.value)} placeholder="title / id" type="search" value={search} />
+      </label>
+      <div className="admin-dashboard__subheading">
+        <h2>已发布测试列表</h2>
+        <button type="button" onClick={refreshPublishedTests}>
+          刷新
+        </button>
+      </div>
+      <div className="admin-test-list">
+        {publishedTests.map((test) => (
+          <article className="admin-test-card" key={test.id}>
+            <div>
+              <h3>{test.title}</h3>
+              <p>{test.id}</p>
+            </div>
+            <dl>
+              <div>
+                <dt>Questions</dt>
+                <dd>{test.questionCount}</dd>
+              </div>
+              <div>
+                <dt>Results</dt>
+                <dd>{test.resultCount}</dd>
+              </div>
+              <div>
+                <dt>Theme</dt>
+                <dd>{test.theme}</dd>
+              </div>
+            </dl>
+            <div className="admin-test-card__actions">
+              <a href={`/test/${test.id}`}>预览</a>
+              <a href={`/test/${test.id}`}>打开测试</a>
+              <button type="button" onClick={() => void navigator.clipboard?.writeText(`${window.location.origin}/test/${test.id}`)}>
+                复制链接
+              </button>
+            </div>
+          </article>
+        ))}
+      </div>
+    </section>
+  );
+}
+
 function PublishPanel({
+  adminSecret,
   acceptanceCases,
   assessment,
-  publishSecret,
   publishState,
   setAcceptanceRuns,
-  setPublishSecret,
   setPublishState
 }: {
+  adminSecret: string;
   acceptanceCases: PreviewPackageLoadResult["acceptanceCases"];
   assessment: AssessmentPackage;
-  publishSecret: string;
   publishState: PublishState;
   setAcceptanceRuns: (runs: AcceptanceCaseRun[]) => void;
-  setPublishSecret: (secret: string) => void;
   setPublishState: (state: PublishState) => void;
 }) {
   async function publish(overwrite: boolean) {
@@ -175,7 +352,7 @@ function PublishPanel({
       const response = await fetch("/api/admin/publish-test", {
         method: "POST",
         headers: {
-          Authorization: `Bearer ${publishSecret}`,
+          Authorization: `Bearer ${adminSecret}`,
           "Content-Type": "application/json"
         },
         body: JSON.stringify({ assessment, overwrite })
@@ -216,18 +393,18 @@ function PublishPanel({
         <h2>发布到正式站</h2>
         <p>仅发送已通过校验的 test.json；ZIP 和 GitHub token 不会进入浏览器。</p>
       </div>
-      <label>
+      <label hidden>
         <span>管理员发布密码</span>
         <input
           autoComplete="off"
-          onChange={(event) => setPublishSecret(event.currentTarget.value)}
+          readOnly
           placeholder="Publish secret"
           type="password"
-          value={publishSecret}
+          value={adminSecret}
         />
       </label>
       <div className="preview-actions">
-        <button disabled={!publishSecret || publishState.pending} onClick={() => void publish(false)} type="button">
+        <button disabled={publishState.pending} onClick={() => void publish(false)} type="button">
           {publishState.pending ? "发布中..." : "发布到正式站"}
         </button>
       </div>
@@ -469,7 +646,7 @@ function AcceptanceCasesPanel({
   );
 }
 
-function PreviewResultFrame({ children }: { children: React.ReactNode }) {
+function PreviewResultFrame({ children }: { children: ReactNode }) {
   return (
     <section className="preview-result-frame">
       <div className="preview-badge">Preview</div>

@@ -1,5 +1,6 @@
 import assert from "node:assert/strict";
 import { describe, it } from "node:test";
+import { listAdminTests } from "../functions/api/admin/tests";
 import { publishTest } from "../functions/api/admin/publish-test";
 import { registeredAssessments } from "../registry/assessmentRegistry";
 
@@ -117,6 +118,32 @@ describe("publish-test Pages Function", () => {
   });
 });
 
+describe("admin tests Pages Function", () => {
+  it("rejects the wrong admin secret", async () => {
+    const response = await listAdminTests(makeAdminTestsRequest("wrong"), env);
+
+    assert.equal(response.status, 401);
+  });
+
+  it("returns minimal published test metadata with the correct secret", async () => {
+    const response = await listAdminTests(makeAdminTestsRequest(), env);
+    const body = await response.json() as Array<Record<string, unknown>>;
+    const demo = body.find((item) => item.id === "demo-personality");
+
+    assert.equal(response.status, 200);
+    assert.ok(demo);
+    assert.equal(demo.title, assessment.metadata.title);
+    assert.equal(demo.questionCount, assessment.questions.length);
+    assert.equal(demo.resultCount, assessment.results.catalog.length);
+    assert.equal(demo.theme, assessment.presentation.theme);
+    assert.equal(typeof demo.category, "string");
+    assert.equal("questions" in demo, false);
+    assert.equal("results" in demo, false);
+    assert.equal("presentation" in demo, false);
+    assert.equal("scoring" in demo, false);
+  });
+});
+
 function makeRequest(body: unknown, secret = env.PUBLISH_SECRET) {
   return new Request("https://example.com/api/admin/publish-test", {
     method: "POST",
@@ -125,6 +152,15 @@ function makeRequest(body: unknown, secret = env.PUBLISH_SECRET) {
       "Content-Type": "application/json"
     },
     body: JSON.stringify(body)
+  });
+}
+
+function makeAdminTestsRequest(secret = env.PUBLISH_SECRET) {
+  return new Request("https://example.com/api/admin/tests", {
+    method: "GET",
+    headers: {
+      Authorization: `Bearer ${secret}`
+    }
   });
 }
 
