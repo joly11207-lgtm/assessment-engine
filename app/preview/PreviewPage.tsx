@@ -115,6 +115,13 @@ export default function PreviewPage() {
     <AdminPreviewContent
       adminSecret={adminSecret}
       publishedTests={publishedTests}
+      onAuthExpired={() => {
+        sessionStorage.removeItem(adminSessionKey);
+        setAdminSecret("");
+        setPublishedTests([]);
+        setAdminError("管理员认证失效");
+      }}
+      removePublishedTest={(testId) => setPublishedTests((current) => current.filter((test) => test.id !== testId))}
       refreshPublishedTests={() => void unlockAdmin(adminSecret)}
     />
   );
@@ -122,11 +129,15 @@ export default function PreviewPage() {
 
 function AdminPreviewContent({
   adminSecret,
+  onAuthExpired,
   publishedTests,
+  removePublishedTest,
   refreshPublishedTests
 }: {
   adminSecret: string;
+  onAuthExpired: () => void;
   publishedTests: PublishedAssessmentSummary[];
+  removePublishedTest: (testId: string) => void;
   refreshPublishedTests: () => void;
 }) {
   const [loadResult, setLoadResult] = useState<PreviewPackageLoadResult | undefined>();
@@ -164,8 +175,11 @@ function AdminPreviewContent({
   return (
     <main className="page preview-page">
       <AdminDashboard
+        adminSecret={adminSecret}
         fileInputRef={fileInputRef}
+        onAuthExpired={onAuthExpired}
         publishedTests={filteredTests}
+        removePublishedTest={removePublishedTest}
         refreshPublishedTests={refreshPublishedTests}
         search={search}
         setSearch={setSearch}
@@ -254,18 +268,86 @@ function AdminPreviewContent({
 }
 
 function AdminDashboard({
+  adminSecret,
   fileInputRef,
+  onAuthExpired,
   publishedTests,
+  removePublishedTest,
   refreshPublishedTests,
   search,
   setSearch
 }: {
+  adminSecret: string;
   fileInputRef: RefObject<HTMLInputElement | null>;
+  onAuthExpired: () => void;
   publishedTests: PublishedAssessmentSummary[];
+  removePublishedTest: (testId: string) => void;
   refreshPublishedTests: () => void;
   search: string;
   setSearch: (value: string) => void;
 }) {
+  const [expandedIds, setExpandedIds] = useState<Set<string>>(() => new Set());
+  const [confirmingDeleteId, setConfirmingDeleteId] = useState<string | undefined>();
+  const [deleteState, setDeleteState] = useState<{
+    error?: string;
+    pendingId?: string;
+    result?: { commitSha?: string; commitUrl?: string; testId: string };
+  }>({});
+
+  function toggleExpanded(testId: string) {
+    setExpandedIds((current) => {
+      const next = new Set(current);
+      if (next.has(testId)) {
+        next.delete(testId);
+      } else {
+        next.add(testId);
+      }
+      return next;
+    });
+  }
+
+  async function deleteTest(test: PublishedAssessmentSummary) {
+    setDeleteState({ pendingId: test.id });
+    try {
+      const response = await fetch(`/api/admin/tests/${encodeURIComponent(test.id)}`, {
+        method: "DELETE",
+        headers: { Authorization: `Bearer ${adminSecret}` }
+      });
+      const data = (await response.json().catch(() => ({}))) as {
+        commitSha?: string;
+        commitUrl?: string;
+        testId?: string;
+      };
+
+      if (response.status === 401) {
+        onAuthExpired();
+        return;
+      }
+      if (response.status === 404) {
+        setConfirmingDeleteId(undefined);
+        setDeleteState({ error: "测试不存在，已刷新列表。" });
+        refreshPublishedTests();
+        return;
+      }
+      if (!response.ok) {
+        setDeleteState({ error: "删除失败，请稍后重试。" });
+        return;
+      }
+
+      removePublishedTest(test.id);
+      setConfirmingDeleteId(undefined);
+      setDeleteState({
+        result: {
+          commitSha: data.commitSha,
+          commitUrl: data.commitUrl,
+          testId: data.testId ?? test.id
+        }
+      });
+    } catch {
+      setDeleteState({ error: "删除失败，请稍后重试。" });
+    }
+  }
+
   return (
     <section className="admin-dashboard" aria-labelledby="admin-dashboard-title">
       <div className="admin-dashboard__heading">
@@ -288,13 +370,24 @@ function AdminDashboard({
         </button>
       </div>
       <div className="admin-test-list">
-        {publishedTests.map((test) => (
-          <article className="admin-test-card" key={test.id}>
+        {publishedTests.map((test) => {
+          const expanded = expandedIds.has(test.id);
+          const confirmingDelete = confirmingDeleteId === test.id;
+          return (
+          <article className="admin-test-card" data-collapsed={!expanded} key={test.id}>
             <div>
               <h3>{test.title}</h3>
               <p>{test.id}</p>
             </div>
+            <button aria-expanded={expanded} type="button" onClick={() => toggleExpanded(test.id)}>
+              {expanded ? "收起" : "展开"}
+            </button>
+            {expanded ? (
             <dl>
+              <div>
+                <dt>Category</dt>
+                <dd>{test.category}</dd>
+              </div>
               <div>
                 <dt>Questions</dt>
                 <dd>{test.questionCount}</dd>
@@ -308,6 +401,7 @@ function AdminDashboard({
                 <dd>{test.theme}</dd>
               </div>
             </dl>
+            ) : null}
             <div className="admin-test-card__actions">
               <a href={`/test/${test.id}`}>预览</a>
               <a href={`/test/${test.id}`}>打开测试</a>
@@ -315,9 +409,41 @@ function AdminDashboard({
                 复制链接
               </button>
             </div>
+            <div className="admin-test-card__danger">
+              <button type="button" onClick={() => setConfirmingDeleteId(test.id)}>
+                删除
+              </button>
+            </div>
+            {confirmingDelete ? (
+              <div className="admin-delete-confirm">
+                <p>确定删除「{test.title}」？</p>
+                <p>此操作会从正式站移除该测试，GitHub 会产生一次删除 commit。</p>
+                <div className="admin-test-card__actions">
+                  <button type="button" onClick={() => setConfirmingDeleteId(undefined)}>
+                    取消
+                  </button>
+                  <button disabled={deleteState.pendingId === test.id} type="button" onClick={() => void deleteTest(test)}>
+                    {deleteState.pendingId === test.id ? "删除中..." : "确认删除"}
+                  </button>
+                </div>
+              </div>
+            ) : null}
           </article>
-        ))}
+          );
+        })}
       </div>
+      {deleteState.error ? <p className="preview-publish__error">{deleteState.error}</p> : null}
+      {deleteState.result ? (
+        <div className="preview-publish__success">
+          <p>删除已提交，Cloudflare Pages 正在重新部署</p>
+          <p>Commit: {deleteState.result.commitSha ? deleteState.result.commitSha.slice(0, 7) : "GitHub 已提交"}</p>
+          {deleteState.result.commitUrl ? (
+            <a href={deleteState.result.commitUrl} rel="noreferrer" target="_blank">
+              查看 Commit
+            </a>
+          ) : null}
+        </div>
+      ) : null}
     </section>
   );
 }

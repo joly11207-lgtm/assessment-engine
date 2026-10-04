@@ -43,6 +43,26 @@ describe("assessment runner rendering", () => {
     assert.ok(markup.includes(registeredAssessments.find((item) => item.metadata.id === "demo-personality")!.metadata.title));
   });
 
+  it("keeps admin test cards collapsed by default", () => {
+    const previewSource = readFileSync("app/preview/PreviewPage.tsx", "utf8");
+
+    assert.match(previewSource, /useState<Set<string>>\(\(\) => new Set\(\)\)/);
+    assert.match(previewSource, /data-collapsed=\{!expanded\}/);
+    assert.match(previewSource, /aria-expanded=\{expanded\}/);
+    assert.match(previewSource, /\{expanded \? \(/);
+    assert.match(previewSource, /<dt>Category<\/dt>/);
+  });
+
+  it("supports independent expand and collapse state per admin test card", () => {
+    const previewSource = readFileSync("app/preview/PreviewPage.tsx", "utf8");
+
+    assert.match(previewSource, /function toggleExpanded\(testId: string\)/);
+    assert.match(previewSource, /const next = new Set\(current\)/);
+    assert.match(previewSource, /next\.delete\(testId\)/);
+    assert.match(previewSource, /next\.add\(testId\)/);
+    assert.match(previewSource, /expandedIds\.has\(test\.id\)/);
+  });
+
   it("does not initialize runner state during render", () => {
     useAssessmentStore.setState({ sessions: {}, results: {} });
 

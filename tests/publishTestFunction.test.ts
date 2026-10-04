@@ -1,5 +1,6 @@
 import assert from "node:assert/strict";
 import { describe, it } from "node:test";
+import { deleteAdminTest } from "../functions/api/admin/tests/[id]";
 import { listAdminTests } from "../functions/api/admin/tests";
 import { publishTest } from "../functions/api/admin/publish-test";
 import { registeredAssessments } from "../registry/assessmentRegistry";
@@ -144,6 +145,87 @@ describe("admin tests Pages Function", () => {
   });
 });
 
+describe("delete admin test Pages Function", () => {
+  it("rejects the wrong admin secret", async () => {
+    const response = await deleteAdminTest(makeDeleteRequest("demo-personality", "wrong"), env, "demo-personality", mockFetch([]));
+
+    assert.equal(response.status, 401);
+  });
+
+  it("rejects invalid test ids before calling GitHub", async () => {
+    const calls: Request[] = [];
+    const response = await deleteAdminTest(makeDeleteRequest("bad/../id"), env, "bad/../id", recordingFetch(calls, []));
+
+    assert.equal(response.status, 400);
+    assert.equal(calls.length, 0);
+  });
+
+  it("returns 404 when the GitHub file does not exist", async () => {
+    const calls: Request[] = [];
+    const response = await deleteAdminTest(
+      makeDeleteRequest("demo-personality"),
+      env,
+      "demo-personality",
+      recordingFetch(calls, [json({}, 404)])
+    );
+
+    assert.equal(response.status, 404);
+    assert.equal(calls.length, 1);
+    assert.equal(calls[0].method, "GET");
+  });
+
+  it("fetches the SHA then sends a GitHub DELETE", async () => {
+    const calls: Request[] = [];
+    const response = await deleteAdminTest(
+      makeDeleteRequest("demo-personality"),
+      env,
+      "demo-personality",
+      recordingFetch(calls, [json({ sha: "existing-sha" }), json({ commit: { html_url: "https://github.test/commit/delete", sha: "delete123" } })])
+    );
+    const body = await response.json() as { commitSha?: string; commitUrl?: string; ok?: boolean; testId?: string };
+
+    assert.equal(response.status, 200);
+    assert.equal(body.ok, true);
+    assert.equal(body.testId, "demo-personality");
+    assert.equal(body.commitSha, "delete123");
+    assert.equal(body.commitUrl, "https://github.test/commit/delete");
+    assert.equal(calls.length, 2);
+    assert.equal(calls[0].method, "GET");
+    assert.equal(calls[1].method, "DELETE");
+    const deleteBody = await calls[1].json() as { branch: string; message: string; sha: string };
+    assert.equal(deleteBody.branch, "main");
+    assert.equal(deleteBody.message, "Delete test: demo-personality");
+    assert.equal(deleteBody.sha, "existing-sha");
+  });
+
+  it("constructs the delete path server-side from the validated id", async () => {
+    const calls: Request[] = [];
+    await deleteAdminTest(
+      makeDeleteRequest("demo-personality?path=evil"),
+      env,
+      "demo-personality",
+      recordingFetch(calls, [json({ sha: "existing-sha" }), json({ commit: { sha: "delete123" } })])
+    );
+
+    assert.match(calls[0].url, /owner\/repo/);
+    assert.match(calls[0].url, /content\/tests\/demo-personality\/test\.json|content%2Ftests%2Fdemo-personality%2Ftest\.json/);
+    assert.doesNotMatch(calls[0].url, /evil/);
+  });
+
+  it("returns a safe 5xx when GitHub delete fails", async () => {
+    const response = await deleteAdminTest(
+      makeDeleteRequest("demo-personality"),
+      env,
+      "demo-personality",
+      mockFetch([json({ sha: "existing-sha" }), json({ message: "bad credentials token gh-token" }, 500)])
+    );
+    const bodyText = await response.text();
+
+    assert.equal(response.status, 502);
+    assert.doesNotMatch(bodyText, /gh-token/);
+  });
+});
+
 function makeRequest(body: unknown, secret = env.PUBLISH_SECRET) {
   return new Request("https://example.com/api/admin/publish-test", {
     method: "POST",
@@ -158,6 +240,15 @@ function makeRequest(body: unknown, secret = env.PUBLISH_SECRET) {
 function makeAdminTestsRequest(secret = env.PUBLISH_SECRET) {
   return new Request("https://example.com/api/admin/tests", {
     method: "GET",
+    headers: {
+      Authorization: `Bearer ${secret}`
+    }
+  });
+}
+
+function makeDeleteRequest(testId: string, secret = env.PUBLISH_SECRET) {
+  return new Request(`https://example.com/api/admin/tests/${encodeURIComponent(testId)}`, {
+    method: "DELETE",
     headers: {
       Authorization: `Bearer ${secret}`
     }
