@@ -37,7 +37,6 @@ function HomePage() {
       <header className="product-hero">
         <p className="product-kicker">{siteConfig.tagline}</p>
         <h1>{siteConfig.name}</h1>
-        <p>{siteConfig.description}</p>
       </header>
     </main>
   );
