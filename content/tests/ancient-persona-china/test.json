@@ -1,0 +1,1656 @@
+{
+  "schemaVersion": "1.0",
+  "metadata": {
+    "id": "ancient-persona-china",
+    "version": "v1",
+    "title": "如果生在古代，你最像哪位历史人物？",
+    "description": "30道古代情境题，探索八维处世倾向，匹配16种中国历史人物与文学形象的编辑化画像。趣味模型，不是历史心理测量。",
+    "discovery": {
+      "category": "interest",
+      "shortTitle": "生在古代你最像谁",
+      "estimatedMinutes": 6,
+      "featured": false,
+      "badge": "国风人物匹配",
+      "coverStyle": "paper",
+      "resultPreview": "读一份专属人生剧本，领取你的古代人物卡。"
+    }
+  },
+  "dimensions": [
+    {
+      "id": "strategy",
+      "label": "谋略思维",
+      "description": "凭直觉应变 ↔ 布局与推演，偏好方向，无优劣。",
+      "min": -8,
+      "max": 8
+    },
+    {
+      "id": "power",
+      "label": "权力倾向",
+      "description": "自主小范围 ↔ 掌舵与影响，偏好方向，无优劣。",
+      "min": -8,
+      "max": 8
+    },
+    {
+      "id": "emotion",
+      "label": "情感表达",
+      "description": "内敛含蓄 ↔ 直接外露，偏好方向，无优劣。",
+      "min": -8,
+      "max": 8
+    },
+    {
+      "id": "tact",
+      "label": "处世智慧",
+      "description": "坦率直行 ↔ 迂回协调，偏好方向，无优劣。",
+      "min": -8,
+      "max": 8
+    },
+    {
+      "id": "risk",
+      "label": "冒险魄力",
+      "description": "谨慎守稳 ↔ 迎险开路，偏好方向，无优劣。",
+      "min": -8,
+      "max": 8
+    },
+    {
+      "id": "ideal",
+      "label": "理想信念",
+      "description": "因势务实 ↔ 守定信念，偏好方向，无优劣。",
+      "min": -8,
+      "max": 8
+    },
+    {
+      "id": "freedom",
+      "label": "自由追求",
+      "description": "依托秩序 ↔ 自主随性，偏好方向，无优劣。",
+      "min": -6,
+      "max": 6
+    },
+    {
+      "id": "resilience",
+      "label": "逆境韧性",
+      "description": "调整退让 ↔ 持续坚守，偏好方向，无优劣。",
+      "min": -6,
+      "max": 6
+    }
+  ],
+  "questions": [
+    {
+      "id": "q01",
+      "type": "single-choice",
+      "text": "初到县衙，账册与粮仓数目不符，你先怎么做？",
+      "required": true,
+      "options": [
+        {
+          "id": "a",
+          "label": "先处理眼前缺粮，账册之后再看",
+          "weights": {
+            "strategy": -2
+          }
+        },
+        {
+          "id": "b",
+          "label": "找熟悉情况的人问个大概，再边做边查",
+          "weights": {
+            "strategy": -1
+          }
+        },
+        {
+          "id": "c",
+          "label": "核对几处关键记录，判断差额从何而来",
+          "weights": {
+            "strategy": 1
+          }
+        },
+        {
+          "id": "d",
+          "label": "先画清出入路径与经手关系，再安排逐项核验",
+          "weights": {
+            "strategy": 2
+          }
+        }
+      ]
+    },
+    {
+      "id": "q02",
+      "type": "single-choice",
+      "text": "乡民想推你主持修桥，你更愿意处在哪个位置？",
+      "required": true,
+      "options": [
+        {
+          "id": "a",
+          "label": "想掌握总体决策，也愿意承担成败责任",
+          "weights": {
+            "power": 2
+          }
+        },
+        {
+          "id": "b",
+          "label": "帮忙出一份力，主持交给别人",
+          "weights": {
+            "power": -2
+          }
+        },
+        {
+          "id": "c",
+          "label": "管好自己认领的一段，不牵头整个工程",
+          "weights": {
+            "power": -1
+          }
+        },
+        {
+          "id": "d",
+          "label": "愿意召集人手，协调方案和分工",
+          "weights": {
+            "power": 1
+          }
+        }
+      ]
+    },
+    {
+      "id": "q03",
+      "type": "single-choice",
+      "text": "久别的朋友在渡口重逢，你会怎样表达？",
+      "required": true,
+      "options": [
+        {
+          "id": "a",
+          "label": "直接告诉他这些年很想念",
+          "weights": {
+            "emotion": 1
+          }
+        },
+        {
+          "id": "b",
+          "label": "忍不住把思念与委屈都说出来，让他知道我的心情",
+          "weights": {
+            "emotion": 2
+          }
+        },
+        {
+          "id": "c",
+          "label": "把准备的行囊递过去，话却不多",
+          "weights": {
+            "emotion": -2
+          }
+        },
+        {
+          "id": "d",
+          "label": "轻轻问一句近况，把挂念藏在细节里",
+          "weights": {
+            "emotion": -1
+          }
+        }
+      ]
+    },
+    {
+      "id": "q04",
+      "type": "single-choice",
+      "text": "宴席上，有人当众说错了与你相关的事，你会？",
+      "required": true,
+      "options": [
+        {
+          "id": "a",
+          "label": "简短澄清自己的部分，其余不多解释",
+          "weights": {
+            "tact": -1
+          }
+        },
+        {
+          "id": "b",
+          "label": "先缓和气氛，再择机把事实说清",
+          "weights": {
+            "tact": 1
+          }
+        },
+        {
+          "id": "c",
+          "label": "借对方能接受的说法转圜，让事实和关系都有着落",
+          "weights": {
+            "tact": 2
+          }
+        },
+        {
+          "id": "d",
+          "label": "当场指出错误，不绕弯子",
+          "weights": {
+            "tact": -2
+          }
+        }
+      ]
+    },
+    {
+      "id": "q05",
+      "type": "single-choice",
+      "text": "有人邀你走一条少人用的山道，据说能赶上商队，你会？",
+      "required": true,
+      "options": [
+        {
+          "id": "a",
+          "label": "宁愿错过，也走可靠的大路",
+          "weights": {
+            "risk": -2
+          }
+        },
+        {
+          "id": "b",
+          "label": "先打听清楚，风险仍不明就不去",
+          "weights": {
+            "risk": -1
+          }
+        },
+        {
+          "id": "c",
+          "label": "准备好路引与同行者后愿意试试",
+          "weights": {
+            "risk": 1
+          }
+        },
+        {
+          "id": "d",
+          "label": "即使仍有不确定，也想抓住这次机会",
+          "weights": {
+            "risk": 2
+          }
+        }
+      ]
+    },
+    {
+      "id": "q06",
+      "type": "single-choice",
+      "text": "一项变法能尽快见效，但与你认可的公道有冲突，你更倾向？",
+      "required": true,
+      "options": [
+        {
+          "id": "a",
+          "label": "即使暂时难以见效，也不愿越过这条底线",
+          "weights": {
+            "ideal": 2
+          }
+        },
+        {
+          "id": "b",
+          "label": "先让事情运转起来，公道可以以后再补",
+          "weights": {
+            "ideal": -2
+          }
+        },
+        {
+          "id": "c",
+          "label": "尽量减少冲突，必要时接受一点妥协",
+          "weights": {
+            "ideal": -1
+          }
+        },
+        {
+          "id": "d",
+          "label": "宁可慢些，也要保住最重要的原则",
+          "weights": {
+            "ideal": 1
+          }
+        }
+      ]
+    },
+    {
+      "id": "q07",
+      "type": "single-choice",
+      "text": "书院给你衣食与安稳，却要求每日按固定章程生活，你会？",
+      "required": true,
+      "options": [
+        {
+          "id": "a",
+          "label": "争取自己安排时间，不愿长期被管得太细",
+          "weights": {
+            "freedom": 1
+          }
+        },
+        {
+          "id": "b",
+          "label": "宁愿衣食简单些，也要自己决定日常",
+          "weights": {
+            "freedom": 2
+          }
+        },
+        {
+          "id": "c",
+          "label": "愿意留下，有安排反而省心",
+          "weights": {
+            "freedom": -2
+          }
+        },
+        {
+          "id": "d",
+          "label": "总体接受，空闲时做自己的事",
+          "weights": {
+            "freedom": -1
+          }
+        }
+      ]
+    },
+    {
+      "id": "q08",
+      "type": "single-choice",
+      "text": "第一次上书毫无回音，你会如何看待之后的路？",
+      "required": true,
+      "options": [
+        {
+          "id": "a",
+          "label": "再试一次，仍无回应就转身",
+          "weights": {
+            "resilience": -1
+          }
+        },
+        {
+          "id": "b",
+          "label": "修改办法，继续找能说得上话的机会",
+          "weights": {
+            "resilience": 1
+          }
+        },
+        {
+          "id": "c",
+          "label": "只要这件事仍值得，会长期设法推进",
+          "weights": {
+            "resilience": 2
+          }
+        },
+        {
+          "id": "d",
+          "label": "把这条路先放下，换个方向生活",
+          "weights": {
+            "resilience": -2
+          }
+        }
+      ]
+    },
+    {
+      "id": "q09",
+      "type": "single-choice",
+      "text": "城中谣言四起，人人说法不同，你会？",
+      "required": true,
+      "options": [
+        {
+          "id": "a",
+          "label": "先按最可信的直觉做应对",
+          "weights": {
+            "strategy": -2
+          }
+        },
+        {
+          "id": "b",
+          "label": "听两位熟人的说法，再决定",
+          "weights": {
+            "strategy": -1
+          }
+        },
+        {
+          "id": "c",
+          "label": "比较消息来源与矛盾之处，暂不下定论",
+          "weights": {
+            "strategy": 1
+          }
+        },
+        {
+          "id": "d",
+          "label": "把各方动机与传播路径也纳入判断，预备几种局面",
+          "weights": {
+            "strategy": 2
+          }
+        }
+      ]
+    },
+    {
+      "id": "q10",
+      "type": "single-choice",
+      "text": "乱世中，有人让你带领一支队伍，你心里更接近？",
+      "required": true,
+      "options": [
+        {
+          "id": "a",
+          "label": "想把方向握在自己手中，建立能落实意志的队伍",
+          "weights": {
+            "power": 2
+          }
+        },
+        {
+          "id": "b",
+          "label": "不想号令人，更愿独自安排去留",
+          "weights": {
+            "power": -2
+          }
+        },
+        {
+          "id": "c",
+          "label": "愿辅佐可靠的人，不必自己居首",
+          "weights": {
+            "power": -1
+          }
+        },
+        {
+          "id": "d",
+          "label": "如果大家信任我，我愿领头作决定",
+          "weights": {
+            "power": 1
+          }
+        }
+      ]
+    },
+    {
+      "id": "q11",
+      "type": "single-choice",
+      "text": "你写下一封给故人的信，最自然的样子是？",
+      "required": true,
+      "options": [
+        {
+          "id": "a",
+          "label": "直接写出惦念、失落或欢喜",
+          "weights": {
+            "emotion": 1
+          }
+        },
+        {
+          "id": "b",
+          "label": "愿把心绪铺展开来，不怕对方看到我的起伏",
+          "weights": {
+            "emotion": 2
+          }
+        },
+        {
+          "id": "c",
+          "label": "只写需要交代的事，不谈心境",
+          "weights": {
+            "emotion": -2
+          }
+        },
+        {
+          "id": "d",
+          "label": "借天气和见闻暗示心意",
+          "weights": {
+            "emotion": -1
+          }
+        }
+      ]
+    },
+    {
+      "id": "q12",
+      "type": "single-choice",
+      "text": "两位同僚争得面红耳赤，又都盼你表态，你会？",
+      "required": true,
+      "options": [
+        {
+          "id": "a",
+          "label": "只按事情本身判断，不特别照顾脸面",
+          "weights": {
+            "tact": -1
+          }
+        },
+        {
+          "id": "b",
+          "label": "先分别听懂诉求，再找双方能接受的部分",
+          "weights": {
+            "tact": 1
+          }
+        },
+        {
+          "id": "c",
+          "label": "调整说法和场合，给双方留退一步的台阶",
+          "weights": {
+            "tact": 2
+          }
+        },
+        {
+          "id": "d",
+          "label": "说清我赞成哪一方，不拖着",
+          "weights": {
+            "tact": -2
+          }
+        }
+      ]
+    },
+    {
+      "id": "q13",
+      "type": "single-choice",
+      "text": "你带着有限盘缠入京，遇到一个有希望却无把握的机会，你会？",
+      "required": true,
+      "options": [
+        {
+          "id": "a",
+          "label": "先保住返乡费用，不再冒险",
+          "weights": {
+            "risk": -2
+          }
+        },
+        {
+          "id": "b",
+          "label": "只投入很小一部分，试探后再说",
+          "weights": {
+            "risk": -1
+          }
+        },
+        {
+          "id": "c",
+          "label": "愿意拿出较多盘缠，换一次认真尝试",
+          "weights": {
+            "risk": 1
+          }
+        },
+        {
+          "id": "d",
+          "label": "即使可能重头再来，也想把主要筹码押上去",
+          "weights": {
+            "risk": 2
+          }
+        }
+      ]
+    },
+    {
+      "id": "q14",
+      "type": "single-choice",
+      "text": "恩人希望你在不赞同的奏章上署名，你会？",
+      "required": true,
+      "options": [
+        {
+          "id": "a",
+          "label": "再大的恩情也不能代替我的判断，拒绝违心署名",
+          "weights": {
+            "ideal": 2
+          }
+        },
+        {
+          "id": "b",
+          "label": "以眼前关系为重，先署名再说",
+          "weights": {
+            "ideal": -2
+          }
+        },
+        {
+          "id": "c",
+          "label": "争取改几处，必要时仍可署名",
+          "weights": {
+            "ideal": -1
+          }
+        },
+        {
+          "id": "d",
+          "label": "解释不能同意的部分，宁愿另寻报恩办法",
+          "weights": {
+            "ideal": 1
+          }
+        }
+      ]
+    },
+    {
+      "id": "q15",
+      "type": "single-choice",
+      "text": "朝廷赏你一职，俸禄不错，却让你难以离城远游，你会？",
+      "required": true,
+      "options": [
+        {
+          "id": "a",
+          "label": "先问能否减少束缚，否则不愿久留",
+          "weights": {
+            "freedom": 1
+          }
+        },
+        {
+          "id": "b",
+          "label": "更愿回到自己选择的路上，不以职位换去留自由",
+          "weights": {
+            "freedom": 2
+          }
+        },
+        {
+          "id": "c",
+          "label": "稳定有依托，远游以后再说",
+          "weights": {
+            "freedom": -2
+          }
+        },
+        {
+          "id": "d",
+          "label": "留下做事，闲时找些小自由",
+          "weights": {
+            "freedom": -1
+          }
+        }
+      ]
+    },
+    {
+      "id": "q16",
+      "type": "single-choice",
+      "text": "经营多年的书屋被洪水冲毁，你会如何安排往后？",
+      "required": true,
+      "options": [
+        {
+          "id": "a",
+          "label": "先休整，是否重建看后续条件",
+          "weights": {
+            "resilience": -1
+          }
+        },
+        {
+          "id": "b",
+          "label": "从还能保存的东西开始，逐步重建",
+          "weights": {
+            "resilience": 1
+          }
+        },
+        {
+          "id": "c",
+          "label": "把重建当成长事，一点点找资源与人手坚持下去",
+          "weights": {
+            "resilience": 2
+          }
+        },
+        {
+          "id": "d",
+          "label": "不再恢复原样，换一种活法",
+          "weights": {
+            "resilience": -2
+          }
+        }
+      ]
+    },
+    {
+      "id": "q17",
+      "type": "single-choice",
+      "text": "与陌生势力谈合作，对方许诺得很动听，你会？",
+      "required": true,
+      "options": [
+        {
+          "id": "a",
+          "label": "看当场感觉，合得来就先做",
+          "weights": {
+            "strategy": -2
+          }
+        },
+        {
+          "id": "b",
+          "label": "先小范围合作，边做边观察",
+          "weights": {
+            "strategy": -1
+          }
+        },
+        {
+          "id": "c",
+          "label": "核实实力与约定，想好违约怎么办",
+          "weights": {
+            "strategy": 1
+          }
+        },
+        {
+          "id": "d",
+          "label": "比较双方利益与变化可能，留替代方案和制衡安排",
+          "weights": {
+            "strategy": 2
+          }
+        }
+      ]
+    },
+    {
+      "id": "q18",
+      "type": "single-choice",
+      "text": "你提出的主张有人支持，但需要你公开出面争取，你会？",
+      "required": true,
+      "options": [
+        {
+          "id": "a",
+          "label": "愿持续组织支持者，争取改变最终决定",
+          "weights": {
+            "power": 2
+          }
+        },
+        {
+          "id": "b",
+          "label": "把想法交给别人，不想成为中心",
+          "weights": {
+            "power": -2
+          }
+        },
+        {
+          "id": "c",
+          "label": "只参与必要的一次发言，之后交给人推进",
+          "weights": {
+            "power": -1
+          }
+        },
+        {
+          "id": "d",
+          "label": "愿意争取支持，让建议形成真正影响",
+          "weights": {
+            "power": 1
+          }
+        }
+      ]
+    },
+    {
+      "id": "q19",
+      "type": "single-choice",
+      "text": "在山寺暂住的夜里，你想到过去的遗憾，会怎样处理？",
+      "required": true,
+      "options": [
+        {
+          "id": "a",
+          "label": "找能信任的人直接倾诉",
+          "weights": {
+            "emotion": 1
+          }
+        },
+        {
+          "id": "b",
+          "label": "把情绪写成诗文或长信，让它充分表达出来",
+          "weights": {
+            "emotion": 2
+          }
+        },
+        {
+          "id": "c",
+          "label": "自己消化，不愿向外说",
+          "weights": {
+            "emotion": -2
+          }
+        },
+        {
+          "id": "d",
+          "label": "记几句含蓄的文字，只给极少人看",
+          "weights": {
+            "emotion": -1
+          }
+        }
+      ]
+    },
+    {
+      "id": "q20",
+      "type": "single-choice",
+      "text": "地方豪强愿助赈济，却提出让你难堪的条件，你会？",
+      "required": true,
+      "options": [
+        {
+          "id": "a",
+          "label": "简明拒绝条件，再谈能否合作",
+          "weights": {
+            "tact": -1
+          }
+        },
+        {
+          "id": "b",
+          "label": "试着换一种安排，保留合作也守住底线",
+          "weights": {
+            "tact": 1
+          }
+        },
+        {
+          "id": "c",
+          "label": "摸清对方真正在意什么，另设交换让他愿意退让",
+          "weights": {
+            "tact": 2
+          }
+        },
+        {
+          "id": "d",
+          "label": "直说不可接受，谈不成就作罢",
+          "weights": {
+            "tact": -2
+          }
+        }
+      ]
+    },
+    {
+      "id": "q21",
+      "type": "single-choice",
+      "text": "一场行动原本胜算尚可，临行前又出现变数，你会？",
+      "required": true,
+      "options": [
+        {
+          "id": "a",
+          "label": "等局势更稳，不在此刻出发",
+          "weights": {
+            "risk": -2
+          }
+        },
+        {
+          "id": "b",
+          "label": "缩小行动范围，把不确定部分留到以后",
+          "weights": {
+            "risk": -1
+          }
+        },
+        {
+          "id": "c",
+          "label": "补上准备后按原计划推进",
+          "weights": {
+            "risk": 1
+          }
+        },
+        {
+          "id": "d",
+          "label": "愿意主动抢先一步，接受变数带来的代价",
+          "weights": {
+            "risk": 2
+          }
+        }
+      ]
+    },
+    {
+      "id": "q22",
+      "type": "single-choice",
+      "text": "你坚持的学问多年无人问津，有人建议改讲更讨喜的内容，你会？",
+      "required": true,
+      "options": [
+        {
+          "id": "a",
+          "label": "即使听众很少，也要完整守住所信之道",
+          "weights": {
+            "ideal": 2
+          }
+        },
+        {
+          "id": "b",
+          "label": "先迎合听众，传播起来比原样坚持重要",
+          "weights": {
+            "ideal": -2
+          }
+        },
+        {
+          "id": "c",
+          "label": "保留一点核心，其余随听众调整",
+          "weights": {
+            "ideal": -1
+          }
+        },
+        {
+          "id": "d",
+          "label": "改变讲法，但不改我认定的重要道理",
+          "weights": {
+            "ideal": 1
+          }
+        }
+      ]
+    },
+    {
+      "id": "q23",
+      "type": "single-choice",
+      "text": "你的一首诗走红，众人盼你一直写同样风格，你会？",
+      "required": true,
+      "options": [
+        {
+          "id": "a",
+          "label": "不愿被定住，准备试新的表达",
+          "weights": {
+            "freedom": 1
+          }
+        },
+        {
+          "id": "b",
+          "label": "愿意失去一部分追随者，也要完全按心意写",
+          "weights": {
+            "freedom": 2
+          }
+        },
+        {
+          "id": "c",
+          "label": "顺着期待写，也愿意接受固定方向",
+          "weights": {
+            "freedom": -2
+          }
+        },
+        {
+          "id": "d",
+          "label": "满足多数期待，偶尔写些自己的东西",
+          "weights": {
+            "freedom": -1
+          }
+        }
+      ]
+    },
+    {
+      "id": "q24",
+      "type": "single-choice",
+      "text": "与你同行的人半途离去，只剩你继续原计划，你会？",
+      "required": true,
+      "options": [
+        {
+          "id": "a",
+          "label": "缩小目标，做完眼前部分便止步",
+          "weights": {
+            "resilience": -1
+          }
+        },
+        {
+          "id": "b",
+          "label": "调整步骤，只要目标仍有意义就继续",
+          "weights": {
+            "resilience": 1
+          }
+        },
+        {
+          "id": "c",
+          "label": "接受路更难走，仍愿慢慢把事情做到底",
+          "weights": {
+            "resilience": 2
+          }
+        },
+        {
+          "id": "d",
+          "label": "重新看值不值得，倾向结束旧计划",
+          "weights": {
+            "resilience": -2
+          }
+        }
+      ]
+    },
+    {
+      "id": "q25",
+      "type": "single-choice",
+      "text": "要让一项新规在县中推行，你更自然的方式是？",
+      "required": true,
+      "options": [
+        {
+          "id": "a",
+          "label": "先公布再看反应，遇到问题就处理",
+          "weights": {
+            "strategy": -2
+          }
+        },
+        {
+          "id": "b",
+          "label": "找一处先试，凭经验逐步修改",
+          "weights": {
+            "strategy": -1
+          }
+        },
+        {
+          "id": "c",
+          "label": "预估各方反应，安排试行与反馈",
+          "weights": {
+            "strategy": 1
+          }
+        },
+        {
+          "id": "d",
+          "label": "把利益、阻力和执行顺序一并设计好再启动",
+          "weights": {
+            "strategy": 2
+          }
+        }
+      ]
+    },
+    {
+      "id": "q26",
+      "type": "single-choice",
+      "text": "功成之后，众人希望你继续掌管事务，你更想？",
+      "required": true,
+      "options": [
+        {
+          "id": "a",
+          "label": "希望建立长期影响，让方向不会因换人而失去",
+          "weights": {
+            "power": 2
+          }
+        },
+        {
+          "id": "b",
+          "label": "交还权柄，做自己的事",
+          "weights": {
+            "power": -2
+          }
+        },
+        {
+          "id": "c",
+          "label": "只保留一小块责任，不再全面掌舵",
+          "weights": {
+            "power": -1
+          }
+        },
+        {
+          "id": "d",
+          "label": "愿意继续主持，把未完成的目标推下去",
+          "weights": {
+            "power": 1
+          }
+        }
+      ]
+    },
+    {
+      "id": "q27",
+      "type": "single-choice",
+      "text": "友人当面误会了你的好意，你会？",
+      "required": true,
+      "options": [
+        {
+          "id": "a",
+          "label": "直接告诉他这件事让我难过",
+          "weights": {
+            "emotion": 1
+          }
+        },
+        {
+          "id": "b",
+          "label": "愿把愤怒、委屈与期待都讲明白，再谈误会",
+          "weights": {
+            "emotion": 2
+          }
+        },
+        {
+          "id": "c",
+          "label": "只解释事实，不谈受伤的感受",
+          "weights": {
+            "emotion": -2
+          }
+        },
+        {
+          "id": "d",
+          "label": "用一两句话带过委屈，不想完全说开",
+          "weights": {
+            "emotion": -1
+          }
+        }
+      ]
+    },
+    {
+      "id": "q28",
+      "type": "single-choice",
+      "text": "一位上司不肯采纳你的意见，你下一次会如何进言？",
+      "required": true,
+      "options": [
+        {
+          "id": "a",
+          "label": "把依据说得更简短，不特别换角度",
+          "weights": {
+            "tact": -1
+          }
+        },
+        {
+          "id": "b",
+          "label": "从他关心的事情切入，再引到我的建议",
+          "weights": {
+            "tact": 1
+          }
+        },
+        {
+          "id": "c",
+          "label": "换时机、场合和引路人，让他更容易自己看见问题",
+          "weights": {
+            "tact": 2
+          }
+        },
+        {
+          "id": "d",
+          "label": "仍按原话直说，清楚比好听重要",
+          "weights": {
+            "tact": -2
+          }
+        }
+      ]
+    },
+    {
+      "id": "q29",
+      "type": "single-choice",
+      "text": "有人邀你离开熟悉的城池，去边地开辟新的生活，你会？",
+      "required": true,
+      "options": [
+        {
+          "id": "a",
+          "label": "熟悉的生活更可靠，不想远去",
+          "weights": {
+            "risk": -2
+          }
+        },
+        {
+          "id": "b",
+          "label": "只有条件很清楚才考虑动身",
+          "weights": {
+            "risk": -1
+          }
+        },
+        {
+          "id": "c",
+          "label": "愿备好基本退路，去未知处试一次",
+          "weights": {
+            "risk": 1
+          }
+        },
+        {
+          "id": "d",
+          "label": "未知本身就有吸引力，愿主动走出已有生活",
+          "weights": {
+            "risk": 2
+          }
+        }
+      ]
+    },
+    {
+      "id": "q30",
+      "type": "single-choice",
+      "text": "你发现一项被普遍认可的规矩与你的信念相反，你会？",
+      "required": true,
+      "options": [
+        {
+          "id": "a",
+          "label": "即使显得不合群，也要公开守住所信",
+          "weights": {
+            "ideal": 2
+          }
+        },
+        {
+          "id": "b",
+          "label": "先按规矩过日子，不必认真对抗",
+          "weights": {
+            "ideal": -2
+          }
+        },
+        {
+          "id": "c",
+          "label": "私下保留意见，行动上多半随众",
+          "weights": {
+            "ideal": -1
+          }
+        },
+        {
+          "id": "d",
+          "label": "寻找改变的办法，至少不违背自己的核心立场",
+          "weights": {
+            "ideal": 1
+          }
+        }
+      ]
+    }
+  ],
+  "scoring": {
+    "pipeline": [
+      {
+        "strategy": "weighted-dimension"
+      },
+      {
+        "strategy": "normalize"
+      },
+      {
+        "strategy": "entity-ranking",
+        "topN": 5
+      }
+    ]
+  },
+  "results": {
+    "catalog": [
+      {
+        "id": "zhuge",
+        "title": "诸葛亮",
+        "summary": "谋划、转圜与信念相伴，愿为重要之事久久用力。",
+        "tags": [
+          "以长局照见远方",
+          "山河策士"
+        ]
+      },
+      {
+        "id": "libai",
+        "title": "李白",
+        "summary": "情感外露、爱自由与新路，不必靠掌权确认自己。",
+        "tags": [
+          "以天地为行囊",
+          "云游诗客"
+        ]
+      },
+      {
+        "id": "wu",
+        "title": "武则天",
+        "summary": "重布局、影响力与主动争取，能在变局中持续推进。",
+        "tags": [
+          "不把命运交给旁人",
+          "执局掌事者"
+        ]
+      },
+      {
+        "id": "sushi",
+        "title": "苏轼",
+        "summary": "情感、转圜与自主并存，困境中仍愿寻找生活的出口。",
+        "tags": [
+          "把风雨写成余味",
+          "行旅文士"
+        ]
+      },
+      {
+        "id": "cao",
+        "title": "曹操",
+        "summary": "谋划与行动并重，追求影响，愿为现实目标持续开路。",
+        "tags": [
+          "在变局中掌住方向",
+          "乱世领航者"
+        ]
+      },
+      {
+        "id": "liu",
+        "title": "刘备",
+        "summary": "重情感、关系与信念，也愿担起带领众人的责任。",
+        "tags": [
+          "以同路人撑起远方",
+          "聚义领路人"
+        ]
+      },
+      {
+        "id": "sima",
+        "title": "司马懿",
+        "summary": "克制、谋划与耐心相伴，重影响力而不急于显露意图。",
+        "tags": [
+          "等到局面清晰再落子",
+          "静局谋臣"
+        ]
+      },
+      {
+        "id": "yangming",
+        "title": "王阳明",
+        "summary": "重信念、实践与坚持，不只在纸上安放自己的判断。",
+        "tags": [
+          "把所信之事走出来",
+          "问道行者"
+        ]
+      },
+      {
+        "id": "zhang",
+        "title": "张良",
+        "summary": "擅长谋划与转圜，愿保留自主空间，不恋长久居首。",
+        "tags": [
+          "进退之间自有余地",
+          "退进谋客"
+        ]
+      },
+      {
+        "id": "han",
+        "title": "韩信",
+        "summary": "重谋划、统领与迎险，愿用持续行动证明自己的方向。",
+        "tags": [
+          "让锋芒找到真正战场",
+          "破局将领"
+        ]
+      },
+      {
+        "id": "qingzhao",
+        "title": "李清照",
+        "summary": "表达、信念与自由并重，细腻之中也有不肯轻易折断的坚持。",
+        "tags": [
+          "把心事写得有棱角",
+          "执笔藏锋者"
+        ]
+      },
+      {
+        "id": "mulan",
+        "title": "花木兰",
+        "summary": "行动、信念与坚持突出，不必恋权，也愿在关键时刻迎险。",
+        "tags": [
+          "温柔也能披甲前行",
+          "边关守护者"
+        ]
+      },
+      {
+        "id": "zhaojun",
+        "title": "王昭君",
+        "summary": "关系协调、信念与长期适应相伴，不以掌权或随性为先。",
+        "tags": [
+          "在远方守住内心坐标",
+          "远行和声者"
+        ]
+      },
+      {
+        "id": "banzhao",
+        "title": "班昭",
+        "summary": "谋划、克制与信念突出，愿在有秩序的合作中积累长久之功。",
+        "tags": [
+          "让笔墨留下可循的路",
+          "藏书修史者"
+        ]
+      },
+      {
+        "id": "shang",
+        "title": "商鞅",
+        "summary": "谋划、影响、迎险与信念并重，倾向直接推进而不为关系绕行。",
+        "tags": [
+          "用清晰规则推开旧局",
+          "立制革新者"
+        ]
+      },
+      {
+        "id": "tao",
+        "title": "陶渊明",
+        "summary": "重信念与自主，不争掌舵、不恋险途，愿按自己的尺度安排生活。",
+        "tags": [
+          "把日子归还给自己",
+          "田园独行者"
+        ]
+      }
+    ],
+    "profiles": [],
+    "entities": [
+      {
+        "id": "entity-zhuge",
+        "resultId": "zhuge",
+        "dimensionTargets": {
+          "strategy": 93,
+          "power": 59,
+          "emotion": 29,
+          "tact": 82,
+          "risk": 28,
+          "ideal": 92,
+          "freedom": 29,
+          "resilience": 94
+        }
+      },
+      {
+        "id": "entity-libai",
+        "resultId": "libai",
+        "dimensionTargets": {
+          "strategy": 26,
+          "power": 21,
+          "emotion": 95,
+          "tact": 27,
+          "risk": 85,
+          "ideal": 57,
+          "freedom": 97,
+          "resilience": 53
+        }
+      },
+      {
+        "id": "entity-wu",
+        "resultId": "wu",
+        "dimensionTargets": {
+          "strategy": 86,
+          "power": 96,
+          "emotion": 28,
+          "tact": 87,
+          "risk": 85,
+          "ideal": 60,
+          "freedom": 27,
+          "resilience": 92
+        }
+      },
+      {
+        "id": "entity-sushi",
+        "resultId": "sushi",
+        "dimensionTargets": {
+          "strategy": 52,
+          "power": 25,
+          "emotion": 88,
+          "tact": 78,
+          "risk": 55,
+          "ideal": 57,
+          "freedom": 81,
+          "resilience": 86
+        }
+      },
+      {
+        "id": "entity-cao",
+        "resultId": "cao",
+        "dimensionTargets": {
+          "strategy": 87,
+          "power": 91,
+          "emotion": 58,
+          "tact": 53,
+          "risk": 88,
+          "ideal": 27,
+          "freedom": 56,
+          "resilience": 89
+        }
+      },
+      {
+        "id": "entity-liu",
+        "resultId": "liu",
+        "dimensionTargets": {
+          "strategy": 57,
+          "power": 83,
+          "emotion": 86,
+          "tact": 86,
+          "risk": 56,
+          "ideal": 90,
+          "freedom": 34,
+          "resilience": 88
+        }
+      },
+      {
+        "id": "entity-sima",
+        "resultId": "sima",
+        "dimensionTargets": {
+          "strategy": 92,
+          "power": 84,
+          "emotion": 20,
+          "tact": 89,
+          "risk": 22,
+          "ideal": 27,
+          "freedom": 28,
+          "resilience": 95
+        }
+      },
+      {
+        "id": "entity-yangming",
+        "resultId": "yangming",
+        "dimensionTargets": {
+          "strategy": 57,
+          "power": 54,
+          "emotion": 28,
+          "tact": 57,
+          "risk": 80,
+          "ideal": 95,
+          "freedom": 54,
+          "resilience": 87
+        }
+      },
+      {
+        "id": "entity-zhang",
+        "resultId": "zhang",
+        "dimensionTargets": {
+          "strategy": 94,
+          "power": 25,
+          "emotion": 27,
+          "tact": 92,
+          "risk": 56,
+          "ideal": 56,
+          "freedom": 83,
+          "resilience": 55
+        }
+      },
+      {
+        "id": "entity-han",
+        "resultId": "han",
+        "dimensionTargets": {
+          "strategy": 91,
+          "power": 86,
+          "emotion": 56,
+          "tact": 29,
+          "risk": 95,
+          "ideal": 59,
+          "freedom": 57,
+          "resilience": 87
+        }
+      },
+      {
+        "id": "entity-qingzhao",
+        "resultId": "qingzhao",
+        "dimensionTargets": {
+          "strategy": 54,
+          "power": 25,
+          "emotion": 96,
+          "tact": 29,
+          "risk": 58,
+          "ideal": 82,
+          "freedom": 86,
+          "resilience": 88
+        }
+      },
+      {
+        "id": "entity-mulan",
+        "resultId": "mulan",
+        "dimensionTargets": {
+          "strategy": 55,
+          "power": 25,
+          "emotion": 56,
+          "tact": 26,
+          "risk": 93,
+          "ideal": 91,
+          "freedom": 54,
+          "resilience": 93
+        }
+      },
+      {
+        "id": "entity-zhaojun",
+        "resultId": "zhaojun",
+        "dimensionTargets": {
+          "strategy": 53,
+          "power": 24,
+          "emotion": 28,
+          "tact": 87,
+          "risk": 57,
+          "ideal": 87,
+          "freedom": 28,
+          "resilience": 90
+        }
+      },
+      {
+        "id": "entity-banzhao",
+        "resultId": "banzhao",
+        "dimensionTargets": {
+          "strategy": 85,
+          "power": 27,
+          "emotion": 26,
+          "tact": 78,
+          "risk": 24,
+          "ideal": 91,
+          "freedom": 29,
+          "resilience": 58
+        }
+      },
+      {
+        "id": "entity-shang",
+        "resultId": "shang",
+        "dimensionTargets": {
+          "strategy": 88,
+          "power": 94,
+          "emotion": 23,
+          "tact": 22,
+          "risk": 85,
+          "ideal": 87,
+          "freedom": 25,
+          "resilience": 92
+        }
+      },
+      {
+        "id": "entity-tao",
+        "resultId": "tao",
+        "dimensionTargets": {
+          "strategy": 24,
+          "power": 18,
+          "emotion": 56,
+          "tact": 29,
+          "risk": 20,
+          "ideal": 88,
+          "freedom": 95,
+          "resilience": 55
+        }
+      }
+    ],
+    "compatibility": {
+      "enabled": false,
+      "mode": "symmetric",
+      "allowPartialCoverage": true,
+      "dimensions": []
+    },
+    "compatibilityPairs": []
+  },
+  "presentation": {
+    "theme": "editorial",
+    "blocks": [
+      {
+        "type": "hero",
+        "variant": "poster",
+        "showSecondary": true,
+        "showMatch": true,
+        "showTags": true
+      },
+      {
+        "type": "radar",
+        "max": 100
+      },
+      {
+        "type": "ranking",
+        "limit": 5
+      },
+      {
+        "type": "quote",
+        "statements": [
+          {
+            "resultId": "zhuge",
+            "text": "以长局照见远方（产品原创称号）"
+          },
+          {
+            "resultId": "libai",
+            "text": "以天地为行囊（产品原创称号）"
+          },
+          {
+            "resultId": "wu",
+            "text": "不把命运交给旁人（产品原创称号）"
+          },
+          {
+            "resultId": "sushi",
+            "text": "把风雨写成余味（产品原创称号）"
+          },
+          {
+            "resultId": "cao",
+            "text": "在变局中掌住方向（产品原创称号）"
+          },
+          {
+            "resultId": "liu",
+            "text": "以同路人撑起远方（产品原创称号）"
+          },
+          {
+            "resultId": "sima",
+            "text": "等到局面清晰再落子（产品原创称号）"
+          },
+          {
+            "resultId": "yangming",
+            "text": "把所信之事走出来（产品原创称号）"
+          },
+          {
+            "resultId": "zhang",
+            "text": "进退之间自有余地（产品原创称号）"
+          },
+          {
+            "resultId": "han",
+            "text": "让锋芒找到真正战场（产品原创称号）"
+          },
+          {
+            "resultId": "qingzhao",
+            "text": "把心事写得有棱角（产品原创称号）"
+          },
+          {
+            "resultId": "mulan",
+            "text": "温柔也能披甲前行（产品原创称号）"
+          },
+          {
+            "resultId": "zhaojun",
+            "text": "在远方守住内心坐标（产品原创称号）"
+          },
+          {
+            "resultId": "banzhao",
+            "text": "让笔墨留下可循的路（产品原创称号）"
+          },
+          {
+            "resultId": "shang",
+            "text": "用清晰规则推开旧局（产品原创称号）"
+          },
+          {
+            "resultId": "tao",
+            "text": "把日子归还给自己（产品原创称号）"
+          }
+        ]
+      }
+    ],
+    "shareCard": {
+      "enabled": true,
+      "layout": "portrait",
+      "headline": "如果生在古代，我最像",
+      "subtitle": "相似的是处世倾向，不是照搬任何人的命运。",
+      "showTags": true,
+      "showMatch": true,
+      "showRadarSummary": false,
+      "dimensionIds": [],
+      "qrCode": false,
+      "brandingText": "古人镜 · 趣味人物匹配"
+    }
+  },
+  "assets": {}
+}
