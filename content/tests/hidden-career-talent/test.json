@@ -1,0 +1,1564 @@
+{
+  "schemaVersion": "1.0",
+  "metadata": {
+    "id": "hidden-career-talent",
+    "version": "v1",
+    "title": "你的隐藏职业天赋是什么？",
+    "description": "30道情境题，探索自评优势、职业兴趣与行为倾向，生成八维画像和12大职业领域匹配。非经验证的能力测量，不预测职业成功。",
+    "discovery": {
+      "category": "career",
+      "shortTitle": "你的隐藏职业天赋是什么",
+      "estimatedMinutes": 6,
+      "featured": false,
+      "badge": "职业探索",
+      "coverStyle": "aurora",
+      "resultPreview": "看见优势TOP3，找到值得亲自尝试的职业方向。"
+    }
+  },
+  "dimensions": [
+    {
+      "id": "analyze",
+      "label": "逻辑分析",
+      "description": "从证据与因果中拆解问题。高分表示更多自报兴趣、投入或熟练倾向，不是客观能力结论。",
+      "min": 0,
+      "max": 16
+    },
+    {
+      "id": "build",
+      "label": "技术实践",
+      "description": "通过工具、原型与排错实现想法。高分表示更多自报兴趣、投入或熟练倾向，不是客观能力结论。",
+      "min": 0,
+      "max": 16
+    },
+    {
+      "id": "create",
+      "label": "创意设计",
+      "description": "构想、试验并迭代不同表达方案。高分表示更多自报兴趣、投入或熟练倾向，不是客观能力结论。",
+      "min": 0,
+      "max": 16
+    },
+    {
+      "id": "express",
+      "label": "表达传播",
+      "description": "把信息组织成别人能理解的表达。高分表示更多自报兴趣、投入或熟练倾向，不是客观能力结论。",
+      "min": 0,
+      "max": 16
+    },
+    {
+      "id": "empathy",
+      "label": "理解协作",
+      "description": "识别他人需求并协调不同视角。高分表示更多自报兴趣、投入或熟练倾向，不是客观能力结论。",
+      "min": 0,
+      "max": 16
+    },
+    {
+      "id": "execute",
+      "label": "组织推进",
+      "description": "分解任务、协调资源并持续交付。高分表示更多自报兴趣、投入或熟练倾向，不是客观能力结论。",
+      "min": 0,
+      "max": 16
+    },
+    {
+      "id": "business",
+      "label": "商业判断",
+      "description": "关注价值交换、受众选择与资源取舍。高分表示更多自报兴趣、投入或熟练倾向，不是客观能力结论。",
+      "min": 0,
+      "max": 12
+    },
+    {
+      "id": "detail",
+      "label": "细节校核",
+      "description": "检查规则、差异和可复查性。高分表示更多自报兴趣、投入或熟练倾向，不是客观能力结论。",
+      "min": 0,
+      "max": 12
+    }
+  ],
+  "questions": [
+    {
+      "id": "q01",
+      "type": "single-choice",
+      "text": "小组要从几种解释里找出活动报名下降的原因，你更想承担哪部分？",
+      "required": true,
+      "options": [
+        {
+          "id": "a",
+          "label": "先做执行配合，原因分析不太想接",
+          "weights": {
+            "analyze": 0
+          }
+        },
+        {
+          "id": "b",
+          "label": "听别人分析，必要时补充一点信息",
+          "weights": {
+            "analyze": 1
+          }
+        },
+        {
+          "id": "c",
+          "label": "对照渠道和时段，看看哪种解释站得住",
+          "weights": {
+            "analyze": 3
+          }
+        },
+        {
+          "id": "d",
+          "label": "主动找反例和缺失数据，再判断最可能的原因",
+          "weights": {
+            "analyze": 4
+          }
+        }
+      ]
+    },
+    {
+      "id": "q02",
+      "type": "single-choice",
+      "text": "常用的小工具突然无法正常运行，你通常会怎么处理？",
+      "required": true,
+      "options": [
+        {
+          "id": "a",
+          "label": "跟着现成教程试一次，失败就换办法",
+          "weights": {
+            "build": 1
+          }
+        },
+        {
+          "id": "b",
+          "label": "查看报错，逐步尝试定位是哪一步出了问题",
+          "weights": {
+            "build": 3
+          }
+        },
+        {
+          "id": "c",
+          "label": "会做最小测试、查文档，直到弄懂故障链条",
+          "weights": {
+            "build": 4
+          }
+        },
+        {
+          "id": "d",
+          "label": "先找人代办，不想研究工具问题",
+          "weights": {
+            "build": 0
+          }
+        }
+      ]
+    },
+    {
+      "id": "q03",
+      "type": "single-choice",
+      "text": "要给一个主题做海报，哪种工作让你最想投入？",
+      "required": true,
+      "options": [
+        {
+          "id": "a",
+          "label": "尝试几套不同构图，再选合适的一套",
+          "weights": {
+            "create": 3
+          }
+        },
+        {
+          "id": "b",
+          "label": "先发散视觉概念，再通过多轮试稿找到新表达",
+          "weights": {
+            "create": 4
+          }
+        },
+        {
+          "id": "c",
+          "label": "沿用已确认的模板，尽快完成即可",
+          "weights": {
+            "create": 0
+          }
+        },
+        {
+          "id": "d",
+          "label": "在模板内调整颜色或文字，别变化太大",
+          "weights": {
+            "create": 1
+          }
+        }
+      ]
+    },
+    {
+      "id": "q04",
+      "type": "single-choice",
+      "text": "朋友说你讲的事情太绕，你更接近哪种状态？",
+      "required": true,
+      "options": [
+        {
+          "id": "a",
+          "label": "会看他卡在哪里，重组重点并请他复述确认",
+          "weights": {
+            "express": 4
+          }
+        },
+        {
+          "id": "b",
+          "label": "常不知道怎么重讲，倾向把资料发给他",
+          "weights": {
+            "express": 0
+          }
+        },
+        {
+          "id": "c",
+          "label": "可以简化一点，但不确定他有没有听懂",
+          "weights": {
+            "express": 1
+          }
+        },
+        {
+          "id": "d",
+          "label": "能换例子和顺序，让他跟上思路",
+          "weights": {
+            "express": 3
+          }
+        }
+      ]
+    },
+    {
+      "id": "q05",
+      "type": "single-choice",
+      "text": "合作伙伴突然不愿推进原计划，你会先做什么？",
+      "required": true,
+      "options": [
+        {
+          "id": "a",
+          "label": "先各做各的，我不太想追问情绪和顾虑",
+          "weights": {
+            "empathy": 0
+          }
+        },
+        {
+          "id": "b",
+          "label": "问一句原因，若没说清就先放着",
+          "weights": {
+            "empathy": 1
+          }
+        },
+        {
+          "id": "c",
+          "label": "听他讲具体顾虑，确认彼此理解是否一致",
+          "weights": {
+            "empathy": 3
+          }
+        },
+        {
+          "id": "d",
+          "label": "分别厘清双方需求，找可以共同接受的调整",
+          "weights": {
+            "empathy": 4
+          }
+        }
+      ]
+    },
+    {
+      "id": "q06",
+      "type": "single-choice",
+      "text": "你要在一周内交付一个小项目，通常如何起步？",
+      "required": true,
+      "options": [
+        {
+          "id": "a",
+          "label": "列个大概清单，进度靠当天状态",
+          "weights": {
+            "execute": 1
+          }
+        },
+        {
+          "id": "b",
+          "label": "拆分步骤和截止点，定期检查有没有拖延",
+          "weights": {
+            "execute": 3
+          }
+        },
+        {
+          "id": "c",
+          "label": "确认依赖、负责人和缓冲，遇到变化及时重排",
+          "weights": {
+            "execute": 4
+          }
+        },
+        {
+          "id": "d",
+          "label": "临近期限再集中做，过程安排很难坚持",
+          "weights": {
+            "execute": 0
+          }
+        }
+      ]
+    },
+    {
+      "id": "q07",
+      "type": "single-choice",
+      "text": "一家小店要推出新套餐，你最想先讨论什么？",
+      "required": true,
+      "options": [
+        {
+          "id": "a",
+          "label": "比较谁会买、为什么买以及替代选择",
+          "weights": {
+            "business": 3
+          }
+        },
+        {
+          "id": "b",
+          "label": "结合成本、客群和购买动机，试算几种方案",
+          "weights": {
+            "business": 4
+          }
+        },
+        {
+          "id": "c",
+          "label": "先做好分配给我的部分，不想讨论经营",
+          "weights": {
+            "business": 0
+          }
+        },
+        {
+          "id": "d",
+          "label": "随便听听定价，觉得合适就配合",
+          "weights": {
+            "business": 1
+          }
+        }
+      ]
+    },
+    {
+      "id": "q08",
+      "type": "single-choice",
+      "text": "提交一份带数字和格式要求的文件前，你通常能做到？",
+      "required": true,
+      "options": [
+        {
+          "id": "a",
+          "label": "交叉检查来源与计算，还能留下可追溯记录",
+          "weights": {
+            "detail": 4
+          }
+        },
+        {
+          "id": "b",
+          "label": "常直接提交，发现问题再改",
+          "weights": {
+            "detail": 0
+          }
+        },
+        {
+          "id": "c",
+          "label": "粗看一遍，容易漏掉口径或格式",
+          "weights": {
+            "detail": 1
+          }
+        },
+        {
+          "id": "d",
+          "label": "用清单核对数字、命名和必要字段",
+          "weights": {
+            "detail": 3
+          }
+        }
+      ]
+    },
+    {
+      "id": "q09",
+      "type": "single-choice",
+      "text": "看到一条“换了方法效果翻倍”的分享，你会？",
+      "required": true,
+      "options": [
+        {
+          "id": "a",
+          "label": "觉得有用就试，不想追问证据",
+          "weights": {
+            "analyze": 0
+          }
+        },
+        {
+          "id": "b",
+          "label": "留意评论口碑，暂时不研究数据",
+          "weights": {
+            "analyze": 1
+          }
+        },
+        {
+          "id": "c",
+          "label": "看看样本、比较方式和其他影响因素",
+          "weights": {
+            "analyze": 3
+          }
+        },
+        {
+          "id": "d",
+          "label": "找原始信息与反例，区分相关和因果",
+          "weights": {
+            "analyze": 4
+          }
+        }
+      ]
+    },
+    {
+      "id": "q10",
+      "type": "single-choice",
+      "text": "给你半天自由学习时间，你对“搭一个可用的小工具”感觉如何？",
+      "required": true,
+      "options": [
+        {
+          "id": "a",
+          "label": "愿意体验现成功能，不想自己搭",
+          "weights": {
+            "build": 1
+          }
+        },
+        {
+          "id": "b",
+          "label": "愿意学几个步骤，把一个小需求实现出来",
+          "weights": {
+            "build": 3
+          }
+        },
+        {
+          "id": "c",
+          "label": "会主动拼接工具、测试边界，再迭代功能",
+          "weights": {
+            "build": 4
+          }
+        },
+        {
+          "id": "d",
+          "label": "不太想碰，更愿意把时间放在别的事情上",
+          "weights": {
+            "build": 0
+          }
+        }
+      ]
+    },
+    {
+      "id": "q11",
+      "type": "single-choice",
+      "text": "同一个任务连续两版方案被否定，你通常更像？",
+      "required": true,
+      "options": [
+        {
+          "id": "a",
+          "label": "能换角度做新版本，不只调整表面",
+          "weights": {
+            "create": 3
+          }
+        },
+        {
+          "id": "b",
+          "label": "会列不同概念路径，做对比稿找真正的差异",
+          "weights": {
+            "create": 4
+          }
+        },
+        {
+          "id": "c",
+          "label": "很难再想出其他方案，想换人接手",
+          "weights": {
+            "create": 0
+          }
+        },
+        {
+          "id": "d",
+          "label": "能小改一下，但容易被第一版困住",
+          "weights": {
+            "create": 1
+          }
+        }
+      ]
+    },
+    {
+      "id": "q12",
+      "type": "single-choice",
+      "text": "团队需要对外讲清一个新计划，你对这件事的态度是？",
+      "required": true,
+      "options": [
+        {
+          "id": "a",
+          "label": "想研究听众关心什么，再设计叙述和演示",
+          "weights": {
+            "express": 4
+          }
+        },
+        {
+          "id": "b",
+          "label": "宁愿承担后台工作，不想负责讲述",
+          "weights": {
+            "express": 0
+          }
+        },
+        {
+          "id": "c",
+          "label": "可以按别人写好的稿子说明",
+          "weights": {
+            "express": 1
+          }
+        },
+        {
+          "id": "d",
+          "label": "愿意梳理重点、写稿并做一次讲解",
+          "weights": {
+            "express": 3
+          }
+        }
+      ]
+    },
+    {
+      "id": "q13",
+      "type": "single-choice",
+      "text": "朋友说“你根本没懂我的意思”，你通常能做到哪一步？",
+      "required": true,
+      "options": [
+        {
+          "id": "a",
+          "label": "容易按自己的理解继续劝，难以换视角",
+          "weights": {
+            "empathy": 0
+          }
+        },
+        {
+          "id": "b",
+          "label": "能暂停劝说，但不太会进一步确认",
+          "weights": {
+            "empathy": 1
+          }
+        },
+        {
+          "id": "c",
+          "label": "能复述他的处境，请他纠正我理解错的地方",
+          "weights": {
+            "empathy": 3
+          }
+        },
+        {
+          "id": "d",
+          "label": "能区分事实、感受和需要，帮助双方说清分歧",
+          "weights": {
+            "empathy": 4
+          }
+        }
+      ]
+    },
+    {
+      "id": "q14",
+      "type": "single-choice",
+      "text": "任务推进一半，突然有两项依赖延期，你通常会？",
+      "required": true,
+      "options": [
+        {
+          "id": "a",
+          "label": "提醒相关人，暂时继续手头任务",
+          "weights": {
+            "execute": 1
+          }
+        },
+        {
+          "id": "b",
+          "label": "重新排优先级，说明哪些交付会受影响",
+          "weights": {
+            "execute": 3
+          }
+        },
+        {
+          "id": "c",
+          "label": "协调替代资源与范围，定新节点并跟进落实",
+          "weights": {
+            "execute": 4
+          }
+        },
+        {
+          "id": "d",
+          "label": "容易被打乱，等情况明朗再说",
+          "weights": {
+            "execute": 0
+          }
+        }
+      ]
+    },
+    {
+      "id": "q15",
+      "type": "single-choice",
+      "text": "一个产品很火但评价两极，你会怎样理解它的价值？",
+      "required": true,
+      "options": [
+        {
+          "id": "a",
+          "label": "分清哪些人愿意付费、哪些人觉得不值",
+          "weights": {
+            "business": 3
+          }
+        },
+        {
+          "id": "b",
+          "label": "结合使用场景、成本与替代方案解释不同选择",
+          "weights": {
+            "business": 4
+          }
+        },
+        {
+          "id": "c",
+          "label": "主要凭个人喜好，不太想研究购买理由",
+          "weights": {
+            "business": 0
+          }
+        },
+        {
+          "id": "d",
+          "label": "看看推荐数量，知道大概受不受欢迎",
+          "weights": {
+            "business": 1
+          }
+        }
+      ]
+    },
+    {
+      "id": "q16",
+      "type": "single-choice",
+      "text": "两份记录出现细小差异，需要逐条核对，你的第一反应更像？",
+      "required": true,
+      "options": [
+        {
+          "id": "a",
+          "label": "想追溯来源并建立复核规则，避免再出现",
+          "weights": {
+            "detail": 4
+          }
+        },
+        {
+          "id": "b",
+          "label": "这类工作很耗神，我想换其他任务",
+          "weights": {
+            "detail": 0
+          }
+        },
+        {
+          "id": "c",
+          "label": "可以核对一小段，长时间会失去耐心",
+          "weights": {
+            "detail": 1
+          }
+        },
+        {
+          "id": "d",
+          "label": "愿意按字段检查，找出差异发生在哪一步",
+          "weights": {
+            "detail": 3
+          }
+        }
+      ]
+    },
+    {
+      "id": "q17",
+      "type": "single-choice",
+      "text": "遇到一个没有标准答案的问题，你通常会怎样判断？",
+      "required": true,
+      "options": [
+        {
+          "id": "a",
+          "label": "凭直觉先定方向，很少拆开比较",
+          "weights": {
+            "analyze": 0
+          }
+        },
+        {
+          "id": "b",
+          "label": "听熟悉的人怎么选，再补一点理由",
+          "weights": {
+            "analyze": 1
+          }
+        },
+        {
+          "id": "c",
+          "label": "列约束、证据和权衡，给出暂时结论",
+          "weights": {
+            "analyze": 3
+          }
+        },
+        {
+          "id": "d",
+          "label": "明确不确定处，设计验证后再更新判断",
+          "weights": {
+            "analyze": 4
+          }
+        }
+      ]
+    },
+    {
+      "id": "q18",
+      "type": "single-choice",
+      "text": "需要把重复操作变成更省事的流程，你目前更接近？",
+      "required": true,
+      "options": [
+        {
+          "id": "a",
+          "label": "能套用别人给的步骤，难以自己改",
+          "weights": {
+            "build": 1
+          }
+        },
+        {
+          "id": "b",
+          "label": "会尝试公式、脚本或自动化工具解决一部分",
+          "weights": {
+            "build": 3
+          }
+        },
+        {
+          "id": "c",
+          "label": "能拆流程、搭方案并排查异常情况",
+          "weights": {
+            "build": 4
+          }
+        },
+        {
+          "id": "d",
+          "label": "不清楚怎么动手，只能继续重复操作",
+          "weights": {
+            "build": 0
+          }
+        }
+      ]
+    },
+    {
+      "id": "q19",
+      "type": "single-choice",
+      "text": "灵感没有出现，但方案明天要交，你通常怎么做？",
+      "required": true,
+      "options": [
+        {
+          "id": "a",
+          "label": "用联想、反转或组合先产出几种候选",
+          "weights": {
+            "create": 3
+          }
+        },
+        {
+          "id": "b",
+          "label": "主动设不同限制做实验，再筛选并迭代",
+          "weights": {
+            "create": 4
+          }
+        },
+        {
+          "id": "c",
+          "label": "等灵感或直接选最常见样式",
+          "weights": {
+            "create": 0
+          }
+        },
+        {
+          "id": "d",
+          "label": "找参考，做一点不太冒险的调整",
+          "weights": {
+            "create": 1
+          }
+        }
+      ]
+    },
+    {
+      "id": "q20",
+      "type": "single-choice",
+      "text": "要把一页密集资料改成给新人看的介绍，你会？",
+      "required": true,
+      "options": [
+        {
+          "id": "a",
+          "label": "按新人理解路径写，试讲后针对卡点修改",
+          "weights": {
+            "express": 4
+          }
+        },
+        {
+          "id": "b",
+          "label": "保留原文，让新人自己慢慢看",
+          "weights": {
+            "express": 0
+          }
+        },
+        {
+          "id": "c",
+          "label": "删掉一部分内容，但结构基本不变",
+          "weights": {
+            "express": 1
+          }
+        },
+        {
+          "id": "d",
+          "label": "先找核心问题，再用标题和例子重组",
+          "weights": {
+            "express": 3
+          }
+        }
+      ]
+    },
+    {
+      "id": "q21",
+      "type": "single-choice",
+      "text": "不同角色各有诉求，需要一个人访谈并整理需求，你愿意吗？",
+      "required": true,
+      "options": [
+        {
+          "id": "a",
+          "label": "更想接独立任务，持续听诉求让我疲惫",
+          "weights": {
+            "empathy": 0
+          }
+        },
+        {
+          "id": "b",
+          "label": "可以听少数熟人，但不想长期负责",
+          "weights": {
+            "empathy": 1
+          }
+        },
+        {
+          "id": "c",
+          "label": "愿意访谈不同角色，理解差异并整理共识",
+          "weights": {
+            "empathy": 3
+          }
+        },
+        {
+          "id": "d",
+          "label": "很想追问未被说出的需要，协调彼此取舍",
+          "weights": {
+            "empathy": 4
+          }
+        }
+      ]
+    },
+    {
+      "id": "q22",
+      "type": "single-choice",
+      "text": "活动即将启动，你更愿意怎样参与？",
+      "required": true,
+      "options": [
+        {
+          "id": "a",
+          "label": "接一个固定小环节，按提醒完成",
+          "weights": {
+            "execute": 1
+          }
+        },
+        {
+          "id": "b",
+          "label": "安排几个环节，跟踪进度和交接",
+          "weights": {
+            "execute": 3
+          }
+        },
+        {
+          "id": "c",
+          "label": "统筹排期与资源，确保各环节能按约定交付",
+          "weights": {
+            "execute": 4
+          }
+        },
+        {
+          "id": "d",
+          "label": "认领一个临时任务，不想管理整体推进",
+          "weights": {
+            "execute": 0
+          }
+        }
+      ]
+    },
+    {
+      "id": "q23",
+      "type": "single-choice",
+      "text": "需要在两个服务方案中选一个，你通常有多大把握？",
+      "required": true,
+      "options": [
+        {
+          "id": "a",
+          "label": "能说明目标、成本和预期收益的取舍",
+          "weights": {
+            "business": 3
+          }
+        },
+        {
+          "id": "b",
+          "label": "能考虑不同用户、风险与资源约束，解释选择",
+          "weights": {
+            "business": 4
+          }
+        },
+        {
+          "id": "c",
+          "label": "更看感觉，难以说清投入产出",
+          "weights": {
+            "business": 0
+          }
+        },
+        {
+          "id": "d",
+          "label": "能比较价格，对价值和成本考虑不多",
+          "weights": {
+            "business": 1
+          }
+        }
+      ]
+    },
+    {
+      "id": "q24",
+      "type": "single-choice",
+      "text": "别人说“差不多就行了”，但规则要求逐项准确，你通常会？",
+      "required": true,
+      "options": [
+        {
+          "id": "a",
+          "label": "查到源头并记录验证过程，无法确认就标明",
+          "weights": {
+            "detail": 4
+          }
+        },
+        {
+          "id": "b",
+          "label": "倾向接受大概结果，不继续检查",
+          "weights": {
+            "detail": 0
+          }
+        },
+        {
+          "id": "c",
+          "label": "只查明显错误，细项以后再补",
+          "weights": {
+            "detail": 1
+          }
+        },
+        {
+          "id": "d",
+          "label": "按要求逐项核验，说明哪些地方还没确认",
+          "weights": {
+            "detail": 3
+          }
+        }
+      ]
+    },
+    {
+      "id": "q25",
+      "type": "single-choice",
+      "text": "一个结论看起来合理，却有一处说不通，你更可能？",
+      "required": true,
+      "options": [
+        {
+          "id": "a",
+          "label": "先接受整体结论，不愿继续深挖",
+          "weights": {
+            "analyze": 0
+          }
+        },
+        {
+          "id": "b",
+          "label": "标记疑问，有空再听听别人的解释",
+          "weights": {
+            "analyze": 1
+          }
+        },
+        {
+          "id": "c",
+          "label": "拆开前提和推导，找出矛盾出现的位置",
+          "weights": {
+            "analyze": 3
+          }
+        },
+        {
+          "id": "d",
+          "label": "主动设计一个能区分解释的小验证",
+          "weights": {
+            "analyze": 4
+          }
+        }
+      ]
+    },
+    {
+      "id": "q26",
+      "type": "single-choice",
+      "text": "拿到没用过的编辑或自动化软件，你通常如何摸索？",
+      "required": true,
+      "options": [
+        {
+          "id": "a",
+          "label": "只学完成眼前任务所需的固定步骤",
+          "weights": {
+            "build": 1
+          }
+        },
+        {
+          "id": "b",
+          "label": "用小样本试功能，遇到问题查帮助文档",
+          "weights": {
+            "build": 3
+          }
+        },
+        {
+          "id": "c",
+          "label": "会搭测试流程、比较做法，形成可复用方法",
+          "weights": {
+            "build": 4
+          }
+        },
+        {
+          "id": "d",
+          "label": "先放着，等别人替我设置好",
+          "weights": {
+            "build": 0
+          }
+        }
+      ]
+    },
+    {
+      "id": "q27",
+      "type": "single-choice",
+      "text": "一个题材已经很多人做过，你还想参与吗？",
+      "required": true,
+      "options": [
+        {
+          "id": "a",
+          "label": "想换叙事或呈现方式，尝试自己的版本",
+          "weights": {
+            "create": 3
+          }
+        },
+        {
+          "id": "b",
+          "label": "会重新定义限制与视角，探索不同可能性",
+          "weights": {
+            "create": 4
+          }
+        },
+        {
+          "id": "c",
+          "label": "不想费劲找新角度，按惯例完成即可",
+          "weights": {
+            "create": 0
+          }
+        },
+        {
+          "id": "d",
+          "label": "可以换个配色或措辞，别偏离已有做法",
+          "weights": {
+            "create": 1
+          }
+        }
+      ]
+    },
+    {
+      "id": "q28",
+      "type": "single-choice",
+      "text": "临时需要向不熟悉的人说明你的方案，你更接近？",
+      "required": true,
+      "options": [
+        {
+          "id": "a",
+          "label": "会根据对方反馈换表达，同时守住核心信息",
+          "weights": {
+            "express": 4
+          }
+        },
+        {
+          "id": "b",
+          "label": "容易讲散，宁愿请别人代为说明",
+          "weights": {
+            "express": 0
+          }
+        },
+        {
+          "id": "c",
+          "label": "能按顺序讲完，但不太会回应追问",
+          "weights": {
+            "express": 1
+          }
+        },
+        {
+          "id": "d",
+          "label": "能突出关键利益和步骤，回答常见疑问",
+          "weights": {
+            "express": 3
+          }
+        }
+      ]
+    },
+    {
+      "id": "q29",
+      "type": "single-choice",
+      "text": "一位同伴发言总被打断，你会怎样回应？",
+      "required": true,
+      "options": [
+        {
+          "id": "a",
+          "label": "继续关注任务内容，不太留意参与感",
+          "weights": {
+            "empathy": 0
+          }
+        },
+        {
+          "id": "b",
+          "label": "事后问一句，现场不太知道怎么协调",
+          "weights": {
+            "empathy": 1
+          }
+        },
+        {
+          "id": "c",
+          "label": "给他完整表达的机会，再确认大家理解",
+          "weights": {
+            "empathy": 3
+          }
+        },
+        {
+          "id": "d",
+          "label": "调整讨论方式，让不同意见都有可被回应的位置",
+          "weights": {
+            "empathy": 4
+          }
+        }
+      ]
+    },
+    {
+      "id": "q30",
+      "type": "single-choice",
+      "text": "一个需要持续四周的小计划，你的常见状态是？",
+      "required": true,
+      "options": [
+        {
+          "id": "a",
+          "label": "偶尔推进，容易忘记复盘和收尾",
+          "weights": {
+            "execute": 1
+          }
+        },
+        {
+          "id": "b",
+          "label": "保持固定检查，完成关键步骤并调整计划",
+          "weights": {
+            "execute": 3
+          }
+        },
+        {
+          "id": "c",
+          "label": "主动追踪阻碍、协调支持，形成明确的交付闭环",
+          "weights": {
+            "execute": 4
+          }
+        },
+        {
+          "id": "d",
+          "label": "开始有热情，后面常常不了了之",
+          "weights": {
+            "execute": 0
+          }
+        }
+      ]
+    }
+  ],
+  "scoring": {
+    "pipeline": [
+      {
+        "strategy": "weighted-dimension"
+      },
+      {
+        "strategy": "normalize"
+      },
+      {
+        "strategy": "entity-ranking",
+        "topN": 5
+      }
+    ]
+  },
+  "results": {
+    "catalog": [
+      {
+        "id": "software",
+        "title": "软件与技术开发",
+        "summary": "逻辑拆解与动手实现是该领域的核心，还需要排错和可靠交付。",
+        "tags": [
+          "把问题变成可运行的工具",
+          "软件开发"
+        ]
+      },
+      {
+        "id": "data",
+        "title": "数据分析与决策支持",
+        "summary": "偏重证据比较、数据核验与解释结论，技术工具是辅助而不是唯一目标。",
+        "tags": [
+          "让证据替直觉多说一句",
+          "数据分析"
+        ]
+      },
+      {
+        "id": "design",
+        "title": "视觉设计与体验创作",
+        "summary": "创意迭代与理解使用者是重点，也需要原型、沟通与细节打磨。",
+        "tags": [
+          "把模糊感受变成看得见的方案",
+          "视觉设计"
+        ]
+      },
+      {
+        "id": "content",
+        "title": "内容创作与编辑传播",
+        "summary": "以创意与表达为中心，通过结构、叙述和编辑让内容抵达受众。",
+        "tags": [
+          "让一个想法被看见、被理解",
+          "内容策划"
+        ]
+      },
+      {
+        "id": "education",
+        "title": "教育培训与知识转译",
+        "summary": "理解学习者、清晰讲解与组织练习相结合，关注反馈与学习进程。",
+        "tags": [
+          "让别人的“不会”变成“我懂了”",
+          "教学设计"
+        ]
+      },
+      {
+        "id": "people",
+        "title": "人力资源与组织协作",
+        "summary": "理解人、表达协调是重点，组织过程与稳定跟进让沟通落到实处。",
+        "tags": [
+          "让不同的人找到共同方向",
+          "人力资源"
+        ]
+      },
+      {
+        "id": "product",
+        "title": "产品策划与用户体验",
+        "summary": "兼顾问题分析、技术实践、用户需求、推进与商业取舍。",
+        "tags": [
+          "把需求推成真正可用的方案",
+          "产品策划"
+        ]
+      },
+      {
+        "id": "operations",
+        "title": "运营与项目交付",
+        "summary": "持续推进与细节校核突出，关注流程、交接和可预期的完成。",
+        "tags": [
+          "让计划稳稳落到地上",
+          "项目协调"
+        ]
+      },
+      {
+        "id": "marketing",
+        "title": "市场营销与品牌策划",
+        "summary": "创意、表达与商业判断结合，关注受众选择与传播反馈。",
+        "tags": [
+          "让好想法找到愿意回应的人",
+          "品牌策划"
+        ]
+      },
+      {
+        "id": "sales",
+        "title": "商务拓展与客户成功",
+        "summary": "表达、理解需求、商业取舍与持续跟进突出，目标是价值交换。",
+        "tags": [
+          "把理解转成有价值的合作",
+          "商务拓展"
+        ]
+      },
+      {
+        "id": "finance",
+        "title": "财务风控与合规支持",
+        "summary": "逻辑分析、规则核验、资源判断与有序推进构成主要组合。",
+        "tags": [
+          "让每一个判断有据可查",
+          "财务分析"
+        ]
+      },
+      {
+        "id": "research",
+        "title": "研究与实验探索",
+        "summary": "分析、动手验证、提出新解释与可复查记录结合，探索未知问题。",
+        "tags": [
+          "把“为什么”往前追一步",
+          "研究助理"
+        ]
+      }
+    ],
+    "profiles": [],
+    "entities": [
+      {
+        "id": "entity-software",
+        "resultId": "software",
+        "dimensionTargets": {
+          "analyze": 83,
+          "build": 91,
+          "create": 42,
+          "express": 40,
+          "empathy": 48,
+          "execute": 62,
+          "business": 38,
+          "detail": 76
+        }
+      },
+      {
+        "id": "entity-data",
+        "resultId": "data",
+        "dimensionTargets": {
+          "analyze": 91,
+          "build": 58,
+          "create": 40,
+          "express": 63,
+          "empathy": 36,
+          "execute": 58,
+          "business": 56,
+          "detail": 88
+        }
+      },
+      {
+        "id": "entity-design",
+        "resultId": "design",
+        "dimensionTargets": {
+          "analyze": 54,
+          "build": 57,
+          "create": 92,
+          "express": 61,
+          "empathy": 82,
+          "execute": 55,
+          "business": 39,
+          "detail": 57
+        }
+      },
+      {
+        "id": "entity-content",
+        "resultId": "content",
+        "dimensionTargets": {
+          "analyze": 54,
+          "build": 34,
+          "create": 85,
+          "express": 91,
+          "empathy": 57,
+          "execute": 55,
+          "business": 57,
+          "detail": 39
+        }
+      },
+      {
+        "id": "entity-education",
+        "resultId": "education",
+        "dimensionTargets": {
+          "analyze": 59,
+          "build": 35,
+          "create": 58,
+          "express": 85,
+          "empathy": 90,
+          "execute": 79,
+          "business": 35,
+          "detail": 60
+        }
+      },
+      {
+        "id": "entity-people",
+        "resultId": "people",
+        "dimensionTargets": {
+          "analyze": 54,
+          "build": 34,
+          "create": 37,
+          "express": 82,
+          "empathy": 94,
+          "execute": 64,
+          "business": 39,
+          "detail": 59
+        }
+      },
+      {
+        "id": "entity-product",
+        "resultId": "product",
+        "dimensionTargets": {
+          "analyze": 82,
+          "build": 79,
+          "create": 60,
+          "express": 59,
+          "empathy": 78,
+          "execute": 83,
+          "business": 78,
+          "detail": 59
+        }
+      },
+      {
+        "id": "entity-operations",
+        "resultId": "operations",
+        "dimensionTargets": {
+          "analyze": 61,
+          "build": 35,
+          "create": 38,
+          "express": 59,
+          "empathy": 58,
+          "execute": 94,
+          "business": 60,
+          "detail": 83
+        }
+      },
+      {
+        "id": "entity-marketing",
+        "resultId": "marketing",
+        "dimensionTargets": {
+          "analyze": 61,
+          "build": 34,
+          "create": 84,
+          "express": 83,
+          "empathy": 59,
+          "execute": 61,
+          "business": 90,
+          "detail": 39
+        }
+      },
+      {
+        "id": "entity-sales",
+        "resultId": "sales",
+        "dimensionTargets": {
+          "analyze": 38,
+          "build": 33,
+          "create": 37,
+          "express": 88,
+          "empathy": 84,
+          "execute": 83,
+          "business": 92,
+          "detail": 38
+        }
+      },
+      {
+        "id": "entity-finance",
+        "resultId": "finance",
+        "dimensionTargets": {
+          "analyze": 87,
+          "build": 36,
+          "create": 34,
+          "express": 36,
+          "empathy": 35,
+          "execute": 82,
+          "business": 81,
+          "detail": 94
+        }
+      },
+      {
+        "id": "entity-research",
+        "resultId": "research",
+        "dimensionTargets": {
+          "analyze": 92,
+          "build": 82,
+          "create": 82,
+          "express": 57,
+          "empathy": 35,
+          "execute": 58,
+          "business": 35,
+          "detail": 86
+        }
+      }
+    ],
+    "compatibility": {
+      "enabled": false,
+      "mode": "symmetric",
+      "allowPartialCoverage": true,
+      "dimensions": []
+    },
+    "compatibilityPairs": []
+  },
+  "presentation": {
+    "theme": "aurora",
+    "blocks": [
+      {
+        "type": "hero",
+        "variant": "standard",
+        "showSecondary": true,
+        "showMatch": true,
+        "showTags": true
+      },
+      {
+        "type": "spectrum",
+        "max": 100,
+        "endpoints": {}
+      },
+      {
+        "type": "ranking",
+        "limit": 5
+      },
+      {
+        "type": "highlight",
+        "title": "探索提示",
+        "facts": [
+          {
+            "source": "custom",
+            "label": "分数含义",
+            "value": "自评倾向，不是客观能力"
+          },
+          {
+            "source": "top-ranking",
+            "label": "可尝试领域"
+          }
+        ]
+      },
+      {
+        "type": "quote",
+        "statements": [
+          {
+            "resultId": "software",
+            "text": "把问题变成可运行的工具"
+          },
+          {
+            "resultId": "data",
+            "text": "让证据替直觉多说一句"
+          },
+          {
+            "resultId": "design",
+            "text": "把模糊感受变成看得见的方案"
+          },
+          {
+            "resultId": "content",
+            "text": "让一个想法被看见、被理解"
+          },
+          {
+            "resultId": "education",
+            "text": "让别人的“不会”变成“我懂了”"
+          },
+          {
+            "resultId": "people",
+            "text": "让不同的人找到共同方向"
+          },
+          {
+            "resultId": "product",
+            "text": "把需求推成真正可用的方案"
+          },
+          {
+            "resultId": "operations",
+            "text": "让计划稳稳落到地上"
+          },
+          {
+            "resultId": "marketing",
+            "text": "让好想法找到愿意回应的人"
+          },
+          {
+            "resultId": "sales",
+            "text": "把理解转成有价值的合作"
+          },
+          {
+            "resultId": "finance",
+            "text": "让每一个判断有据可查"
+          },
+          {
+            "resultId": "research",
+            "text": "把“为什么”往前追一步"
+          }
+        ]
+      }
+    ],
+    "shareCard": {
+      "enabled": true,
+      "layout": "portrait",
+      "headline": "我想先探索的职业方向",
+      "subtitle": "看见自己的优势，再用小作品验证。",
+      "showTags": true,
+      "showMatch": true,
+      "showRadarSummary": false,
+      "dimensionIds": [],
+      "qrCode": false,
+      "brandingText": "职业天赋探索"
+    }
+  },
+  "assets": {}
+}
